@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms.VisualStyles;
+﻿using NongTraiVuiVe.Quản_Lý;
+using System.Windows.Forms.VisualStyles;
 
 namespace NongTraiVuiVe
 {
@@ -59,5 +60,34 @@ namespace NongTraiVuiVe
             QuanLyTabPage("Quản Lý Khu Vực", new Frm_QuanLyKhuVuc());
         }
 
+        private void quảnLýLoạiCâyTrồngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Loại Cây Trồng", new Frm_QuanLyLoaiCay());
+        }
+
+        private void quảnLýCâyTrồngToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Cây Trồng", new Frm_QuanLyCayTrong());
+        }
+
+        private void quảnLýKhoHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Kho Hàng", new Frm_QuanLyKhoHang());
+        }
+
+        private void quảnLýLoạiNguyênVậtLiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Loại Nguyên Vật Liệu", new Frm_QuanLyLoaiNguyenVatLieu());
+        }
+
+        private void quảnLýNguyênVậtLiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Nguyên Vật Liệu", new Frm_QuanLyNguyenVatLieu());
+        }
+
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Khách Hàng", new Frm_QuanLyKhachHang());
+        }
     }
 }

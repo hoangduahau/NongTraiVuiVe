@@ -28,12 +28,10 @@ namespace NongTraiVuiVe
 
             if (tabPage != null)
             {
-                // Lấy ra TabControl chứa tabPage
                 TabControl tabControl = tabPage.Parent as TabControl;
 
                 if (tabControl != null)
                 {
-                    // Loại bỏ tabPage khỏi TabControl
                     tabControl.TabPages.Remove(tabPage);
                 }
             }

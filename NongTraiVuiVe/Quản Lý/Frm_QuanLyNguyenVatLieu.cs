@@ -16,5 +16,25 @@ namespace NongTraiVuiVe.Quản_Lý
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThoatNvl_Click(object sender, EventArgs e)
+        {
+            TabPage tabPage = this.Parent as TabPage;
+
+            if (tabPage != null)
+            {
+                TabControl tabControl = tabPage.Parent as TabControl;
+
+                if (tabControl != null)
+                {
+                    tabControl.TabPages.Remove(tabPage);
+                }
+            }
+        }
     }
 }

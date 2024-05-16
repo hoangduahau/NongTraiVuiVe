@@ -16,5 +16,21 @@ namespace NongTraiVuiVe
         {
             InitializeComponent();
         }
+
+
+        private void btnThoatLCT_Click(object sender, EventArgs e)
+        {
+            TabPage tabPage = this.Parent as TabPage;
+
+            if (tabPage != null)
+            {
+                TabControl tabControl = tabPage.Parent as TabControl;
+
+                if (tabControl != null)
+                {
+                    tabControl.TabPages.Remove(tabPage);
+                }
+            }
+        }
     }
 }
