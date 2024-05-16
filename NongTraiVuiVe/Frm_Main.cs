@@ -1,3 +1,5 @@
+﻿using System.Windows.Forms.VisualStyles;
+
 namespace NongTraiVuiVe
 {
     public partial class Frm_Main : Form
@@ -5,14 +7,57 @@ namespace NongTraiVuiVe
         public Frm_Main()
         {
             InitializeComponent();
-
         }
+
+
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            Frm_DangNhap frm_DangNhap = new Frm_DangNhap();
-            frm_DangNhap.ShowDialog();
-
+            //Frm_DangNhap frm_DangNhap = new Frm_DangNhap();
+            //frm_DangNhap.ShowDialog();
+            //lblErr.Text
         }
+
+
+        private void QuanLyTabPage(string tabPageName, Form formInstance)
+        {
+            if (!tabControl1.TabPages.ContainsKey(tabPageName))
+            {
+                // Tạo mới tab page
+                TabPage tabPage = new TabPage(tabPageName);
+                tabPage.Name = tabPageName;
+
+                // Thêm form vào tab page
+                formInstance.TopLevel = false;
+                formInstance.FormBorderStyle = FormBorderStyle.None;
+                formInstance.Dock = DockStyle.Fill;
+                tabPage.Controls.Add(formInstance);
+
+                // Thêm tab page vào tab control
+                tabControl1.TabPages.Add(tabPage);
+
+                // Chọn tab page mới được thêm vào
+                tabControl1.SelectedTab = tabPage;
+
+                // Hiển thị form
+                formInstance.Show();
+            }
+            else
+            {
+                // Nếu tab page đã tồn tại, chuyển đến tab page đó
+                tabControl1.SelectedTab = tabControl1.TabPages[tabPageName];
+            }
+        }
+
+        private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Người Dùng", new Frm_QuanLyNguoiDung());
+        }
+
+        private void quảnLýKhuVựcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Khu Vực", new Frm_QuanLyKhuVuc());
+        }
+
     }
 }
