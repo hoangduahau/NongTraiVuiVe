@@ -38,6 +38,20 @@
             danhMụcToolStripMenuItem = new ToolStripMenuItem();
             tácVụToolStripMenuItem = new ToolStripMenuItem();
             báoCáoThốngKêToolStripMenuItem = new ToolStripMenuItem();
+            nhậpLứaToolStripMenuItem = new ToolStripMenuItem();
+            xuấtLứaToolStripMenuItem = new ToolStripMenuItem();
+            nhậpNguyênVậtLiệuToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýNgườiDùngToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýKhuVựcToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýCâyTrồngToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýCâyTrồngToolStripMenuItem1 = new ToolStripMenuItem();
+            quảnLýKhoHàngToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýNguyênVậtLiệuToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
+            chiTiêuToolStripMenuItem = new ToolStripMenuItem();
+            doanhThuLợiNhuậnToolStripMenuItem = new ToolStripMenuItem();
+            hoạtĐộngSảnXuấtToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,21 +104,108 @@
             // 
             // danhMụcToolStripMenuItem
             // 
+            danhMụcToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýNgườiDùngToolStripMenuItem, quảnLýKhuVựcToolStripMenuItem, quảnLýCâyTrồngToolStripMenuItem, quảnLýCâyTrồngToolStripMenuItem1, quảnLýKhoHàngToolStripMenuItem, quảnLýLoạiNguyênVậtLiệuToolStripMenuItem, quảnLýNguyênVậtLiệuToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem });
             danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
             danhMụcToolStripMenuItem.Size = new Size(90, 24);
             danhMụcToolStripMenuItem.Text = "Danh mục";
             // 
             // tácVụToolStripMenuItem
             // 
+            tácVụToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nhậpLứaToolStripMenuItem, xuấtLứaToolStripMenuItem, nhậpNguyênVậtLiệuToolStripMenuItem });
             tácVụToolStripMenuItem.Name = "tácVụToolStripMenuItem";
             tácVụToolStripMenuItem.Size = new Size(63, 24);
             tácVụToolStripMenuItem.Text = "Tác vụ";
             // 
             // báoCáoThốngKêToolStripMenuItem
             // 
+            báoCáoThốngKêToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { chiTiêuToolStripMenuItem, doanhThuLợiNhuậnToolStripMenuItem, hoạtĐộngSảnXuấtToolStripMenuItem });
             báoCáoThốngKêToolStripMenuItem.Name = "báoCáoThốngKêToolStripMenuItem";
             báoCáoThốngKêToolStripMenuItem.Size = new Size(139, 24);
             báoCáoThốngKêToolStripMenuItem.Text = "Báo cáo thống kê";
+            // 
+            // nhậpLứaToolStripMenuItem
+            // 
+            nhậpLứaToolStripMenuItem.Name = "nhậpLứaToolStripMenuItem";
+            nhậpLứaToolStripMenuItem.Size = new Size(232, 26);
+            nhậpLứaToolStripMenuItem.Text = "Nhập lứa";
+            // 
+            // xuấtLứaToolStripMenuItem
+            // 
+            xuấtLứaToolStripMenuItem.Name = "xuấtLứaToolStripMenuItem";
+            xuấtLứaToolStripMenuItem.Size = new Size(232, 26);
+            xuấtLứaToolStripMenuItem.Text = "Xuất lứa";
+            // 
+            // nhậpNguyênVậtLiệuToolStripMenuItem
+            // 
+            nhậpNguyênVậtLiệuToolStripMenuItem.Name = "nhậpNguyênVậtLiệuToolStripMenuItem";
+            nhậpNguyênVậtLiệuToolStripMenuItem.Size = new Size(232, 26);
+            nhậpNguyênVậtLiệuToolStripMenuItem.Text = "Nhập nguyên vật liệu";
+            // 
+            // quảnLýNgườiDùngToolStripMenuItem
+            // 
+            quảnLýNgườiDùngToolStripMenuItem.Name = "quảnLýNgườiDùngToolStripMenuItem";
+            quảnLýNgườiDùngToolStripMenuItem.Size = new Size(224, 26);
+            quảnLýNgườiDùngToolStripMenuItem.Text = "Quản lý người dùng";
+            // 
+            // quảnLýKhuVựcToolStripMenuItem
+            // 
+            quảnLýKhuVựcToolStripMenuItem.Name = "quảnLýKhuVựcToolStripMenuItem";
+            quảnLýKhuVựcToolStripMenuItem.Size = new Size(224, 26);
+            quảnLýKhuVựcToolStripMenuItem.Text = "Quản lý khu vực";
+            // 
+            // quảnLýCâyTrồngToolStripMenuItem
+            // 
+            quảnLýCâyTrồngToolStripMenuItem.Name = "quảnLýCâyTrồngToolStripMenuItem";
+            quảnLýCâyTrồngToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýCâyTrồngToolStripMenuItem.Text = "Quản lý loại cây trồng";
+            // 
+            // quảnLýCâyTrồngToolStripMenuItem1
+            // 
+            quảnLýCâyTrồngToolStripMenuItem1.Name = "quảnLýCâyTrồngToolStripMenuItem1";
+            quảnLýCâyTrồngToolStripMenuItem1.Size = new Size(275, 26);
+            quảnLýCâyTrồngToolStripMenuItem1.Text = "Quản lý cây trồng";
+            // 
+            // quảnLýKhoHàngToolStripMenuItem
+            // 
+            quảnLýKhoHàngToolStripMenuItem.Name = "quảnLýKhoHàngToolStripMenuItem";
+            quảnLýKhoHàngToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýKhoHàngToolStripMenuItem.Text = "Quản lý kho hàng";
+            // 
+            // quảnLýLoạiNguyênVậtLiệuToolStripMenuItem
+            // 
+            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Name = "quảnLýLoạiNguyênVậtLiệuToolStripMenuItem";
+            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Text = "Quản lý loại nguyên vật liệu";
+            // 
+            // quảnLýNguyênVậtLiệuToolStripMenuItem
+            // 
+            quảnLýNguyênVậtLiệuToolStripMenuItem.Name = "quảnLýNguyênVậtLiệuToolStripMenuItem";
+            quảnLýNguyênVậtLiệuToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýNguyênVậtLiệuToolStripMenuItem.Text = "Quản lý nguyên vật liệu";
+            // 
+            // quảnLýKháchHàngToolStripMenuItem
+            // 
+            quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
+            quảnLýKháchHàngToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
+            // 
+            // chiTiêuToolStripMenuItem
+            // 
+            chiTiêuToolStripMenuItem.Name = "chiTiêuToolStripMenuItem";
+            chiTiêuToolStripMenuItem.Size = new Size(236, 26);
+            chiTiêuToolStripMenuItem.Text = "Chi tiêu";
+            // 
+            // doanhThuLợiNhuậnToolStripMenuItem
+            // 
+            doanhThuLợiNhuậnToolStripMenuItem.Name = "doanhThuLợiNhuậnToolStripMenuItem";
+            doanhThuLợiNhuậnToolStripMenuItem.Size = new Size(236, 26);
+            doanhThuLợiNhuậnToolStripMenuItem.Text = "Doanh thu - lợi nhuận";
+            // 
+            // hoạtĐộngSảnXuấtToolStripMenuItem
+            // 
+            hoạtĐộngSảnXuấtToolStripMenuItem.Name = "hoạtĐộngSảnXuấtToolStripMenuItem";
+            hoạtĐộngSảnXuấtToolStripMenuItem.Size = new Size(236, 26);
+            hoạtĐộngSảnXuấtToolStripMenuItem.Text = "Hoạt động sản xuất";
             // 
             // Frm_Main
             // 
@@ -135,5 +236,19 @@
         private ToolStripMenuItem danhMụcToolStripMenuItem;
         private ToolStripMenuItem tácVụToolStripMenuItem;
         private ToolStripMenuItem báoCáoThốngKêToolStripMenuItem;
+        private ToolStripMenuItem quảnLýNgườiDùngToolStripMenuItem;
+        private ToolStripMenuItem quảnLýKhuVựcToolStripMenuItem;
+        private ToolStripMenuItem quảnLýCâyTrồngToolStripMenuItem;
+        private ToolStripMenuItem nhậpLứaToolStripMenuItem;
+        private ToolStripMenuItem xuấtLứaToolStripMenuItem;
+        private ToolStripMenuItem nhậpNguyênVậtLiệuToolStripMenuItem;
+        private ToolStripMenuItem quảnLýCâyTrồngToolStripMenuItem1;
+        private ToolStripMenuItem quảnLýKhoHàngToolStripMenuItem;
+        private ToolStripMenuItem quảnLýLoạiNguyênVậtLiệuToolStripMenuItem;
+        private ToolStripMenuItem quảnLýNguyênVậtLiệuToolStripMenuItem;
+        private ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
+        private ToolStripMenuItem chiTiêuToolStripMenuItem;
+        private ToolStripMenuItem doanhThuLợiNhuậnToolStripMenuItem;
+        private ToolStripMenuItem hoạtĐộngSảnXuấtToolStripMenuItem;
     }
 }
