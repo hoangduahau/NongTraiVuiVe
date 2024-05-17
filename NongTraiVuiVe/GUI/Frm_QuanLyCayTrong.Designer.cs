@@ -316,6 +316,7 @@
             btnSuaCayTrong.TabIndex = 3;
             btnSuaCayTrong.Text = "Sửa";
             btnSuaCayTrong.UseVisualStyleBackColor = true;
+            btnSuaCayTrong.Click += btnSuaCayTrong_Click;
             // 
             // btnThemCayTrong
             // 
