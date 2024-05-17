@@ -307,6 +307,7 @@
             btnXoaCayTrong.TabIndex = 4;
             btnXoaCayTrong.Text = "Xóa";
             btnXoaCayTrong.UseVisualStyleBackColor = true;
+            btnXoaCayTrong.Click += btnXoaCayTrong_Click;
             // 
             // btnSuaCayTrong
             // 

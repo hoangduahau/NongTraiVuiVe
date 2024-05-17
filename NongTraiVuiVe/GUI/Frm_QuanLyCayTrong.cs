@@ -229,5 +229,34 @@ namespace NongTraiVuiVe.Quản_Lý
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+        private void btnXoaCayTrong_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int.TryParse(txtMaCayTrong.Text, out int maCayTrong);
+
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa cây trồng này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes) 
+                {
+                    CayTrongBLL cayTrongBLL = new CayTrongBLL();
+                    if (cayTrongBLL.XoaCayTrong(maCayTrong))
+                    {
+                        HienThiDanhSachCayTrong();
+
+                        MessageBox.Show("Xóa cây trồng thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa cây trồng thất bại. Vui lòng kiểm tra lại.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
     }
 }

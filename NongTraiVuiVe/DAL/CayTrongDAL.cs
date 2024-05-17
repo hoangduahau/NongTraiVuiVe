@@ -99,6 +99,26 @@ namespace NongTraiVuiVe.DAL
             }
         }
 
+        public bool XoaCayTrong(int maCayTrong)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "DELETE FROM CayTrong WHERE MaCayTrong = @MaCayTrong";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaCayTrong", maCayTrong);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.DeleteCommand = command;
+                        return adapter.DeleteCommand.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+        }
+
         // Các phương thức khác: ThemCayTrong, CapNhatCayTrong, XoaCayTrong
         // ... (viết tương tự như LayDanhSachCayTrong)
     }

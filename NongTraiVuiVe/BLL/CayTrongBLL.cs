@@ -81,6 +81,14 @@ namespace NongTraiVuiVe.BLL
             return _cayTrongDAL.CapNhatCayTrong(cayTrong); 
         }
 
+        public bool XoaCayTrong(int maCayTrong)
+        {
+
+            // Kiểm tra MaCayTrong có giá trị hay không
+
+            return _cayTrongDAL.XoaCayTrong(maCayTrong); // Gọi phương thức xóa của DAL
+        }
+
         // Các phương thức khác: CapNhatCayTrong, XoaCayTrong
         // ... (viết tương tự như ThemCayTrong)
     }
