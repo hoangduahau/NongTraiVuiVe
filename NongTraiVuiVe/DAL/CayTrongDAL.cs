@@ -11,22 +11,20 @@ namespace NongTraiVuiVe.DAL
 {
     public class CayTrongDAL
     {
-        public List<CayTrong> LayDanhSachCayTrong()
+        public DataTable LayDuLieuCayTrong()
         {
-            List<CayTrong> dsCayTrong = new List<CayTrong>();
-            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString)) // Sử dụng DatabaseConnection
+            DataTable dtCayTrong = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM CayTrong", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    CayTrong ct = new CayTrong();
-                    // ... (gán giá trị cho các thuộc tính của ct từ reader)
-                    dsCayTrong.Add(ct);
-                }
+                string query = "SELECT * FROM CayTrong";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                adapter.Fill(dtCayTrong);
             }
-            return dsCayTrong;
+
+            return dtCayTrong;
         }
 
         // Các phương thức khác: ThemCayTrong, CapNhatCayTrong, XoaCayTrong

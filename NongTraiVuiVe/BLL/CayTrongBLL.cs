@@ -2,6 +2,7 @@
 using NongTraiVuiVe.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,9 @@ namespace NongTraiVuiVe.BLL
             _cayTrongDAL = new CayTrongDAL();
         }
 
-        public List<CayTrong> LayDanhSachCayTrong()
+        public DataTable LayDuLieuCayTrong()
         {
-            return _cayTrongDAL.LayDanhSachCayTrong();
+            return _cayTrongDAL.LayDuLieuCayTrong(); // Gọi phương thức từ DAL
         }
 
         //public bool ThemCayTrong(CayTrong cayTrong)
