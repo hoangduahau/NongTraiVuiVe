@@ -85,6 +85,8 @@ namespace NongTraiVuiVe.BLL
         {
 
             // Kiểm tra MaCayTrong có giá trị hay không
+            if (cayTrong.MaCayTrong == 0)
+                throw new ArgumentException("Mã cây trồng không được để trống.");
 
             return _cayTrongDAL.XoaCayTrong(maCayTrong); // Gọi phương thức xóa của DAL
         }
