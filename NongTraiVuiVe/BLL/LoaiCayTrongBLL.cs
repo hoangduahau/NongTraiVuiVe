@@ -17,17 +17,6 @@ namespace NongTraiVuiVe.BLL
             _loaiCayTrongDAL = new LoaiCayTrongDAL();
         }
 
-        public List<LoaiCayTrong> LayDanhSachLoaiCayTrong()
-        {
-            return _loaiCayTrongDAL.LayDanhSachLoaiCayTrong();
-        }
-
-        public bool ThemLoaiCayTrong(LoaiCayTrong lct)
-        {
-            // Kiểm tra dữ liệu (ví dụ: lct có hợp lệ không?)
-            // ... (Các logic nghiệp vụ khác)
-            return _loaiCayTrongDAL.ThemLoaiCayTrong(lct);
-        }
 
         // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemLoaiCayTrong
         // ...

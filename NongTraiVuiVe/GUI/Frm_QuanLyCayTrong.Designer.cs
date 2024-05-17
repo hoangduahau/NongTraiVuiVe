@@ -51,9 +51,9 @@
             txtTenCayTrong = new TextBox();
             label2 = new Label();
             btnThoatCT = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnXoaCayTrong = new Button();
+            btnSuaCayTrong = new Button();
+            btnThemCayTrong = new Button();
             txtMaCayTrong = new TextBox();
             groupBox1 = new GroupBox();
             dgvDanhSachCayTrong = new DataGridView();
@@ -95,9 +95,9 @@
             groupbox2.Controls.Add(txtTenCayTrong);
             groupbox2.Controls.Add(label2);
             groupbox2.Controls.Add(btnThoatCT);
-            groupbox2.Controls.Add(button3);
-            groupbox2.Controls.Add(button2);
-            groupbox2.Controls.Add(button1);
+            groupbox2.Controls.Add(btnXoaCayTrong);
+            groupbox2.Controls.Add(btnSuaCayTrong);
+            groupbox2.Controls.Add(btnThemCayTrong);
             groupbox2.Controls.Add(txtMaCayTrong);
             groupbox2.Controls.Add(label1);
             groupbox2.Location = new Point(798, -4);
@@ -299,38 +299,40 @@
             btnThoatCT.UseVisualStyleBackColor = true;
             btnThoatCT.Click += btnThoatCT_Click;
             // 
-            // button3
+            // btnXoaCayTrong
             // 
-            button3.Location = new Point(414, 539);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 4;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = true;
+            btnXoaCayTrong.Location = new Point(414, 539);
+            btnXoaCayTrong.Name = "btnXoaCayTrong";
+            btnXoaCayTrong.Size = new Size(94, 29);
+            btnXoaCayTrong.TabIndex = 4;
+            btnXoaCayTrong.Text = "Xóa";
+            btnXoaCayTrong.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSuaCayTrong
             // 
-            button2.Location = new Point(251, 539);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 3;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = true;
+            btnSuaCayTrong.Location = new Point(251, 539);
+            btnSuaCayTrong.Name = "btnSuaCayTrong";
+            btnSuaCayTrong.Size = new Size(94, 29);
+            btnSuaCayTrong.TabIndex = 3;
+            btnSuaCayTrong.Text = "Sửa";
+            btnSuaCayTrong.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnThemCayTrong
             // 
-            button1.Location = new Point(65, 539);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Thêm ";
-            button1.UseVisualStyleBackColor = true;
+            btnThemCayTrong.Location = new Point(65, 539);
+            btnThemCayTrong.Name = "btnThemCayTrong";
+            btnThemCayTrong.Size = new Size(94, 29);
+            btnThemCayTrong.TabIndex = 2;
+            btnThemCayTrong.Text = "Thêm ";
+            btnThemCayTrong.UseVisualStyleBackColor = true;
+            btnThemCayTrong.Click += btnThemCayTrong_Click;
             // 
             // txtMaCayTrong
             // 
             txtMaCayTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtMaCayTrong.Location = new Point(213, 40);
             txtMaCayTrong.Name = "txtMaCayTrong";
+            txtMaCayTrong.ReadOnly = true;
             txtMaCayTrong.Size = new Size(295, 30);
             txtMaCayTrong.TabIndex = 1;
             // 
@@ -385,9 +387,9 @@
         private TextBox txtTenCayTrong;
         private Label label2;
         private Button btnThoatCT;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnXoaCayTrong;
+        private Button btnSuaCayTrong;
+        private Button btnThemCayTrong;
         private TextBox txtMaCayTrong;
         private GroupBox groupBox1;
         private DataGridView dgvDanhSachCayTrong;

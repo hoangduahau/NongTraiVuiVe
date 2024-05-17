@@ -11,6 +11,18 @@ namespace NongTraiVuiVe.DAL
 {
     public class KhuVucDAL
     {
+        public bool KiemTraTonTaiMaKhuVuc(int maKhuVuc)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM KhuVuc WHERE MaKhuVuc = @MaKhuVuc";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaKhuVuc", maKhuVuc);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
         public List<KhuVuc> LayDanhSachKhuVuc()
         {
             List<KhuVuc> dsKhuVuc = new List<KhuVuc>();

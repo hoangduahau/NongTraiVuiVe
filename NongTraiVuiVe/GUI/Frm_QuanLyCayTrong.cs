@@ -1,4 +1,5 @@
 ﻿using NongTraiVuiVe.BLL;
+using NongTraiVuiVe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,11 @@ namespace NongTraiVuiVe.Quản_Lý
 
         private void Frm_QuanLyCayTrong_Load(object sender, EventArgs e)
         {
+            HienThiDanhSachCayTrong();
+        }
+
+        private void HienThiDanhSachCayTrong()
+        {
             cayTrongBLL = new CayTrongBLL();
 
             // Gọi phương thức từ BLL để lấy dữ liệu và hiển thị
@@ -72,13 +78,81 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtNgayThuHoachThucTe.Text = selectedRow.Cells["NgayThuHoachThucTe"].Value.ToString();
                     txtMaKhuVuc.Text = selectedRow.Cells["MaKhuVuc"].Value.ToString();
                     txtTinhTrang.Text = selectedRow.Cells["TinhTrang"].Value.ToString();
-                    // ... (hiển thị các thuộc tính khác tương tự)
                 }
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi (ví dụ: hiển thị thông báo lỗi)
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnThemCayTrong_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CayTrong cayTrong = new CayTrong();
+                cayTrong.TenCayTrong = txtTenCayTrong.Text;
+                int.TryParse(txtMaLoaiCayTrong.Text, out int maLoaiCayTrong);
+                cayTrong.MaLoaiCayTrong = maLoaiCayTrong;
+                cayTrong.Giong = txtGiongCay.Text;
+                cayTrong.NguonGoc = txtNguonGoc.Text;
+                int.TryParse(txtSoLuong.Text, out int soLuong);
+                cayTrong.SoLuong = soLuong;
+                if (DateTime.TryParse(txtNgayGieoTrong.Text, out DateTime ngayGieoTrong))
+                {
+                    cayTrong.NgayGieoTrong = ngayGieoTrong;
+                }
+                else
+                {
+                    cayTrong.NgayGieoTrong = null;
+                }
+
+                if (DateTime.TryParse(txtNgayThuHoachDuKien.Text, out DateTime ngayThuHoachDuKien))
+                {
+                    cayTrong.NgayThuHoachDuKien = ngayThuHoachDuKien;
+                }
+                else
+                {
+                    cayTrong.NgayThuHoachDuKien = null;
+                }
+
+                if (DateTime.TryParse(txtNgayThuHoachThucTe.Text, out DateTime ngayThuHoachThucTe))
+                {
+                    cayTrong.NgayThuHoachThucTe = ngayThuHoachThucTe;
+                }
+                else
+                {
+                    cayTrong.NgayThuHoachThucTe = null;
+                }
+                int.TryParse(txtMaKhuVuc.Text, out int maKhuVuc);
+                cayTrong.MaKhuVuc = maKhuVuc;
+                cayTrong.TinhTrang = txtTinhTrang.Text;
+
+                CayTrongBLL cayTrongBLL = new CayTrongBLL();
+                if (cayTrongBLL.ThemCayTrong(cayTrong))
+                {
+                    txtTenCayTrong.Focus();
+                    txtTenCayTrong.Text = "";
+                    txtMaLoaiCayTrong.Text = "";
+                    txtGiongCay.Text = "";
+                    txtNguonGoc.Text = "";
+                    txtSoLuong.Text = "";
+                    txtNgayGieoTrong.Text = "";
+                    txtNgayThuHoachDuKien.Text = "";
+                    txtNgayThuHoachThucTe.Text = "";
+                    txtMaKhuVuc.Text = "";
+                    txtTinhTrang.Text = "";
+                    HienThiDanhSachCayTrong();
+                    MessageBox.Show("Thêm cây trồng thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm cây trồng thất bại. Vui lòng kiểm tra lại.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
     }

@@ -11,40 +11,20 @@ namespace NongTraiVuiVe.DAL
 {
     public class LoaiCayTrongDAL
     {
-        public List<LoaiCayTrong> LayDanhSachLoaiCayTrong()
-        {
-            List<LoaiCayTrong> dsLoaiCayTrong = new List<LoaiCayTrong>();
-            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM LoaiCayTrong", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    LoaiCayTrong lct = new LoaiCayTrong(
-                        (int)reader["MaLoaiCayTrong"],
-                        reader["TenLoaiCayTrong"].ToString(),
-                        reader["MoTa"].ToString()
-                    );
-                    dsLoaiCayTrong.Add(lct);
-                }
-            }
-            return dsLoaiCayTrong;
-        }
-
-        public bool ThemLoaiCayTrong(LoaiCayTrong lct)
+        public bool KiemTraTonTaiMaLoaiCayTrong(int maLoaiCayTrong)
         {
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO LoaiCayTrong (TenLoaiCayTrong, MoTa) " +
-                               "VALUES (@TenLoaiCayTrong, @MoTa)";
+                string query = "SELECT COUNT(*) FROM LoaiCayTrong WHERE MaLoaiCayTrong = @MaLoaiCayTrong";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@TenLoaiCayTrong", lct.TenLoaiCayTrong);
-                cmd.Parameters.AddWithValue("@MoTa", lct.MoTa);
-                return cmd.ExecuteNonQuery() > 0;
+                cmd.Parameters.AddWithValue("@MaLoaiCayTrong", maLoaiCayTrong);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
             }
         }
+        
+
 
         // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemLoaiCayTrong
         // ...

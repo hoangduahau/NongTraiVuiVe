@@ -10,14 +10,14 @@ namespace NongTraiVuiVe.DTO
     {
         public int MaCayTrong { get; set; }
         public string TenCayTrong { get; set; }
-        public int MaLoaiCayTrong { get; set; }
+        public int? MaLoaiCayTrong { get; set; }
         public string Giong { get; set; }
         public string NguonGoc { get; set; }
         public int SoLuong { get; set; }
-        public DateTime NgayGieoTrong { get; set; }
+        public DateTime? NgayGieoTrong { get; set; }
         public DateTime? NgayThuHoachDuKien { get; set; }
         public DateTime? NgayThuHoachThucTe { get; set; }
-        public int MaKhuVuc { get; set; }
+        public int? MaKhuVuc { get; set; }
         public string TinhTrang { get; set; }
 
         public CayTrong() { }
