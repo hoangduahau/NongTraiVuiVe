@@ -17,22 +17,18 @@ namespace NongTraiVuiVe.BLL
             _nguoiDungDAL = new NguoiDungDAL();
         }
 
-        public List<NguoiDung> LayDanhSachNguoiDung()
+        public NguoiDung DangNhap(string tenDangNhap, string matKhau)
         {
-            return _nguoiDungDAL.LayDanhSachNguoiDung();
+            NguoiDung nguoiDung = _nguoiDungDAL.GetNguoiDungByTenDangNhap(tenDangNhap);
+            if (nguoiDung != null)
+            {
+                byte[] hashedPassword = Encoding.UTF8.GetBytes(matKhau);
+                if (nguoiDung.MatKhau.SequenceEqual(hashedPassword))
+                {
+                    return nguoiDung;
+                }
+            }
+            return null;
         }
-
-        public bool ThemNguoiDung(NguoiDung nd)
-        {
-            // Thêm logic kiểm tra dữ liệu (ví dụ: kiểm tra trùng lặp tên đăng nhập, ...)
-
-            // Băm (hash) mật khẩu trước khi lưu vào cơ sở dữ liệu (sử dụng thư viện băm như BCrypt)
-            // ...
-
-            return _nguoiDungDAL.ThemNguoiDung(nd);
-        }
-
-        // Các phương thức khác (Cập nhật, Xóa, Đăng nhập, ...): Tương tự phương thức ThemNguoiDung
-        // ...
     }
 }

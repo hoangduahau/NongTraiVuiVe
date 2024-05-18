@@ -11,51 +11,32 @@ namespace NongTraiVuiVe.DAL
 {
     public class NguoiDungDAL
     {
-        public List<NguoiDung> LayDanhSachNguoiDung()
+        public NguoiDung GetNguoiDungByTenDangNhap(string tenDangNhap)
         {
-            List<NguoiDung> dsNguoiDung = new List<NguoiDung>();
+            NguoiDung nguoiDung = null;
+            string query = "SELECT MaNguoiDung, TenDangNhap, MatKhau, HoTen, MaNhomNguoiDung FROM NguoiDung WHERE TenDangNhap = @TenDangNhap";
+
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM NguoiDung", conn);
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    NguoiDung nd = new NguoiDung(
-                        (int)reader["MaNguoiDung"],
-                        reader["TenDangNhap"].ToString(),
-                        (byte[])reader["MatKhau"], // Lấy mật khẩu dưới dạng byte[]
-                        (DateTime)reader["NgayTao"],
-                        reader["HoTen"].ToString(),
-                        reader["DiaChi"].ToString(),
-                        reader["DienThoai"].ToString(),
-                        reader["GioiTinh"].ToString(),
-                        (DateTime)reader["NgaySinh"],
-                        (DateTime)reader["NgayBatDauLamViec"],
-                        (int)reader["GroupID"]
-                    );
-                    dsNguoiDung.Add(nd);
+                    nguoiDung = new NguoiDung
+                    {
+                        MaNguoiDung = reader.GetInt32(0),
+                        TenDangNhap = reader.GetString(1),
+                        MatKhau = (byte[])reader.GetValue(2),
+                        HoTen = reader.GetString(3),
+                        MaNhomNguoiDung = reader.GetInt32(4)
+                    };
                 }
             }
-            return dsNguoiDung;
-        }
 
-        public bool ThemNguoiDung(NguoiDung nd)
-        {
-            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                conn.Open();
-                string query = "INSERT INTO NguoiDung (TenDangNhap, MatKhau, NgayTao, HoTen, DiaChi, DienThoai, GioiTinh, NgaySinh, NgayBatDauLamViec, GroupID) " +
-                               "VALUES (@TenDangNhap, @MatKhau, @NgayTao, @HoTen, @DiaChi, @DienThoai, @GioiTinh, @NgaySinh, @NgayBatDauLamViec, @GroupID)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@TenDangNhap", nd.TenDangNhap);
-                cmd.Parameters.AddWithValue("@MatKhau", nd.MatKhau); // Truyền mật khẩu đã băm (hashed)
-                // ... (Thêm các tham số khác)
-                return cmd.ExecuteNonQuery() > 0;
-            }
+            return nguoiDung;
         }
-
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemNguoiDung
-        // ...
     }
 }

@@ -30,12 +30,12 @@
         {
             lbl_TitleDangNhap = new Label();
             lbl_TaiKhoan = new Label();
-            txt_TaiKhoan = new TextBox();
-            txt_MatKhau = new TextBox();
+            txtTenDangNhap = new TextBox();
+            txtMatKhau = new TextBox();
             lbl_MatKhau = new Label();
             linklbl_QuenMatKhau = new LinkLabel();
-            btn_DangNhap = new Button();
-            btn_Thoat = new Button();
+            btnDangNhap = new Button();
+            btnThoat = new Button();
             SuspendLayout();
             // 
             // lbl_TitleDangNhap
@@ -61,21 +61,24 @@
             lbl_TaiKhoan.TabIndex = 1;
             lbl_TaiKhoan.Text = "Tài khoản:";
             // 
-            // txt_TaiKhoan
+            // txtTenDangNhap
             // 
-            txt_TaiKhoan.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_TaiKhoan.Location = new Point(180, 99);
-            txt_TaiKhoan.Name = "txt_TaiKhoan";
-            txt_TaiKhoan.Size = new Size(494, 39);
-            txt_TaiKhoan.TabIndex = 2;
+            txtTenDangNhap.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenDangNhap.Location = new Point(180, 99);
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.Size = new Size(494, 39);
+            txtTenDangNhap.TabIndex = 2;
+            txtTenDangNhap.KeyDown += txtTenDangNhap_KeyDown;
             // 
-            // txt_MatKhau
+            // txtMatKhau
             // 
-            txt_MatKhau.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_MatKhau.Location = new Point(180, 162);
-            txt_MatKhau.Name = "txt_MatKhau";
-            txt_MatKhau.Size = new Size(494, 39);
-            txt_MatKhau.TabIndex = 4;
+            txtMatKhau.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMatKhau.Location = new Point(180, 162);
+            txtMatKhau.Name = "txtMatKhau";
+            txtMatKhau.PasswordChar = '*';
+            txtMatKhau.Size = new Size(494, 39);
+            txtMatKhau.TabIndex = 4;
+            txtMatKhau.KeyDown += txtMatKhau_KeyDown;
             // 
             // lbl_MatKhau
             // 
@@ -98,38 +101,39 @@
             linklbl_QuenMatKhau.Text = "Quên mật khẩu?";
             linklbl_QuenMatKhau.LinkClicked += linklbl_QuenMatKhau_LinkClicked;
             // 
-            // btn_DangNhap
+            // btnDangNhap
             // 
-            btn_DangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_DangNhap.Location = new Point(413, 237);
-            btn_DangNhap.Name = "btn_DangNhap";
-            btn_DangNhap.Size = new Size(121, 42);
-            btn_DangNhap.TabIndex = 6;
-            btn_DangNhap.Text = "Đăng nhập";
-            btn_DangNhap.UseVisualStyleBackColor = true;
+            btnDangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDangNhap.Location = new Point(413, 237);
+            btnDangNhap.Name = "btnDangNhap";
+            btnDangNhap.Size = new Size(121, 42);
+            btnDangNhap.TabIndex = 6;
+            btnDangNhap.Text = "Đăng nhập";
+            btnDangNhap.UseVisualStyleBackColor = true;
+            btnDangNhap.Click += btnDangNhap_Click;
             // 
-            // btn_Thoat
+            // btnThoat
             // 
-            btn_Thoat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_Thoat.Location = new Point(553, 237);
-            btn_Thoat.Name = "btn_Thoat";
-            btn_Thoat.Size = new Size(121, 42);
-            btn_Thoat.TabIndex = 7;
-            btn_Thoat.Text = "Thoát";
-            btn_Thoat.UseVisualStyleBackColor = true;
-            btn_Thoat.Click += btnThoat_Click;
+            btnThoat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnThoat.Location = new Point(553, 237);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(121, 42);
+            btnThoat.TabIndex = 7;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // Frm_DangNhap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(741, 350);
-            Controls.Add(btn_Thoat);
-            Controls.Add(btn_DangNhap);
+            Controls.Add(btnThoat);
+            Controls.Add(btnDangNhap);
             Controls.Add(linklbl_QuenMatKhau);
-            Controls.Add(txt_MatKhau);
+            Controls.Add(txtMatKhau);
             Controls.Add(lbl_MatKhau);
-            Controls.Add(txt_TaiKhoan);
+            Controls.Add(txtTenDangNhap);
             Controls.Add(lbl_TaiKhoan);
             Controls.Add(lbl_TitleDangNhap);
             FormBorderStyle = FormBorderStyle.None;
@@ -144,11 +148,11 @@
 
         private Label lbl_TitleDangNhap;
         private Label lbl_TaiKhoan;
-        private TextBox txt_TaiKhoan;
-        private TextBox txt_MatKhau;
+        private TextBox txtTenDangNhap;
+        private TextBox txtMatKhau;
         private Label lbl_MatKhau;
         private LinkLabel linklbl_QuenMatKhau;
-        private Button btn_DangNhap;
-        private Button btn_Thoat;
+        private Button btnDangNhap;
+        private Button btnThoat;
     }
 }
