@@ -28,13 +28,6 @@ namespace NongTraiVuiVe
             Application.Exit();
         }
 
-        private void linklbl_QuenMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-            Frm_QuenMatKhau frmQuenMatKhau = new Frm_QuenMatKhau(this);
-            frmQuenMatKhau.ShowDialog();
-        }
-
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string tenDangNhap = txtTenDangNhap.Text;
@@ -45,6 +38,8 @@ namespace NongTraiVuiVe
             if (nguoiDung != null)
             {
                 isLogin = true;
+                CurrentUser.MaNguoiDung = nguoiDung.MaNguoiDung;
+                CurrentUser.TenDangNhap = nguoiDung.TenDangNhap;
                 this.Close();
             }
             else
@@ -58,7 +53,7 @@ namespace NongTraiVuiVe
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnDangNhap_Click(sender, e); 
+                btnDangNhap_Click(sender, e);
             }
         }
 
@@ -66,8 +61,13 @@ namespace NongTraiVuiVe
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btnDangNhap_Click(sender, e); 
+                btnDangNhap_Click(sender, e);
             }
+        }
+
+        private void Frm_DangNhap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

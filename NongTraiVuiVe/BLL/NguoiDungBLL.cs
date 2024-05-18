@@ -30,5 +30,10 @@ namespace NongTraiVuiVe.BLL
             }
             return null;
         }
+
+        public bool DoiMatKhau(int maNguoiDung, string matKhauCu, string matKhauMoi)
+        {
+            return _nguoiDungDAL.DoiMatKhau(maNguoiDung, matKhauCu, matKhauMoi);
+        }
     }
 }

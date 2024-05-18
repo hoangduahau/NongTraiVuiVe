@@ -38,5 +38,29 @@ namespace NongTraiVuiVe.DAL
 
             return nguoiDung;
         }
+
+        public bool DoiMatKhau(int maNguoiDung, string matKhauCu, string matKhauMoi)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("sp_DoiMatKhau", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+                cmd.Parameters.AddWithValue("@MatKhauCu", matKhauCu);
+                cmd.Parameters.AddWithValue("@MatKhauMoi", matKhauMoi);
+
+                // Thêm tham số output
+                SqlParameter resultParam = new SqlParameter("@Result", SqlDbType.Int);
+                resultParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(resultParam);
+
+                cmd.ExecuteNonQuery();
+                int result = (int)resultParam.Value; // Lấy giá trị từ tham số output
+
+                return result > 0;
+            }
+        }
     }
 }

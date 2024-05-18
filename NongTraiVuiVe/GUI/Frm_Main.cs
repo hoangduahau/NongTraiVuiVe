@@ -109,5 +109,11 @@ namespace NongTraiVuiVe
                 Application.Exit();
             }
         }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int maNguoiDung = CurrentUser.MaNguoiDung;
+            QuanLyTabPage("Đổi mật khẩu", new Frm_DoiMatKhau(maNguoiDung));
+        }
     }
 }

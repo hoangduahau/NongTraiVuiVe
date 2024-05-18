@@ -33,7 +33,6 @@
             txtTenDangNhap = new TextBox();
             txtMatKhau = new TextBox();
             lbl_MatKhau = new Label();
-            linklbl_QuenMatKhau = new LinkLabel();
             btnDangNhap = new Button();
             btnThoat = new Button();
             SuspendLayout();
@@ -90,17 +89,6 @@
             lbl_MatKhau.TabIndex = 3;
             lbl_MatKhau.Text = "Mật khẩu:";
             // 
-            // linklbl_QuenMatKhau
-            // 
-            linklbl_QuenMatKhau.AutoSize = true;
-            linklbl_QuenMatKhau.Location = new Point(558, 204);
-            linklbl_QuenMatKhau.Name = "linklbl_QuenMatKhau";
-            linklbl_QuenMatKhau.Size = new Size(116, 20);
-            linklbl_QuenMatKhau.TabIndex = 5;
-            linklbl_QuenMatKhau.TabStop = true;
-            linklbl_QuenMatKhau.Text = "Quên mật khẩu?";
-            linklbl_QuenMatKhau.LinkClicked += linklbl_QuenMatKhau_LinkClicked;
-            // 
             // btnDangNhap
             // 
             btnDangNhap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -130,7 +118,6 @@
             ClientSize = new Size(741, 350);
             Controls.Add(btnThoat);
             Controls.Add(btnDangNhap);
-            Controls.Add(linklbl_QuenMatKhau);
             Controls.Add(txtMatKhau);
             Controls.Add(lbl_MatKhau);
             Controls.Add(txtTenDangNhap);
@@ -140,6 +127,7 @@
             Name = "Frm_DangNhap";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Frm_DangNhap";
+            Load += Frm_DangNhap_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -151,7 +139,6 @@
         private TextBox txtTenDangNhap;
         private TextBox txtMatKhau;
         private Label lbl_MatKhau;
-        private LinkLabel linklbl_QuenMatKhau;
         private Button btnDangNhap;
         private Button btnThoat;
     }
