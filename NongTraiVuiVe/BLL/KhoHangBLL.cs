@@ -23,6 +23,16 @@ namespace NongTraiVuiVe.BLL
             return _khoHangDAL.LayDuLieuKhoHang();
         }
 
+        public List<string> LayDanhSachTenKhoHang()
+        {
+            return _khoHangDAL.LayDanhSachTenKhoHang();
+        }
+
+        public int LayMaKhoHangTheoTen(string tenKhoHang)
+        {
+            return _khoHangDAL.LayMaKhoHangTheoTen(tenKhoHang);
+        }
+
         public bool ThemKhoHang(KhoHang khoHang)
         {
             if (khoHang == null)

@@ -10,11 +10,11 @@ namespace NongTraiVuiVe.DTO
     {
         public int MaNguyenVatLieu { get; set; }
         public string TenNguyenVatLieu { get; set; }
-        public int MaLoaiNguyenVatLieu { get; set; }
+        public int? MaLoaiNguyenVatLieu { get; set; }
         public int SoLuong { get; set; }
-        public int MaKhoHang { get; set; }
-        public DateTime HanSuDung { get; set; }
-        public string TinhTrang { get; set; }
+        public int? MaKhoHang { get; set; }
+        public DateTime? HanSuDung { get; set; }
+        public string? TinhTrang { get; set; }
         public int SoLuongHuHong { get; set; } 
 
         public NguyenVatLieu() { }

@@ -11,40 +11,40 @@ namespace NongTraiVuiVe.DAL
 {
     public class LoaiNguyenVatLieuDAL
     {
-        public List<LoaiNguyenVatLieu> LayDanhSachLoaiNguyenVatLieu()
+        public List<string> LayDanhSachTenLoaiNguyenVatLieu()
         {
-            List<LoaiNguyenVatLieu> dsLoaiNguyenVatLieu = new List<LoaiNguyenVatLieu>();
-            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            List<string> danhSachTenLoaiNguyenVatLieu = new List<string>();
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM LoaiNguyenVatLieu", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                connection.Open();
+                string sql = "SELECT TenLoaiNguyenVatLieu FROM LoaiNguyenVatLieu"; 
+                using (SqlCommand command = new SqlCommand(sql, connection))
                 {
-                    LoaiNguyenVatLieu lnvl = new LoaiNguyenVatLieu(
-                        (int)reader["MaLoaiNguyenVatLieu"],
-                        reader["TenLoaiNguyenVatLieu"].ToString()
-                    );
-                    dsLoaiNguyenVatLieu.Add(lnvl);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhSachTenLoaiNguyenVatLieu.Add(reader["TenLoaiNguyenVatLieu"].ToString());
+                        }
+                    }
                 }
             }
-            return dsLoaiNguyenVatLieu;
+            return danhSachTenLoaiNguyenVatLieu;
         }
 
-        public bool ThemLoaiNguyenVatLieu(LoaiNguyenVatLieu lnvl)
+        public int LayMaLoaiNguyenVatLieuTheoTen(string tenLoaiNguyenVatLieu)
         {
-            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
             {
-                conn.Open();
-                string query = "INSERT INTO LoaiNguyenVatLieu (TenLoaiNguyenVatLieu) " +
-                               "VALUES (@TenLoaiNguyenVatLieu)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@TenLoaiNguyenVatLieu", lnvl.TenLoaiNguyenVatLieu);
-                return cmd.ExecuteNonQuery() > 0;
+                connection.Open();
+                string sql = "SELECT MaLoaiNguyenVatLieu FROM LoaiNguyenVatLieu WHERE TenLoaiNguyenVatLieu = @TenLoaiNguyenVatLieu";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@TenLoaiNguyenVatLieu", tenLoaiNguyenVatLieu);
+                    object result = command.ExecuteScalar();
+                    return result != null ? (int)result : 0; 
+                }
             }
         }
-
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemLoaiNguyenVatLieu
-        // ...
     }
 }

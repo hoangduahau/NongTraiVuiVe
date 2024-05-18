@@ -39,6 +39,42 @@ namespace NongTraiVuiVe.DAL
             }
         }
 
+        public List<string> LayDanhSachTenKhoHang()
+        {
+            List<string> danhSachTenKhoHang = new List<string>();
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TenKhoHang FROM KhoHang";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhSachTenKhoHang.Add(reader["TenKhoHang"].ToString());
+                        }
+                    }
+                }
+            }
+            return danhSachTenKhoHang;
+        }
+
+        public int LayMaKhoHangTheoTen(string tenKhoHang)
+        {
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT MaKhoHang FROM KhoHang WHERE TenKhoHang = @TenKhoHang";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@TenKhoHang", tenKhoHang);
+                    object result = command.ExecuteScalar();
+                    return result != null ? (int)result : 0; 
+                }
+            }
+        }
+
         public DataTable LayDuLieuKhoHang()
         {
             DataTable dtKhoHang = new DataTable();

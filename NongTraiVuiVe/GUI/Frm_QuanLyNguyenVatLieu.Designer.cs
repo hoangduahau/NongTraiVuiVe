@@ -105,7 +105,9 @@
             // 
             // cbbTinhTrang
             // 
+            cbbTinhTrang.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbTinhTrang.FormattingEnabled = true;
+            cbbTinhTrang.Items.AddRange(new object[] { "Còn sử dụng", "Hỏng" });
             cbbTinhTrang.Location = new Point(210, 278);
             cbbTinhTrang.Name = "cbbTinhTrang";
             cbbTinhTrang.Size = new Size(295, 28);
@@ -123,6 +125,7 @@
             // 
             // cbbKhoChua
             // 
+            cbbKhoChua.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbKhoChua.FormattingEnabled = true;
             cbbKhoChua.Location = new Point(210, 202);
             cbbKhoChua.Name = "cbbKhoChua";
@@ -131,6 +134,7 @@
             // 
             // cbbLoaiNguyenVatLieu
             // 
+            cbbLoaiNguyenVatLieu.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbLoaiNguyenVatLieu.FormattingEnabled = true;
             cbbLoaiNguyenVatLieu.Location = new Point(210, 122);
             cbbLoaiNguyenVatLieu.Name = "cbbLoaiNguyenVatLieu";

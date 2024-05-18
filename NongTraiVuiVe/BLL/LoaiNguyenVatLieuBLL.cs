@@ -17,19 +17,14 @@ namespace NongTraiVuiVe.BLL
             _loaiNguyenVatLieuDAL = new LoaiNguyenVatLieuDAL();
         }
 
-        public List<LoaiNguyenVatLieu> LayDanhSachLoaiNguyenVatLieu()
+        public List<string> LayDanhSachTenLoaiNguyenVatLieu()
         {
-            return _loaiNguyenVatLieuDAL.LayDanhSachLoaiNguyenVatLieu();
+            return _loaiNguyenVatLieuDAL.LayDanhSachTenLoaiNguyenVatLieu();
         }
 
-        public bool ThemLoaiNguyenVatLieu(LoaiNguyenVatLieu lnvl)
+        public int LayMaLoaiNguyenVatLieuTheoTen(string tenLoaiNguyenVatLieu)
         {
-            // Kiểm tra dữ liệu (ví dụ: lnvl có hợp lệ không?)
-            // ... (Các logic nghiệp vụ khác)
-            return _loaiNguyenVatLieuDAL.ThemLoaiNguyenVatLieu(lnvl);
+            return _loaiNguyenVatLieuDAL.LayMaLoaiNguyenVatLieuTheoTen(tenLoaiNguyenVatLieu);
         }
-
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemLoaiNguyenVatLieu
-        // ...
     }
 }
