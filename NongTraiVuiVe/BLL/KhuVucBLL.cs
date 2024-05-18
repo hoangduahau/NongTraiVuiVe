@@ -33,6 +33,11 @@ namespace NongTraiVuiVe.BLL
             if (!khuVuc.KhaDung.HasValue)
                 throw new ArgumentException("Vui lòng cho biết khu đất có còn trống hay không.");
 
+            if (_khuVucDAL.KiemTraTonTaiTenKhuVuc(khuVuc.TenKhuVuc))
+            {
+                throw new ArgumentException("Khu vực đã tồn tại.");
+            }
+
             return _khuVucDAL.ThemKhuVuc(khuVuc);
         }
 
@@ -48,6 +53,11 @@ namespace NongTraiVuiVe.BLL
                 throw new ArgumentException("Tên khu vực không được để trống.");
             if (!khuVuc.KhaDung.HasValue)
                 throw new ArgumentException("Vui lòng cho biết khu đất có còn trống hay không.");
+
+            if (_khuVucDAL.KiemTraTonTaiTenKhuVuc(khuVuc.TenKhuVuc))
+            {
+                throw new ArgumentException("Khu vực đã tồn tại.");
+            }
 
             return _khuVucDAL.CapNhatKhuVuc(khuVuc);
         }
