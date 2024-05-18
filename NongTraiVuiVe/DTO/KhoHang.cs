@@ -11,7 +11,7 @@ namespace NongTraiVuiVe.DTO
         public int MaKhoHang { get; set; }
         public string TenKhoHang { get; set; }
         public string ViTri { get; set; }
-        public bool KhaDung { get; set; }
+        public bool? KhaDung { get; set; }
 
         public KhoHang() { }
 

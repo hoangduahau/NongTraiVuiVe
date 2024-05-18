@@ -11,44 +11,104 @@ namespace NongTraiVuiVe.DAL
 {
     public class KhoHangDAL
     {
-        public List<KhoHang> LayDanhSachKhoHang()
+        public bool KiemTraTonTaiMaKhoHang(int maKhoHang)
         {
-            List<KhoHang> dsKhoHang = new List<KhoHang>();
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM KhoHang", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                string query = "SELECT COUNT(*) FROM KhoHang WHERE MaKhoHang = @MaKhoHang";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@MaKhoHang", maKhoHang);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
+
+        public DataTable LayDuLieuKhoHang()
+        {
+            DataTable dtKhoHang = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT * FROM KhoHang";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                adapter.Fill(dtKhoHang);
+            }
+
+            return dtKhoHang;
+        }
+
+        public bool ThemKhoHang(KhoHang khoHang)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = @"INSERT INTO KhoHang 
+                            (TenKhoHang, ViTri, KhaDung) 
+                            VALUES (@TenKhoHang, @ViTri, @KhaDung)";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
                 {
-                    KhoHang kh = new KhoHang(
-                        (int)reader["MaKhoHang"],
-                        reader["TenKhoHang"].ToString(),
-                        reader["ViTri"].ToString(),
-                        (bool)reader["KhaDung"]
-                    );
-                    dsKhoHang.Add(kh);
+                    command.Parameters.AddWithValue("@TenKhoHang", khoHang.TenKhoHang);
+                    command.Parameters.AddWithValue("@ViTri", khoHang.ViTri);
+                    command.Parameters.AddWithValue("@KhaDung", khoHang.KhaDung);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.InsertCommand = command;
+                        return adapter.InsertCommand.ExecuteNonQuery() > 0;
+                    }
                 }
             }
-            return dsKhoHang;
         }
 
-        public bool ThemKhoHang(KhoHang kh)
+        public bool CapNhatKhoHang(KhoHang khoHang)
         {
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO KhoHang (TenKhoHang, ViTri, KhaDung) " +
-                               "VALUES (@TenKhoHang, @ViTri, @KhaDung)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@TenKhoHang", kh.TenKhoHang);
-                cmd.Parameters.AddWithValue("@ViTri", kh.ViTri);
-                cmd.Parameters.AddWithValue("@KhaDung", kh.KhaDung);
-                return cmd.ExecuteNonQuery() > 0;
+                string sql = @"UPDATE KhoHang 
+                       SET TenKhoHang = @TenKhoHang, 
+                           ViTri = @ViTri,
+                           KhaDung = @KhaDung 
+                       WHERE MaKhoHang = @MaKhoHang";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaKhoHang", khoHang.MaKhoHang);
+                    command.Parameters.AddWithValue("@TenKhoHang", khoHang.TenKhoHang);
+                    command.Parameters.AddWithValue("@ViTri", khoHang.ViTri);
+                    command.Parameters.AddWithValue("@KhaDung", khoHang.KhaDung);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.UpdateCommand = command;
+                        return adapter.UpdateCommand.ExecuteNonQuery() > 0;
+                    }
+                }
             }
         }
 
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemKhoHang
-        // ...
+        public bool XoaKhoHang(int maKhoHang)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "DELETE FROM KhoHang WHERE MaKhoHang = @MaKhoHang";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaKhoHang", maKhoHang);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.DeleteCommand = command;
+                        return adapter.DeleteCommand.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+        }
     }
 }

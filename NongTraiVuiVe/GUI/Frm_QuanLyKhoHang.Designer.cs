@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             gp1 = new GroupBox();
-            textBox4 = new TextBox();
+            cbbKhaDungKhoHang = new ComboBox();
             label4 = new Label();
-            textBox3 = new TextBox();
+            txtViTri = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            txtTenKhoHang = new TextBox();
             label2 = new Label();
             btnThoatKH = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            btnXoaKhoHang = new Button();
+            btnSuaKhoHang = new Button();
+            btnThemKhoHang = new Button();
+            txtMaKhoHang = new TextBox();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            dgvDanhSachKhoHang = new DataGridView();
             gp1.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachKhoHang).BeginInit();
             SuspendLayout();
             // 
             // gp1
             // 
-            gp1.Controls.Add(textBox4);
+            gp1.Controls.Add(cbbKhaDungKhoHang);
             gp1.Controls.Add(label4);
-            gp1.Controls.Add(textBox3);
+            gp1.Controls.Add(txtViTri);
             gp1.Controls.Add(label3);
-            gp1.Controls.Add(textBox2);
+            gp1.Controls.Add(txtTenKhoHang);
             gp1.Controls.Add(label2);
             gp1.Controls.Add(btnThoatKH);
-            gp1.Controls.Add(button3);
-            gp1.Controls.Add(button2);
-            gp1.Controls.Add(button1);
-            gp1.Controls.Add(textBox1);
+            gp1.Controls.Add(btnXoaKhoHang);
+            gp1.Controls.Add(btnSuaKhoHang);
+            gp1.Controls.Add(btnThemKhoHang);
+            gp1.Controls.Add(txtMaKhoHang);
             gp1.Controls.Add(label1);
             gp1.Location = new Point(830, 12);
             gp1.Name = "gp1";
@@ -69,13 +69,15 @@
             gp1.TabStop = false;
             gp1.Text = "Thông tin kho hàng";
             // 
-            // textBox4
+            // cbbKhaDungKhoHang
             // 
-            textBox4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(180, 370);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(295, 30);
-            textBox4.TabIndex = 11;
+            cbbKhaDungKhoHang.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbKhaDungKhoHang.FormattingEnabled = true;
+            cbbKhaDungKhoHang.Items.AddRange(new object[] { "Có", "Không" });
+            cbbKhaDungKhoHang.Location = new Point(180, 372);
+            cbbKhaDungKhoHang.Name = "cbbKhaDungKhoHang";
+            cbbKhaDungKhoHang.Size = new Size(295, 28);
+            cbbKhaDungKhoHang.TabIndex = 11;
             // 
             // label4
             // 
@@ -87,13 +89,13 @@
             label4.TabIndex = 10;
             label4.Text = "Khả dụng:";
             // 
-            // textBox3
+            // txtViTri
             // 
-            textBox3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(180, 299);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(295, 30);
-            textBox3.TabIndex = 9;
+            txtViTri.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtViTri.Location = new Point(180, 299);
+            txtViTri.Name = "txtViTri";
+            txtViTri.Size = new Size(295, 30);
+            txtViTri.TabIndex = 9;
             // 
             // label3
             // 
@@ -105,13 +107,13 @@
             label3.TabIndex = 8;
             label3.Text = "Vị trí:";
             // 
-            // textBox2
+            // txtTenKhoHang
             // 
-            textBox2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(180, 202);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(295, 30);
-            textBox2.TabIndex = 7;
+            txtTenKhoHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenKhoHang.Location = new Point(180, 202);
+            txtTenKhoHang.Name = "txtTenKhoHang";
+            txtTenKhoHang.Size = new Size(295, 30);
+            txtTenKhoHang.TabIndex = 7;
             // 
             // label2
             // 
@@ -134,40 +136,44 @@
             btnThoatKH.UseVisualStyleBackColor = true;
             btnThoatKH.Click += btnThoatKH_Click;
             // 
-            // button3
+            // btnXoaKhoHang
             // 
-            button3.Location = new Point(381, 464);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 4;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = true;
+            btnXoaKhoHang.Location = new Point(381, 464);
+            btnXoaKhoHang.Name = "btnXoaKhoHang";
+            btnXoaKhoHang.Size = new Size(94, 29);
+            btnXoaKhoHang.TabIndex = 4;
+            btnXoaKhoHang.Text = "Xóa";
+            btnXoaKhoHang.UseVisualStyleBackColor = true;
+            btnXoaKhoHang.Click += btnXoaKhoHang_Click;
             // 
-            // button2
+            // btnSuaKhoHang
             // 
-            button2.Location = new Point(221, 464);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 3;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = true;
+            btnSuaKhoHang.Location = new Point(221, 464);
+            btnSuaKhoHang.Name = "btnSuaKhoHang";
+            btnSuaKhoHang.Size = new Size(94, 29);
+            btnSuaKhoHang.TabIndex = 3;
+            btnSuaKhoHang.Text = "Sửa";
+            btnSuaKhoHang.UseVisualStyleBackColor = true;
+            btnSuaKhoHang.Click += btnSuaKhoHang_Click;
             // 
-            // button1
+            // btnThemKhoHang
             // 
-            button1.Location = new Point(51, 464);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Thêm ";
-            button1.UseVisualStyleBackColor = true;
+            btnThemKhoHang.Location = new Point(51, 464);
+            btnThemKhoHang.Name = "btnThemKhoHang";
+            btnThemKhoHang.Size = new Size(94, 29);
+            btnThemKhoHang.TabIndex = 2;
+            btnThemKhoHang.Text = "Thêm ";
+            btnThemKhoHang.UseVisualStyleBackColor = true;
+            btnThemKhoHang.Click += btnThemKhoHang_Click;
             // 
-            // textBox1
+            // txtMaKhoHang
             // 
-            textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(180, 112);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(295, 30);
-            textBox1.TabIndex = 1;
+            txtMaKhoHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaKhoHang.Location = new Point(180, 112);
+            txtMaKhoHang.Name = "txtMaKhoHang";
+            txtMaKhoHang.ReadOnly = true;
+            txtMaKhoHang.Size = new Size(295, 30);
+            txtMaKhoHang.TabIndex = 1;
             // 
             // label1
             // 
@@ -181,7 +187,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(dgvDanhSachKhoHang);
             groupBox1.Location = new Point(3, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(821, 614);
@@ -189,19 +195,20 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách kho hàng";
             // 
-            // dataGridView1
+            // dgvDanhSachKhoHang
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(815, 588);
-            dataGridView1.TabIndex = 0;
+            dgvDanhSachKhoHang.AllowUserToAddRows = false;
+            dgvDanhSachKhoHang.AllowUserToDeleteRows = false;
+            dgvDanhSachKhoHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDanhSachKhoHang.Dock = DockStyle.Fill;
+            dgvDanhSachKhoHang.Location = new Point(3, 23);
+            dgvDanhSachKhoHang.Name = "dgvDanhSachKhoHang";
+            dgvDanhSachKhoHang.ReadOnly = true;
+            dgvDanhSachKhoHang.RowHeadersWidth = 51;
+            dgvDanhSachKhoHang.RowTemplate.Height = 29;
+            dgvDanhSachKhoHang.Size = new Size(815, 588);
+            dgvDanhSachKhoHang.TabIndex = 0;
+            dgvDanhSachKhoHang.CellClick += dgvDanhSachKhoHang_CellClick;
             // 
             // Frm_QuanLyKhoHang
             // 
@@ -212,29 +219,30 @@
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyKhoHang";
             Text = "Frm_QuanLyKhoHang";
+            Load += Frm_QuanLyKhoHang_Load;
             gp1.ResumeLayout(false);
             gp1.PerformLayout();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachKhoHang).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox gp1;
-        private TextBox textBox3;
+        private TextBox txtViTri;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox txtTenKhoHang;
         private Label label2;
         private Button btnThoatKH;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private TextBox textBox1;
+        private Button btnXoaKhoHang;
+        private Button btnSuaKhoHang;
+        private Button btnThemKhoHang;
+        private TextBox txtMaKhoHang;
         private Label label1;
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
-        private TextBox textBox4;
+        private DataGridView dgvDanhSachKhoHang;
         private Label label4;
+        private ComboBox cbbKhaDungKhoHang;
     }
 }

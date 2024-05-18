@@ -166,5 +166,34 @@ namespace NongTraiVuiVe
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+        private void btnXoaKhuVuc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int.TryParse(txtMaKhuVuc.Text, out int maKhuVuc);
+
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khu vực này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    KhuVucBLL khuVucBLL = new KhuVucBLL();
+                    if (khuVucBLL.XoaKhuVuc(maKhuVuc))
+                    {
+                        HienThiDanhSachKhuVuc();
+
+                        MessageBox.Show("Xóa khu vực thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa khu vực thất bại. Vui lòng kiểm tra lại.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
     }
 }

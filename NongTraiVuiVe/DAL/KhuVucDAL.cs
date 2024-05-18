@@ -88,25 +88,25 @@ namespace NongTraiVuiVe.DAL
             }
         }
 
-        //public bool XoaCayTrong(int maCayTrong)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
-        //    {
-        //        conn.Open();
-        //        string sql = "DELETE FROM CayTrong WHERE MaCayTrong = @MaCayTrong";
+        public bool XoaKhuVuc(int maKhuVuc)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "DELETE FROM KhuVuc WHERE MaKhuVuc = @MaKhuVuc";
 
-        //        using (SqlCommand command = new SqlCommand(sql, conn))
-        //        {
-        //            command.Parameters.AddWithValue("@MaCayTrong", maCayTrong);
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaKhuVuc", maKhuVuc);
 
-        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
-        //            {
-        //                adapter.DeleteCommand = command;
-        //                return adapter.DeleteCommand.ExecuteNonQuery() > 0;
-        //            }
-        //        }
-        //    }
-        //}
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.DeleteCommand = command;
+                        return adapter.DeleteCommand.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+        }
 
         // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemKhuVuc
         // ...

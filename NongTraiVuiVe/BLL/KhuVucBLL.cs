@@ -52,13 +52,10 @@ namespace NongTraiVuiVe.BLL
             return _khuVucDAL.CapNhatKhuVuc(khuVuc);
         }
 
-        //public bool XoaCayTrong(int maCayTrong)
-        //{
+        public bool XoaKhuVuc(int maKhuVuc)
+        {
 
-        //    return _cayTrongDAL.XoaCayTrong(maCayTrong); // Gọi phương thức xóa của DAL
-        //}
-
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemKhuVuc
-        // ...
+            return _khuVucDAL.XoaKhuVuc(maKhuVuc); 
+        }
     }
 }

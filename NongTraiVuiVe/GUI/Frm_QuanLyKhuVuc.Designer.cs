@@ -147,6 +147,7 @@
             btnXoaKhuVuc.TabIndex = 4;
             btnXoaKhuVuc.Text = "Xóa";
             btnXoaKhuVuc.UseVisualStyleBackColor = true;
+            btnXoaKhuVuc.Click += btnXoaKhuVuc_Click;
             // 
             // btnSuaKhuVuc
             // 
