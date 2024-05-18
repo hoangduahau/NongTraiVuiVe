@@ -35,6 +35,11 @@ namespace NongTraiVuiVe.BLL
             if (!khoHang.KhaDung.HasValue)
                 throw new ArgumentException("Vui lòng cho biết kho hàng có còn trống hay không.");
 
+            if (_khoHangDAL.KiemTraTonTaiTenKhoHang(khoHang.TenKhoHang))
+            {
+                throw new ArgumentException("Kho hàng đã tồn tại.");
+            }
+
             return _khoHangDAL.ThemKhoHang(khoHang);
         }
 
@@ -52,6 +57,11 @@ namespace NongTraiVuiVe.BLL
                 throw new ArgumentException("Vị trí kho hàng không được để trống.");
             if (!khoHang.KhaDung.HasValue)
                 throw new ArgumentException("Vui lòng cho biết kho hàng có còn trống hay không.");
+
+            if (_khoHangDAL.KiemTraTonTaiTenKhoHang(khoHang.TenKhoHang))
+            {
+                throw new ArgumentException("Kho hàng đã tồn tại.");
+            }
 
             return _khoHangDAL.CapNhatKhoHang(khoHang);
         }

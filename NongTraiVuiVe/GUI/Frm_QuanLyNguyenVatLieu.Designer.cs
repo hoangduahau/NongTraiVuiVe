@@ -29,46 +29,54 @@
         private void InitializeComponent()
         {
             gbnvl = new GroupBox();
-            textBox2 = new TextBox();
+            txtHanSuDung = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            txtSoLuong = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
+            txtTenNguyenVatLieu = new TextBox();
             label2 = new Label();
             btnThoatNvl = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            btnXoaNguyenVatLieu = new Button();
+            btnSuaNguyenVatLieu = new Button();
+            btnThemNguyenVatLieu = new Button();
+            txtMaNguyenVatLieu = new TextBox();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
-            textBox3 = new TextBox();
-            label3 = new Label();
-            textBox4 = new TextBox();
-            label4 = new Label();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            textBox6 = new TextBox();
-            label6 = new Label();
+            dgvDanhSachNguyenVatLieu = new DataGridView();
+            cbbLoaiNguyenVatLieu = new ComboBox();
+            cbbKhoChua = new ComboBox();
+            label7 = new Label();
+            cbbTinhTrang = new ComboBox();
+            label8 = new Label();
+            txtSoLuongHong = new TextBox();
             gbnvl.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachNguyenVatLieu).BeginInit();
             SuspendLayout();
             // 
             // gbnvl
             // 
-            gbnvl.Controls.Add(textBox5);
+            gbnvl.Controls.Add(txtSoLuongHong);
+            gbnvl.Controls.Add(label8);
+            gbnvl.Controls.Add(cbbTinhTrang);
+            gbnvl.Controls.Add(label7);
+            gbnvl.Controls.Add(cbbKhoChua);
+            gbnvl.Controls.Add(cbbLoaiNguyenVatLieu);
+            gbnvl.Controls.Add(txtHanSuDung);
             gbnvl.Controls.Add(label5);
-            gbnvl.Controls.Add(textBox6);
             gbnvl.Controls.Add(label6);
-            gbnvl.Controls.Add(textBox3);
+            gbnvl.Controls.Add(txtSoLuong);
             gbnvl.Controls.Add(label3);
-            gbnvl.Controls.Add(textBox4);
             gbnvl.Controls.Add(label4);
-            gbnvl.Controls.Add(textBox2);
+            gbnvl.Controls.Add(txtTenNguyenVatLieu);
             gbnvl.Controls.Add(label2);
             gbnvl.Controls.Add(btnThoatNvl);
-            gbnvl.Controls.Add(button3);
-            gbnvl.Controls.Add(button2);
-            gbnvl.Controls.Add(button1);
-            gbnvl.Controls.Add(textBox1);
+            gbnvl.Controls.Add(btnXoaNguyenVatLieu);
+            gbnvl.Controls.Add(btnSuaNguyenVatLieu);
+            gbnvl.Controls.Add(btnThemNguyenVatLieu);
+            gbnvl.Controls.Add(txtMaNguyenVatLieu);
             gbnvl.Controls.Add(label1);
             gbnvl.Location = new Point(801, 12);
             gbnvl.Name = "gbnvl";
@@ -77,19 +85,75 @@
             gbnvl.TabStop = false;
             gbnvl.Text = "Thông tin nguyên vật liệu";
             // 
-            // textBox2
+            // txtHanSuDung
             // 
-            textBox2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(210, 133);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(295, 30);
-            textBox2.TabIndex = 7;
+            txtHanSuDung.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHanSuDung.Location = new Point(210, 238);
+            txtHanSuDung.Name = "txtHanSuDung";
+            txtHanSuDung.Size = new Size(295, 30);
+            txtHanSuDung.TabIndex = 15;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(22, 246);
+            label5.Name = "label5";
+            label5.Size = new Size(114, 22);
+            label5.TabIndex = 14;
+            label5.Text = "Hạn sử dụng:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(22, 208);
+            label6.Name = "label6";
+            label6.Size = new Size(92, 22);
+            label6.TabIndex = 12;
+            label6.Text = "Kho chứa:";
+            // 
+            // txtSoLuong
+            // 
+            txtSoLuong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSoLuong.Location = new Point(210, 163);
+            txtSoLuong.Name = "txtSoLuong";
+            txtSoLuong.Size = new Size(295, 30);
+            txtSoLuong.TabIndex = 11;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(22, 171);
+            label3.Name = "label3";
+            label3.Size = new Size(88, 22);
+            label3.TabIndex = 10;
+            label3.Text = "Số lượng:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(22, 128);
+            label4.Name = "label4";
+            label4.Size = new Size(175, 22);
+            label4.TabIndex = 8;
+            label4.Text = "Loại nguyên vật liệu:";
+            // 
+            // txtTenNguyenVatLieu
+            // 
+            txtTenNguyenVatLieu.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenNguyenVatLieu.Location = new Point(210, 74);
+            txtTenNguyenVatLieu.Name = "txtTenNguyenVatLieu";
+            txtTenNguyenVatLieu.Size = new Size(295, 30);
+            txtTenNguyenVatLieu.TabIndex = 7;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(32, 141);
+            label2.Location = new Point(22, 84);
             label2.Name = "label2";
             label2.Size = new Size(169, 22);
             label2.TabIndex = 6;
@@ -107,46 +171,47 @@
             btnThoatNvl.UseVisualStyleBackColor = true;
             btnThoatNvl.Click += btnThoatNvl_Click;
             // 
-            // button3
+            // btnXoaNguyenVatLieu
             // 
-            button3.Location = new Point(370, 516);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 4;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = true;
+            btnXoaNguyenVatLieu.Location = new Point(370, 516);
+            btnXoaNguyenVatLieu.Name = "btnXoaNguyenVatLieu";
+            btnXoaNguyenVatLieu.Size = new Size(94, 29);
+            btnXoaNguyenVatLieu.TabIndex = 4;
+            btnXoaNguyenVatLieu.Text = "Xóa";
+            btnXoaNguyenVatLieu.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSuaNguyenVatLieu
             // 
-            button2.Location = new Point(210, 516);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 3;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = true;
+            btnSuaNguyenVatLieu.Location = new Point(210, 516);
+            btnSuaNguyenVatLieu.Name = "btnSuaNguyenVatLieu";
+            btnSuaNguyenVatLieu.Size = new Size(94, 29);
+            btnSuaNguyenVatLieu.TabIndex = 3;
+            btnSuaNguyenVatLieu.Text = "Sửa";
+            btnSuaNguyenVatLieu.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnThemNguyenVatLieu
             // 
-            button1.Location = new Point(40, 516);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Thêm ";
-            button1.UseVisualStyleBackColor = true;
+            btnThemNguyenVatLieu.Location = new Point(40, 516);
+            btnThemNguyenVatLieu.Name = "btnThemNguyenVatLieu";
+            btnThemNguyenVatLieu.Size = new Size(94, 29);
+            btnThemNguyenVatLieu.TabIndex = 2;
+            btnThemNguyenVatLieu.Text = "Thêm ";
+            btnThemNguyenVatLieu.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtMaNguyenVatLieu
             // 
-            textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(210, 72);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(295, 30);
-            textBox1.TabIndex = 1;
+            txtMaNguyenVatLieu.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaNguyenVatLieu.Location = new Point(210, 38);
+            txtMaNguyenVatLieu.Name = "txtMaNguyenVatLieu";
+            txtMaNguyenVatLieu.ReadOnly = true;
+            txtMaNguyenVatLieu.Size = new Size(295, 30);
+            txtMaNguyenVatLieu.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(32, 72);
+            label1.Location = new Point(22, 46);
             label1.Name = "label1";
             label1.Size = new Size(165, 22);
             label1.TabIndex = 0;
@@ -154,7 +219,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(dgvDanhSachNguyenVatLieu);
             groupBox1.Location = new Point(5, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(790, 613);
@@ -162,92 +227,71 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách nguyên vật liệu";
             // 
-            // dataGridView1
+            // dgvDanhSachNguyenVatLieu
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(784, 587);
-            dataGridView1.TabIndex = 0;
+            dgvDanhSachNguyenVatLieu.AllowUserToAddRows = false;
+            dgvDanhSachNguyenVatLieu.AllowUserToDeleteRows = false;
+            dgvDanhSachNguyenVatLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDanhSachNguyenVatLieu.Dock = DockStyle.Fill;
+            dgvDanhSachNguyenVatLieu.Location = new Point(3, 23);
+            dgvDanhSachNguyenVatLieu.Name = "dgvDanhSachNguyenVatLieu";
+            dgvDanhSachNguyenVatLieu.ReadOnly = true;
+            dgvDanhSachNguyenVatLieu.RowHeadersWidth = 51;
+            dgvDanhSachNguyenVatLieu.RowTemplate.Height = 29;
+            dgvDanhSachNguyenVatLieu.Size = new Size(784, 587);
+            dgvDanhSachNguyenVatLieu.TabIndex = 0;
             // 
-            // textBox3
+            // cbbLoaiNguyenVatLieu
             // 
-            textBox3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(210, 251);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(295, 30);
-            textBox3.TabIndex = 11;
+            cbbLoaiNguyenVatLieu.FormattingEnabled = true;
+            cbbLoaiNguyenVatLieu.Location = new Point(210, 122);
+            cbbLoaiNguyenVatLieu.Name = "cbbLoaiNguyenVatLieu";
+            cbbLoaiNguyenVatLieu.Size = new Size(295, 28);
+            cbbLoaiNguyenVatLieu.TabIndex = 16;
             // 
-            // label3
+            // cbbKhoChua
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(109, 259);
-            label3.Name = "label3";
-            label3.Size = new Size(88, 22);
-            label3.TabIndex = 10;
-            label3.Text = "Số lượng:";
+            cbbKhoChua.FormattingEnabled = true;
+            cbbKhoChua.Location = new Point(210, 202);
+            cbbKhoChua.Name = "cbbKhoChua";
+            cbbKhoChua.Size = new Size(295, 28);
+            cbbKhoChua.TabIndex = 17;
             // 
-            // textBox4
+            // label7
             // 
-            textBox4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(210, 198);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(295, 30);
-            textBox4.TabIndex = 9;
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(22, 284);
+            label7.Name = "label7";
+            label7.Size = new Size(96, 22);
+            label7.TabIndex = 18;
+            label7.Text = "Tình trạng:";
             // 
-            // label4
+            // cbbTinhTrang
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(0, 206);
-            label4.Name = "label4";
-            label4.Size = new Size(201, 22);
-            label4.TabIndex = 8;
-            label4.Text = "Mã loại nguyên vật liệu:";
+            cbbTinhTrang.FormattingEnabled = true;
+            cbbTinhTrang.Location = new Point(210, 278);
+            cbbTinhTrang.Name = "cbbTinhTrang";
+            cbbTinhTrang.Size = new Size(295, 28);
+            cbbTinhTrang.TabIndex = 19;
             // 
-            // textBox5
+            // label8
             // 
-            textBox5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(210, 386);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(295, 98);
-            textBox5.TabIndex = 15;
+            label8.AutoSize = true;
+            label8.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(22, 319);
+            label8.Name = "label8";
+            label8.Size = new Size(130, 22);
+            label8.TabIndex = 20;
+            label8.Text = "Số lượng hỏng:";
             // 
-            // label5
+            // txtSoLuongHong
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(57, 389);
-            label5.Name = "label5";
-            label5.Size = new Size(140, 22);
-            label5.TabIndex = 14;
-            label5.Text = "Mô tả tình trạng:";
-            // 
-            // textBox6
-            // 
-            textBox6.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox6.Location = new Point(210, 317);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(295, 30);
-            textBox6.TabIndex = 13;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(81, 325);
-            label6.Name = "label6";
-            label6.Size = new Size(116, 22);
-            label6.TabIndex = 12;
-            label6.Text = "Mã kho hàng:";
+            txtSoLuongHong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSoLuongHong.Location = new Point(210, 311);
+            txtSoLuongHong.Name = "txtSoLuongHong";
+            txtSoLuongHong.Size = new Size(295, 30);
+            txtSoLuongHong.TabIndex = 21;
             // 
             // Frm_QuanLyNguyenVatLieu
             // 
@@ -261,30 +305,34 @@
             gbnvl.ResumeLayout(false);
             gbnvl.PerformLayout();
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachNguyenVatLieu).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox gbnvl;
-        private TextBox textBox3;
+        private TextBox txtSoLuong;
         private Label label3;
-        private TextBox textBox4;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox txtTenNguyenVatLieu;
         private Label label2;
         private Button btnThoatNvl;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private TextBox textBox1;
+        private Button btnXoaNguyenVatLieu;
+        private Button btnSuaNguyenVatLieu;
+        private Button btnThemNguyenVatLieu;
+        private TextBox txtMaNguyenVatLieu;
         private Label label1;
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
-        private TextBox textBox5;
+        private DataGridView dgvDanhSachNguyenVatLieu;
+        private TextBox txtHanSuDung;
         private Label label5;
-        private TextBox textBox6;
         private Label label6;
+        private ComboBox cbbKhoChua;
+        private ComboBox cbbLoaiNguyenVatLieu;
+        private TextBox txtSoLuongHong;
+        private Label label8;
+        private ComboBox cbbTinhTrang;
+        private Label label7;
     }
 }

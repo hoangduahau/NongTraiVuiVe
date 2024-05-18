@@ -24,6 +24,21 @@ namespace NongTraiVuiVe.DAL
             }
         }
 
+        public bool KiemTraTonTaiTenKhoHang(string tenKhoHang)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM KhoHang WHERE TenKhoHang = @TenKhoHang";
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@TenKhoHang", tenKhoHang);
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0; 
+                }
+            }
+        }
+
         public DataTable LayDuLieuKhoHang()
         {
             DataTable dtKhoHang = new DataTable();
