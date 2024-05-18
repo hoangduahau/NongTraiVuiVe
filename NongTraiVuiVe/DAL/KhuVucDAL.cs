@@ -23,26 +23,6 @@ namespace NongTraiVuiVe.DAL
                 return count > 0;
             }
         }
-        //public List<KhuVuc> LayDanhSachKhuVuc()
-        //{
-        //    List<KhuVuc> dsKhuVuc = new List<KhuVuc>();
-        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
-        //    {
-        //        conn.Open();
-        //        SqlCommand cmd = new SqlCommand("SELECT * FROM KhuVuc", conn);
-        //        SqlDataReader reader = cmd.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            KhuVuc kv = new KhuVuc(
-        //                (int)reader["MaKhuVuc"],
-        //                reader["TenKhuVuc"].ToString(),
-        //                (bool)reader["KhaDung"]
-        //            );
-        //            dsKhuVuc.Add(kv);
-        //        }
-        //    }
-        //    return dsKhuVuc;
-        //}
 
         public DataTable LayDuLieuKhuVuc()
         {
@@ -60,36 +40,28 @@ namespace NongTraiVuiVe.DAL
             return dtKhuVuc;
         }
 
-        //public bool ThemCayTrong(CayTrong cayTrong)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
-        //    {
-        //        conn.Open();
-        //        string sql = @"INSERT INTO CayTrong 
-        //                        (TenCayTrong, MaLoaiCayTrong, Giong, NguonGoc, SoLuong, NgayGieoTrong, NgayThuHoachDuKien, NgayThuHoachThucTe, MaKhuVuc, TinhTrang) 
-        //                        VALUES (@TenCayTrong, @MaLoaiCayTrong, @GiongCay, @NguonGoc, @SoLuong, @NgayGieoTrong, @NgayThuHoachDuKien, @NgayThuHoachThucTe, @MaKhuVuc, @TinhTrang)";
+        public bool ThemKhuVuc(KhuVuc khuVuc)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = @"INSERT INTO KhuVuc 
+                            (TenKhuVuc, KhaDung) 
+                            VALUES (@TenKhuVuc, @KhaDung)";
 
-        //        using (SqlCommand command = new SqlCommand(sql, conn))
-        //        {
-        //            command.Parameters.AddWithValue("@TenCayTrong", cayTrong.TenCayTrong);
-        //            command.Parameters.AddWithValue("@MaLoaiCayTrong", cayTrong.MaLoaiCayTrong);
-        //            command.Parameters.AddWithValue("@GiongCay", cayTrong.Giong ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@NguonGoc", cayTrong.NguonGoc ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@SoLuong", cayTrong.SoLuong);
-        //            command.Parameters.AddWithValue("@NgayGieoTrong", cayTrong.NgayGieoTrong ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@NgayThuHoachDuKien", cayTrong.NgayThuHoachDuKien ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@NgayThuHoachThucTe", cayTrong.NgayThuHoachThucTe ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@MaKhuVuc", cayTrong.MaKhuVuc);
-        //            command.Parameters.AddWithValue("@TinhTrang", cayTrong.TinhTrang);
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@TenKhuVuc", khuVuc.TenKhuVuc);
+                    command.Parameters.AddWithValue("@KhaDung", khuVuc.KhaDung);
 
-        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
-        //            {
-        //                adapter.InsertCommand = command;
-        //                return adapter.InsertCommand.ExecuteNonQuery() > 0;
-        //            }
-        //        }
-        //    }
-        //}
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.InsertCommand = command;
+                        return adapter.InsertCommand.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+        }
 
         //public bool CapNhatCayTrong(CayTrong cayTrong)
         //{

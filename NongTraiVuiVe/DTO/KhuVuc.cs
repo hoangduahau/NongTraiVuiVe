@@ -10,7 +10,7 @@ namespace NongTraiVuiVe.DTO
     {
         public int MaKhuVuc { get; set; }
         public string TenKhuVuc { get; set; }
-        public bool KhaDung { get; set; }
+        public bool? KhaDung { get; set; }
 
         public KhuVuc() { }
 

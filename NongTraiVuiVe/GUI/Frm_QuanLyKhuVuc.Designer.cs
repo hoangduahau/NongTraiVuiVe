@@ -69,6 +69,7 @@
             dgvDanhSachKhuVuc.RowTemplate.Height = 29;
             dgvDanhSachKhuVuc.Size = new Size(815, 607);
             dgvDanhSachKhuVuc.TabIndex = 0;
+            dgvDanhSachKhuVuc.CellClick += dgvDanhSachKhuVuc_CellClick;
             // 
             // groupbox2
             // 
@@ -164,6 +165,7 @@
             btnThemKhuVuc.TabIndex = 2;
             btnThemKhuVuc.Text = "Thêm ";
             btnThemKhuVuc.UseVisualStyleBackColor = true;
+            btnThemKhuVuc.Click += btnThemKhuVuc_Click;
             // 
             // txtMaKhuVuc
             // 

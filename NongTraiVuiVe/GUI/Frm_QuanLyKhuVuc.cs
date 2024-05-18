@@ -1,4 +1,5 @@
 ﻿using NongTraiVuiVe.BLL;
+using NongTraiVuiVe.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,79 @@ namespace NongTraiVuiVe
             // Gọi phương thức từ BLL để lấy dữ liệu và hiển thị
             DataTable dtKhuVuc = khuVucBLL.LayDuLieuKhuVuc();
             dgvDanhSachKhuVuc.DataSource = dtKhuVuc;
+        }
+
+        private void dgvDanhSachKhuVuc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Kiểm tra xem có dòng nào được chọn không và chỉ số dòng hợp lệ
+                if (e.RowIndex >= 0 && e.RowIndex < dgvDanhSachKhuVuc.Rows.Count)
+                {
+                    // Lấy dòng được chọn
+                    DataGridViewRow selectedRow = dgvDanhSachKhuVuc.Rows[e.RowIndex];
+
+                    // Hiển thị các thuộc tính vào TextBox (điều chỉnh tên các TextBox cho phù hợp)
+                    txtMaKhuVuc.Text = selectedRow.Cells["MaKhuVuc"].Value.ToString();
+                    txtTenKhuVuc.Text = selectedRow.Cells["TenKhuVuc"].Value.ToString();
+                    if (selectedRow.Cells["KhaDung"].Value.ToString() == "True")
+                    {
+                        cbbKhaDungKhuVuc.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        cbbKhaDungKhuVuc.SelectedIndex = 1;
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnThemKhuVuc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                KhuVuc khuVuc = new KhuVuc();
+                khuVuc.TenKhuVuc = txtTenKhuVuc.Text;
+                if (cbbKhaDungKhuVuc.SelectedItem != null)
+                {
+                    if (cbbKhaDungKhuVuc.SelectedItem.ToString() == "Có")
+                    {
+                        khuVuc.KhaDung = true;
+                    }
+                    else
+                    {
+                        khuVuc.KhaDung = false;
+                    }
+                }
+                else
+                {
+                    khuVuc.KhaDung = null;
+                }
+
+                KhuVucBLL khuVucBLL = new KhuVucBLL();
+                if (khuVucBLL.ThemKhuVuc(khuVuc))
+                {
+                    txtTenKhuVuc.Focus();
+                    txtMaKhuVuc.Text = "";
+                    txtTenKhuVuc.Text = "";
+                    cbbKhaDungKhuVuc.SelectedIndex = -1;
+                    HienThiDanhSachKhuVuc();
+                    MessageBox.Show("Thêm khu vực thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm khu vực thất bại. Vui lòng kiểm tra lại.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
     }
 }
