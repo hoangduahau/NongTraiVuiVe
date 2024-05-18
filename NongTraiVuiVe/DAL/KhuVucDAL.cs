@@ -23,40 +23,134 @@ namespace NongTraiVuiVe.DAL
                 return count > 0;
             }
         }
-        public List<KhuVuc> LayDanhSachKhuVuc()
+        //public List<KhuVuc> LayDanhSachKhuVuc()
+        //{
+        //    List<KhuVuc> dsKhuVuc = new List<KhuVuc>();
+        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("SELECT * FROM KhuVuc", conn);
+        //        SqlDataReader reader = cmd.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            KhuVuc kv = new KhuVuc(
+        //                (int)reader["MaKhuVuc"],
+        //                reader["TenKhuVuc"].ToString(),
+        //                (bool)reader["KhaDung"]
+        //            );
+        //            dsKhuVuc.Add(kv);
+        //        }
+        //    }
+        //    return dsKhuVuc;
+        //}
+
+        public DataTable LayDuLieuKhuVuc()
         {
-            List<KhuVuc> dsKhuVuc = new List<KhuVuc>();
+            DataTable dtKhuVuc = new DataTable();
+
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM KhuVuc", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    KhuVuc kv = new KhuVuc(
-                        (int)reader["MaKhuVuc"],
-                        reader["TenKhuVuc"].ToString(),
-                        (bool)reader["KhaDung"]
-                    );
-                    dsKhuVuc.Add(kv);
-                }
+                string query = "SELECT * FROM KhuVuc";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                adapter.Fill(dtKhuVuc);
             }
-            return dsKhuVuc;
+
+            return dtKhuVuc;
         }
 
-        public bool ThemKhuVuc(KhuVuc kv)
-        {
-            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
-            {
-                conn.Open();
-                string query = "INSERT INTO KhuVuc (TenKhuVuc, KhaDung) " +
-                               "VALUES (@TenKhuVuc, @KhaDung)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@TenKhuVuc", kv.TenKhuVuc);
-                cmd.Parameters.AddWithValue("@KhaDung", kv.KhaDung);
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
+        //public bool ThemCayTrong(CayTrong cayTrong)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+        //    {
+        //        conn.Open();
+        //        string sql = @"INSERT INTO CayTrong 
+        //                        (TenCayTrong, MaLoaiCayTrong, Giong, NguonGoc, SoLuong, NgayGieoTrong, NgayThuHoachDuKien, NgayThuHoachThucTe, MaKhuVuc, TinhTrang) 
+        //                        VALUES (@TenCayTrong, @MaLoaiCayTrong, @GiongCay, @NguonGoc, @SoLuong, @NgayGieoTrong, @NgayThuHoachDuKien, @NgayThuHoachThucTe, @MaKhuVuc, @TinhTrang)";
+
+        //        using (SqlCommand command = new SqlCommand(sql, conn))
+        //        {
+        //            command.Parameters.AddWithValue("@TenCayTrong", cayTrong.TenCayTrong);
+        //            command.Parameters.AddWithValue("@MaLoaiCayTrong", cayTrong.MaLoaiCayTrong);
+        //            command.Parameters.AddWithValue("@GiongCay", cayTrong.Giong ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@NguonGoc", cayTrong.NguonGoc ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@SoLuong", cayTrong.SoLuong);
+        //            command.Parameters.AddWithValue("@NgayGieoTrong", cayTrong.NgayGieoTrong ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@NgayThuHoachDuKien", cayTrong.NgayThuHoachDuKien ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@NgayThuHoachThucTe", cayTrong.NgayThuHoachThucTe ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@MaKhuVuc", cayTrong.MaKhuVuc);
+        //            command.Parameters.AddWithValue("@TinhTrang", cayTrong.TinhTrang);
+
+        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
+        //            {
+        //                adapter.InsertCommand = command;
+        //                return adapter.InsertCommand.ExecuteNonQuery() > 0;
+        //            }
+        //        }
+        //    }
+        //}
+
+        //public bool CapNhatCayTrong(CayTrong cayTrong)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+        //    {
+        //        conn.Open();
+        //        string sql = @"UPDATE CayTrong 
+        //               SET TenCayTrong = @TenCayTrong, 
+        //                   MaLoaiCayTrong = @MaLoaiCayTrong, 
+        //                   Giong = @GiongCay, 
+        //                   NguonGoc = @NguonGoc, 
+        //                   SoLuong = @SoLuong, 
+        //                   NgayGieoTrong = @NgayGieoTrong, 
+        //                   NgayThuHoachDuKien = @NgayThuHoachDuKien, 
+        //                   NgayThuHoachThucTe = @NgayThuHoachThucTe, 
+        //                   MaKhuVuc = @MaKhuVuc, 
+        //                   TinhTrang = @TinhTrang
+        //               WHERE MaCayTrong = @MaCayTrong";
+
+        //        using (SqlCommand command = new SqlCommand(sql, conn))
+        //        {
+        //            command.Parameters.AddWithValue("@MaCayTrong", cayTrong.MaCayTrong);
+        //            command.Parameters.AddWithValue("@TenCayTrong", cayTrong.TenCayTrong);
+        //            command.Parameters.AddWithValue("@MaLoaiCayTrong", cayTrong.MaLoaiCayTrong);
+        //            command.Parameters.AddWithValue("@GiongCay", cayTrong.Giong ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@NguonGoc", cayTrong.NguonGoc ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@SoLuong", cayTrong.SoLuong);
+        //            command.Parameters.AddWithValue("@NgayGieoTrong", cayTrong.NgayGieoTrong ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@NgayThuHoachDuKien", cayTrong.NgayThuHoachDuKien ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@NgayThuHoachThucTe", cayTrong.NgayThuHoachThucTe ?? (object)DBNull.Value);
+        //            command.Parameters.AddWithValue("@MaKhuVuc", cayTrong.MaKhuVuc);
+        //            command.Parameters.AddWithValue("@TinhTrang", cayTrong.TinhTrang);
+
+        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
+        //            {
+        //                adapter.UpdateCommand = command;
+        //                return adapter.UpdateCommand.ExecuteNonQuery() > 0;
+        //            }
+        //        }
+        //    }
+        //}
+
+        //public bool XoaCayTrong(int maCayTrong)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+        //    {
+        //        conn.Open();
+        //        string sql = "DELETE FROM CayTrong WHERE MaCayTrong = @MaCayTrong";
+
+        //        using (SqlCommand command = new SqlCommand(sql, conn))
+        //        {
+        //            command.Parameters.AddWithValue("@MaCayTrong", maCayTrong);
+
+        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
+        //            {
+        //                adapter.DeleteCommand = command;
+        //                return adapter.DeleteCommand.ExecuteNonQuery() > 0;
+        //            }
+        //        }
+        //    }
+        //}
 
         // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemKhuVuc
         // ...

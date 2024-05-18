@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NongTraiVuiVe.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,21 @@ namespace NongTraiVuiVe
                     tabControl.TabPages.Remove(tabPage);
                 }
             }
+        }
+
+        private KhuVucBLL khuVucBLL;
+        private void Frm_QuanLyKhuVuc_Load(object sender, EventArgs e)
+        {
+            HienThiDanhSachKhuVuc();
+        }
+
+        private void HienThiDanhSachKhuVuc()
+        {
+            khuVucBLL = new KhuVucBLL();
+
+            // Gọi phương thức từ BLL để lấy dữ liệu và hiển thị
+            DataTable dtKhuVuc = khuVucBLL.LayDuLieuKhuVuc();
+            dgvDanhSachKhuVuc.DataSource = dtKhuVuc;
         }
     }
 }

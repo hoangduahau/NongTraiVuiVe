@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
+            dgvDanhSachKhuVuc = new DataGridView();
             groupbox2 = new GroupBox();
-            textBox3 = new TextBox();
+            cbbKhaDungKhuVuc = new ComboBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            txtTenKhuVuc = new TextBox();
             label2 = new Label();
             btnThoatKv = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            btnXoaKhuVuc = new Button();
+            btnSuaKhuVuc = new Button();
+            btnThemKhuVuc = new Button();
+            txtMaKhuVuc = new TextBox();
             label1 = new Label();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachKhuVuc).BeginInit();
             groupbox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(dgvDanhSachKhuVuc);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(821, 633);
@@ -56,31 +56,31 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách khu vực";
             // 
-            // dataGridView1
+            // dgvDanhSachKhuVuc
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(815, 607);
-            dataGridView1.TabIndex = 0;
+            dgvDanhSachKhuVuc.AllowUserToAddRows = false;
+            dgvDanhSachKhuVuc.AllowUserToDeleteRows = false;
+            dgvDanhSachKhuVuc.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDanhSachKhuVuc.Dock = DockStyle.Fill;
+            dgvDanhSachKhuVuc.Location = new Point(3, 23);
+            dgvDanhSachKhuVuc.Name = "dgvDanhSachKhuVuc";
+            dgvDanhSachKhuVuc.ReadOnly = true;
+            dgvDanhSachKhuVuc.RowHeadersWidth = 51;
+            dgvDanhSachKhuVuc.RowTemplate.Height = 29;
+            dgvDanhSachKhuVuc.Size = new Size(815, 607);
+            dgvDanhSachKhuVuc.TabIndex = 0;
             // 
             // groupbox2
             // 
-            groupbox2.Controls.Add(textBox3);
+            groupbox2.Controls.Add(cbbKhaDungKhuVuc);
             groupbox2.Controls.Add(label3);
-            groupbox2.Controls.Add(textBox2);
+            groupbox2.Controls.Add(txtTenKhuVuc);
             groupbox2.Controls.Add(label2);
             groupbox2.Controls.Add(btnThoatKv);
-            groupbox2.Controls.Add(button3);
-            groupbox2.Controls.Add(button2);
-            groupbox2.Controls.Add(button1);
-            groupbox2.Controls.Add(textBox1);
+            groupbox2.Controls.Add(btnXoaKhuVuc);
+            groupbox2.Controls.Add(btnSuaKhuVuc);
+            groupbox2.Controls.Add(btnThemKhuVuc);
+            groupbox2.Controls.Add(txtMaKhuVuc);
             groupbox2.Controls.Add(label1);
             groupbox2.Location = new Point(839, 12);
             groupbox2.Name = "groupbox2";
@@ -89,13 +89,15 @@
             groupbox2.TabStop = false;
             groupbox2.Text = "Thông tin khu vực";
             // 
-            // textBox3
+            // cbbKhaDungKhuVuc
             // 
-            textBox3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(165, 354);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(295, 30);
-            textBox3.TabIndex = 9;
+            cbbKhaDungKhuVuc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbKhaDungKhuVuc.FormattingEnabled = true;
+            cbbKhaDungKhuVuc.Items.AddRange(new object[] { "Có", "Không" });
+            cbbKhaDungKhuVuc.Location = new Point(165, 348);
+            cbbKhaDungKhuVuc.Name = "cbbKhaDungKhuVuc";
+            cbbKhaDungKhuVuc.Size = new Size(295, 28);
+            cbbKhaDungKhuVuc.TabIndex = 10;
             // 
             // label3
             // 
@@ -107,13 +109,13 @@
             label3.TabIndex = 8;
             label3.Text = "Khả dụng:";
             // 
-            // textBox2
+            // txtTenKhuVuc
             // 
-            textBox2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(165, 230);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(295, 30);
-            textBox2.TabIndex = 7;
+            txtTenKhuVuc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenKhuVuc.Location = new Point(165, 230);
+            txtTenKhuVuc.Name = "txtTenKhuVuc";
+            txtTenKhuVuc.Size = new Size(295, 30);
+            txtTenKhuVuc.TabIndex = 7;
             // 
             // label2
             // 
@@ -136,40 +138,41 @@
             btnThoatKv.UseVisualStyleBackColor = true;
             btnThoatKv.Click += btnThoatKv_Click;
             // 
-            // button3
+            // btnXoaKhuVuc
             // 
-            button3.Location = new Point(381, 464);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 4;
-            button3.Text = "Xóa";
-            button3.UseVisualStyleBackColor = true;
+            btnXoaKhuVuc.Location = new Point(381, 464);
+            btnXoaKhuVuc.Name = "btnXoaKhuVuc";
+            btnXoaKhuVuc.Size = new Size(94, 29);
+            btnXoaKhuVuc.TabIndex = 4;
+            btnXoaKhuVuc.Text = "Xóa";
+            btnXoaKhuVuc.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSuaKhuVuc
             // 
-            button2.Location = new Point(221, 464);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 3;
-            button2.Text = "Sửa";
-            button2.UseVisualStyleBackColor = true;
+            btnSuaKhuVuc.Location = new Point(221, 464);
+            btnSuaKhuVuc.Name = "btnSuaKhuVuc";
+            btnSuaKhuVuc.Size = new Size(94, 29);
+            btnSuaKhuVuc.TabIndex = 3;
+            btnSuaKhuVuc.Text = "Sửa";
+            btnSuaKhuVuc.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnThemKhuVuc
             // 
-            button1.Location = new Point(51, 464);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Thêm ";
-            button1.UseVisualStyleBackColor = true;
+            btnThemKhuVuc.Location = new Point(51, 464);
+            btnThemKhuVuc.Name = "btnThemKhuVuc";
+            btnThemKhuVuc.Size = new Size(94, 29);
+            btnThemKhuVuc.TabIndex = 2;
+            btnThemKhuVuc.Text = "Thêm ";
+            btnThemKhuVuc.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtMaKhuVuc
             // 
-            textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(165, 112);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(295, 30);
-            textBox1.TabIndex = 1;
+            txtMaKhuVuc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaKhuVuc.Location = new Point(165, 112);
+            txtMaKhuVuc.Name = "txtMaKhuVuc";
+            txtMaKhuVuc.ReadOnly = true;
+            txtMaKhuVuc.Size = new Size(295, 30);
+            txtMaKhuVuc.TabIndex = 1;
             // 
             // label1
             // 
@@ -190,8 +193,9 @@
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyKhuVuc";
             Text = "Frm_QuanLyKhuVuc";
+            Load += Frm_QuanLyKhuVuc_Load;
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDanhSachKhuVuc).EndInit();
             groupbox2.ResumeLayout(false);
             groupbox2.PerformLayout();
             ResumeLayout(false);
@@ -200,17 +204,17 @@
         #endregion
 
         private GroupBox groupBox1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvDanhSachKhuVuc;
         private GroupBox groupbox2;
-        private TextBox textBox3;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox txtTenKhuVuc;
         private Label label2;
         private Button btnThoatKv;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private TextBox textBox1;
+        private Button btnXoaKhuVuc;
+        private Button btnSuaKhuVuc;
+        private Button btnThemKhuVuc;
+        private TextBox txtMaKhuVuc;
         private Label label1;
+        private ComboBox cbbKhaDungKhuVuc;
     }
 }
