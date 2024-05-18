@@ -156,6 +156,7 @@
             btnSuaKhuVuc.TabIndex = 3;
             btnSuaKhuVuc.Text = "Sửa";
             btnSuaKhuVuc.UseVisualStyleBackColor = true;
+            btnSuaKhuVuc.Click += btnSuaKhuVuc_Click;
             // 
             // btnThemKhuVuc
             // 

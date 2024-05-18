@@ -70,7 +70,7 @@ namespace NongTraiVuiVe
                     {
                         cbbKhaDungKhuVuc.SelectedIndex = 1;
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -114,6 +114,51 @@ namespace NongTraiVuiVe
                 else
                 {
                     MessageBox.Show("Thêm khu vực thất bại. Vui lòng kiểm tra lại.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnSuaKhuVuc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                KhuVuc khuVuc = new KhuVuc();
+                int.TryParse(txtMaKhuVuc.Text, out int maKhuVuc);
+                khuVuc.MaKhuVuc = maKhuVuc;
+                khuVuc.TenKhuVuc = txtTenKhuVuc.Text;
+                if (cbbKhaDungKhuVuc.SelectedItem != null)
+                {
+                    if (cbbKhaDungKhuVuc.SelectedItem.ToString() == "Có")
+                    {
+                        khuVuc.KhaDung = true;
+                    }
+                    else
+                    {
+                        khuVuc.KhaDung = false;
+                    }
+                }
+                else
+                {
+                    khuVuc.KhaDung = null;
+                }
+
+                KhuVucBLL khuVucBLL = new KhuVucBLL();
+                if (khuVucBLL.CapNhatKhuVuc(khuVuc))
+                {
+                    txtTenKhuVuc.Focus();
+                    txtMaKhuVuc.Text = "";
+                    txtTenKhuVuc.Text = "";
+                    cbbKhaDungKhuVuc.SelectedIndex = -1;
+                    HienThiDanhSachKhuVuc();
+                    MessageBox.Show("Chỉnh sửa khu vực thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Chỉnh sửa khu vực thất bại. Vui lòng kiểm tra lại.");
                 }
             }
             catch (Exception ex)

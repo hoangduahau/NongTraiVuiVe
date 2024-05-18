@@ -63,46 +63,30 @@ namespace NongTraiVuiVe.DAL
             }
         }
 
-        //public bool CapNhatCayTrong(CayTrong cayTrong)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
-        //    {
-        //        conn.Open();
-        //        string sql = @"UPDATE CayTrong 
-        //               SET TenCayTrong = @TenCayTrong, 
-        //                   MaLoaiCayTrong = @MaLoaiCayTrong, 
-        //                   Giong = @GiongCay, 
-        //                   NguonGoc = @NguonGoc, 
-        //                   SoLuong = @SoLuong, 
-        //                   NgayGieoTrong = @NgayGieoTrong, 
-        //                   NgayThuHoachDuKien = @NgayThuHoachDuKien, 
-        //                   NgayThuHoachThucTe = @NgayThuHoachThucTe, 
-        //                   MaKhuVuc = @MaKhuVuc, 
-        //                   TinhTrang = @TinhTrang
-        //               WHERE MaCayTrong = @MaCayTrong";
+        public bool CapNhatKhuVuc(KhuVuc khuVuc)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = @"UPDATE KhuVuc 
+                       SET TenKhuVuc = @TenKhuVuc, 
+                           KhaDung = @KhaDung 
+                       WHERE MaKhuVuc = @MaKhuVuc"; 
 
-        //        using (SqlCommand command = new SqlCommand(sql, conn))
-        //        {
-        //            command.Parameters.AddWithValue("@MaCayTrong", cayTrong.MaCayTrong);
-        //            command.Parameters.AddWithValue("@TenCayTrong", cayTrong.TenCayTrong);
-        //            command.Parameters.AddWithValue("@MaLoaiCayTrong", cayTrong.MaLoaiCayTrong);
-        //            command.Parameters.AddWithValue("@GiongCay", cayTrong.Giong ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@NguonGoc", cayTrong.NguonGoc ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@SoLuong", cayTrong.SoLuong);
-        //            command.Parameters.AddWithValue("@NgayGieoTrong", cayTrong.NgayGieoTrong ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@NgayThuHoachDuKien", cayTrong.NgayThuHoachDuKien ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@NgayThuHoachThucTe", cayTrong.NgayThuHoachThucTe ?? (object)DBNull.Value);
-        //            command.Parameters.AddWithValue("@MaKhuVuc", cayTrong.MaKhuVuc);
-        //            command.Parameters.AddWithValue("@TinhTrang", cayTrong.TinhTrang);
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaKhuVuc", khuVuc.MaKhuVuc);
+                    command.Parameters.AddWithValue("@TenKhuVuc", khuVuc.TenKhuVuc);
+                    command.Parameters.AddWithValue("@KhaDung", khuVuc.KhaDung);
 
-        //            using (SqlDataAdapter adapter = new SqlDataAdapter())
-        //            {
-        //                adapter.UpdateCommand = command;
-        //                return adapter.UpdateCommand.ExecuteNonQuery() > 0;
-        //            }
-        //        }
-        //    }
-        //}
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.UpdateCommand = command; 
+                        return adapter.UpdateCommand.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+        }
 
         //public bool XoaCayTrong(int maCayTrong)
         //{
