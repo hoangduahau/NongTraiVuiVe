@@ -1,4 +1,5 @@
-﻿using NongTraiVuiVe.Quản_Lý;
+﻿using NongTraiVuiVe.GUI;
+using NongTraiVuiVe.Quản_Lý;
 using System.Windows.Forms.VisualStyles;
 
 namespace NongTraiVuiVe
@@ -88,6 +89,11 @@ namespace NongTraiVuiVe
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             QuanLyTabPage("Quản Lý Khách Hàng", new Frm_QuanLyKhachHang());
+        }
+
+        private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Nhà Cung Cấp", new Frm_QuanLyNhaCungCap());
         }
     }
 }

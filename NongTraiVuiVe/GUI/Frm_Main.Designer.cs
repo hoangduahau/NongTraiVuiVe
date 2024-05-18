@@ -55,6 +55,7 @@
             lblErr = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             tabControl1 = new TabControl();
+            quảnLýNhàCungCấpToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             lblErr.SuspendLayout();
             SuspendLayout();
@@ -108,7 +109,7 @@
             // 
             // danhMụcToolStripMenuItem
             // 
-            danhMụcToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýNgườiDùngToolStripMenuItem, quảnLýKhuVựcToolStripMenuItem, quảnLýCâyTrồngToolStripMenuItem, quảnLýCâyTrồngToolStripMenuItem1, quảnLýKhoHàngToolStripMenuItem, quảnLýLoạiNguyênVậtLiệuToolStripMenuItem, quảnLýNguyênVậtLiệuToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem });
+            danhMụcToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { quảnLýNgườiDùngToolStripMenuItem, quảnLýKhuVựcToolStripMenuItem, quảnLýCâyTrồngToolStripMenuItem, quảnLýCâyTrồngToolStripMenuItem1, quảnLýKhoHàngToolStripMenuItem, quảnLýLoạiNguyênVậtLiệuToolStripMenuItem, quảnLýNguyênVậtLiệuToolStripMenuItem, quảnLýKháchHàngToolStripMenuItem, quảnLýNhàCungCấpToolStripMenuItem });
             danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
             danhMụcToolStripMenuItem.Size = new Size(90, 24);
             danhMụcToolStripMenuItem.Text = "Danh mục";
@@ -244,6 +245,13 @@
             tabControl1.Size = new Size(967, 415);
             tabControl1.TabIndex = 4;
             // 
+            // quảnLýNhàCungCấpToolStripMenuItem
+            // 
+            quảnLýNhàCungCấpToolStripMenuItem.Name = "quảnLýNhàCungCấpToolStripMenuItem";
+            quảnLýNhàCungCấpToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýNhàCungCấpToolStripMenuItem.Text = "Quản lý nhà cung cấp";
+            quảnLýNhàCungCấpToolStripMenuItem.Click += quảnLýNhàCungCấpToolStripMenuItem_Click;
+            // 
             // Frm_Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -294,5 +302,6 @@
         private StatusStrip lblErr;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private TabControl tabControl1;
+        private ToolStripMenuItem quảnLýNhàCungCấpToolStripMenuItem;
     }
 }
