@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             gbnvl = new GroupBox();
+            txtSoLuongHong = new TextBox();
+            label8 = new Label();
+            cbbTinhTrang = new ComboBox();
+            label7 = new Label();
+            cbbKhoChua = new ComboBox();
+            cbbLoaiNguyenVatLieu = new ComboBox();
             txtHanSuDung = new TextBox();
             label5 = new Label();
             label6 = new Label();
@@ -45,12 +51,6 @@
             label1 = new Label();
             groupBox1 = new GroupBox();
             dgvDanhSachNguyenVatLieu = new DataGridView();
-            cbbLoaiNguyenVatLieu = new ComboBox();
-            cbbKhoChua = new ComboBox();
-            label7 = new Label();
-            cbbTinhTrang = new ComboBox();
-            label8 = new Label();
-            txtSoLuongHong = new TextBox();
             gbnvl.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachNguyenVatLieu).BeginInit();
@@ -84,6 +84,58 @@
             gbnvl.TabIndex = 7;
             gbnvl.TabStop = false;
             gbnvl.Text = "Thông tin nguyên vật liệu";
+            // 
+            // txtSoLuongHong
+            // 
+            txtSoLuongHong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSoLuongHong.Location = new Point(210, 311);
+            txtSoLuongHong.Name = "txtSoLuongHong";
+            txtSoLuongHong.Size = new Size(295, 30);
+            txtSoLuongHong.TabIndex = 21;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(22, 319);
+            label8.Name = "label8";
+            label8.Size = new Size(130, 22);
+            label8.TabIndex = 20;
+            label8.Text = "Số lượng hỏng:";
+            // 
+            // cbbTinhTrang
+            // 
+            cbbTinhTrang.FormattingEnabled = true;
+            cbbTinhTrang.Location = new Point(210, 278);
+            cbbTinhTrang.Name = "cbbTinhTrang";
+            cbbTinhTrang.Size = new Size(295, 28);
+            cbbTinhTrang.TabIndex = 19;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(22, 284);
+            label7.Name = "label7";
+            label7.Size = new Size(96, 22);
+            label7.TabIndex = 18;
+            label7.Text = "Tình trạng:";
+            // 
+            // cbbKhoChua
+            // 
+            cbbKhoChua.FormattingEnabled = true;
+            cbbKhoChua.Location = new Point(210, 202);
+            cbbKhoChua.Name = "cbbKhoChua";
+            cbbKhoChua.Size = new Size(295, 28);
+            cbbKhoChua.TabIndex = 17;
+            // 
+            // cbbLoaiNguyenVatLieu
+            // 
+            cbbLoaiNguyenVatLieu.FormattingEnabled = true;
+            cbbLoaiNguyenVatLieu.Location = new Point(210, 122);
+            cbbLoaiNguyenVatLieu.Name = "cbbLoaiNguyenVatLieu";
+            cbbLoaiNguyenVatLieu.Size = new Size(295, 28);
+            cbbLoaiNguyenVatLieu.TabIndex = 16;
             // 
             // txtHanSuDung
             // 
@@ -179,6 +231,7 @@
             btnXoaNguyenVatLieu.TabIndex = 4;
             btnXoaNguyenVatLieu.Text = "Xóa";
             btnXoaNguyenVatLieu.UseVisualStyleBackColor = true;
+            btnXoaNguyenVatLieu.Click += btnXoaNguyenVatLieu_Click;
             // 
             // btnSuaNguyenVatLieu
             // 
@@ -188,6 +241,7 @@
             btnSuaNguyenVatLieu.TabIndex = 3;
             btnSuaNguyenVatLieu.Text = "Sửa";
             btnSuaNguyenVatLieu.UseVisualStyleBackColor = true;
+            btnSuaNguyenVatLieu.Click += btnSuaNguyenVatLieu_Click;
             // 
             // btnThemNguyenVatLieu
             // 
@@ -197,6 +251,7 @@
             btnThemNguyenVatLieu.TabIndex = 2;
             btnThemNguyenVatLieu.Text = "Thêm ";
             btnThemNguyenVatLieu.UseVisualStyleBackColor = true;
+            btnThemNguyenVatLieu.Click += btnThemNguyenVatLieu_Click;
             // 
             // txtMaNguyenVatLieu
             // 
@@ -240,58 +295,7 @@
             dgvDanhSachNguyenVatLieu.RowTemplate.Height = 29;
             dgvDanhSachNguyenVatLieu.Size = new Size(784, 587);
             dgvDanhSachNguyenVatLieu.TabIndex = 0;
-            // 
-            // cbbLoaiNguyenVatLieu
-            // 
-            cbbLoaiNguyenVatLieu.FormattingEnabled = true;
-            cbbLoaiNguyenVatLieu.Location = new Point(210, 122);
-            cbbLoaiNguyenVatLieu.Name = "cbbLoaiNguyenVatLieu";
-            cbbLoaiNguyenVatLieu.Size = new Size(295, 28);
-            cbbLoaiNguyenVatLieu.TabIndex = 16;
-            // 
-            // cbbKhoChua
-            // 
-            cbbKhoChua.FormattingEnabled = true;
-            cbbKhoChua.Location = new Point(210, 202);
-            cbbKhoChua.Name = "cbbKhoChua";
-            cbbKhoChua.Size = new Size(295, 28);
-            cbbKhoChua.TabIndex = 17;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(22, 284);
-            label7.Name = "label7";
-            label7.Size = new Size(96, 22);
-            label7.TabIndex = 18;
-            label7.Text = "Tình trạng:";
-            // 
-            // cbbTinhTrang
-            // 
-            cbbTinhTrang.FormattingEnabled = true;
-            cbbTinhTrang.Location = new Point(210, 278);
-            cbbTinhTrang.Name = "cbbTinhTrang";
-            cbbTinhTrang.Size = new Size(295, 28);
-            cbbTinhTrang.TabIndex = 19;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(22, 319);
-            label8.Name = "label8";
-            label8.Size = new Size(130, 22);
-            label8.TabIndex = 20;
-            label8.Text = "Số lượng hỏng:";
-            // 
-            // txtSoLuongHong
-            // 
-            txtSoLuongHong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSoLuongHong.Location = new Point(210, 311);
-            txtSoLuongHong.Name = "txtSoLuongHong";
-            txtSoLuongHong.Size = new Size(295, 30);
-            txtSoLuongHong.TabIndex = 21;
+            dgvDanhSachNguyenVatLieu.CellClick += dgvDanhSachNguyenVatLieu_CellClick;
             // 
             // Frm_QuanLyNguyenVatLieu
             // 
@@ -302,6 +306,7 @@
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyNguyenVatLieu";
             Text = "Frm_QuanLyNguyenVatLieu";
+            Load += Frm_QuanLyNguyenVatLieu_Load;
             gbnvl.ResumeLayout(false);
             gbnvl.PerformLayout();
             groupBox1.ResumeLayout(false);

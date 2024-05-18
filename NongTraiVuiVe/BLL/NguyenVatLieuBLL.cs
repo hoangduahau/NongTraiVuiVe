@@ -2,6 +2,7 @@
 using NongTraiVuiVe.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,19 +18,9 @@ namespace NongTraiVuiVe.BLL
             _nguyenVatLieuDAL = new NguyenVatLieuDAL();
         }
 
-        public List<NguyenVatLieu> LayDanhSachNguyenVatLieu()
+        public DataTable LayDuLieuNguyenVatLieu()
         {
-            return _nguyenVatLieuDAL.LayDanhSachNguyenVatLieu();
+            return _nguyenVatLieuDAL.LayDuLieuNguyenVatLieu();
         }
-
-        public bool ThemNguyenVatLieu(NguyenVatLieu nvl)
-        {
-            // Kiểm tra dữ liệu (ví dụ: nvl có hợp lệ không?)
-            // ... (Các logic nghiệp vụ khác)
-            return _nguyenVatLieuDAL.ThemNguyenVatLieu(nvl);
-        }
-
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemNguyenVatLieu
-        // ...
     }
 }

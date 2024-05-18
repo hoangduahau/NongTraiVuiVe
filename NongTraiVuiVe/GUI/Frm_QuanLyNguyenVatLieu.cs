@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NongTraiVuiVe.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,6 +36,40 @@ namespace NongTraiVuiVe.Quản_Lý
                     tabControl.TabPages.Remove(tabPage);
                 }
             }
+        }
+
+        private NguyenVatLieuBLL nguyenVatLieuBLL;
+        private void Frm_QuanLyNguyenVatLieu_Load(object sender, EventArgs e)
+        {
+            HienThiDanhSachNguyenVatLieu();
+        }
+
+        private void HienThiDanhSachNguyenVatLieu()
+        {
+            nguyenVatLieuBLL = new NguyenVatLieuBLL();
+
+            DataTable dtNguyenVatLieu = nguyenVatLieuBLL.LayDuLieuNguyenVatLieu();
+            dgvDanhSachNguyenVatLieu.DataSource = dtNguyenVatLieu;
+        }
+
+        private void dgvDanhSachNguyenVatLieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnThemNguyenVatLieu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSuaNguyenVatLieu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoaNguyenVatLieu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
