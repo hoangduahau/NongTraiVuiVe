@@ -13,7 +13,7 @@ namespace NongTraiVuiVe.DTO
         public string DiaChi { get; set; }
         public string DienThoai { get; set; }
         public string Email { get; set; }
-        public DateTime NgaySinh { get; set; }
+        public DateTime? NgaySinh { get; set; }
 
         public KhachHang() { }
 

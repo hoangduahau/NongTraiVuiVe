@@ -11,48 +11,113 @@ namespace NongTraiVuiVe.DAL
 {
     public class KhachHangDAL
     {
-        public List<KhachHang> LayDanhSachKhachHang()
+        public DataTable LayDuLieuKhachHang()
         {
-            List<KhachHang> dsKhachHang = new List<KhachHang>();
+            DataTable dtKhachHang = new DataTable();
+
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM KhachHang", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                string query = "SELECT * FROM KhachHang";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                adapter.Fill(dtKhachHang);
+            }
+
+            return dtKhachHang;
+        }
+
+        public bool ThemKhachHang(KhachHang khachHang)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = @"INSERT INTO KhachHang 
+                        (TenKhachHang, DiaChi, DienThoai, Email, NgaySinh) 
+                        VALUES (@TenKhachHang, @DiaChi, @DienThoai, @Email, @NgaySinh)";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
                 {
-                    KhachHang kh = new KhachHang(
-                        (int)reader["MaKhachHang"],
-                        reader["TenKhachHang"].ToString(),
-                        reader["DiaChi"].ToString(),
-                        reader["DienThoai"].ToString(),
-                        reader["Email"].ToString(),
-                        (DateTime)reader["NgaySinh"]
-                    );
-                    dsKhachHang.Add(kh);
+                    command.Parameters.AddWithValue("@TenKhachHang", khachHang.TenKhachHang);
+                    command.Parameters.AddWithValue("@DiaChi", khachHang.DiaChi);
+                    command.Parameters.AddWithValue("@DienThoai", khachHang.DienThoai);
+                    command.Parameters.AddWithValue("@Email", khachHang.Email);
+
+                    if (khachHang.NgaySinh.HasValue && khachHang.NgaySinh.Value >= new DateTime(1753, 1, 1))
+                    {
+                        command.Parameters.AddWithValue("@NgaySinh", khachHang.NgaySinh.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@NgaySinh", DBNull.Value);
+                    }
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.InsertCommand = command;
+                        return adapter.InsertCommand.ExecuteNonQuery() > 0;
+                    }
                 }
             }
-            return dsKhachHang;
         }
 
-        public bool ThemKhachHang(KhachHang kh)
+        public bool CapNhatKhachHang(KhachHang khachHang)
         {
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO KhachHang (TenKhachHang, DiaChi, DienThoai, Email, NgaySinh) " +
-                               "VALUES (@TenKhachHang, @DiaChi, @DienThoai, @Email, @NgaySinh)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@TenKhachHang", kh.TenKhachHang);
-                cmd.Parameters.AddWithValue("@DiaChi", kh.DiaChi);
-                cmd.Parameters.AddWithValue("@DienThoai", kh.DienThoai);
-                cmd.Parameters.AddWithValue("@Email", kh.Email);
-                cmd.Parameters.AddWithValue("@NgaySinh", kh.NgaySinh);
-                return cmd.ExecuteNonQuery() > 0;
+                string sql = @"UPDATE KhachHang 
+                       SET TenKhachHang = @TenKhachHang, 
+                           DiaChi = @DiaChi,
+                           DienThoai = @DienThoai,
+                           Email = @Email,
+                           NgaySinh = @NgaySinh
+                       WHERE MaKhachHang = @MaKhachHang";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaKhachHang", khachHang.MaKhachHang);
+                    command.Parameters.AddWithValue("@TenKhachHang", khachHang.TenKhachHang);
+                    command.Parameters.AddWithValue("@DiaChi", khachHang.DiaChi);
+                    command.Parameters.AddWithValue("@DienThoai", khachHang.DienThoai);
+                    command.Parameters.AddWithValue("@Email", khachHang.Email);
+
+                    if (khachHang.NgaySinh.HasValue && khachHang.NgaySinh.Value >= new DateTime(1753, 1, 1))
+                    {
+                        command.Parameters.AddWithValue("@NgaySinh", khachHang.NgaySinh.Value);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@NgaySinh", DBNull.Value);
+                    }
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.UpdateCommand = command;
+                        return adapter.UpdateCommand.ExecuteNonQuery() > 0;
+                    }
+                }
             }
         }
 
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemKhachHang
-        // ...
+        public bool XoaKhachHang(int maKhachHang)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "DELETE FROM KhachHang WHERE MaKhachHang = @MaKhachHang";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter())
+                    {
+                        adapter.DeleteCommand = command;
+                        return adapter.DeleteCommand.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+        }
     }
 }
