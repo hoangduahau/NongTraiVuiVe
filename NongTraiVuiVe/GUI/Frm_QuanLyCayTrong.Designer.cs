@@ -65,10 +65,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(78, 48);
+            label1.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(89, 75);
             label1.Name = "label1";
-            label1.Size = new Size(119, 22);
+            label1.Size = new Size(134, 25);
             label1.TabIndex = 0;
             label1.Text = "Mã cây trồng:";
             // 
@@ -100,200 +100,201 @@
             groupbox2.Controls.Add(btnThemCayTrong);
             groupbox2.Controls.Add(txtMaCayTrong);
             groupbox2.Controls.Add(label1);
-            groupbox2.Location = new Point(798, -4);
+            groupbox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupbox2.Location = new Point(1352, 1);
             groupbox2.Name = "groupbox2";
-            groupbox2.Size = new Size(515, 633);
+            groupbox2.Size = new Size(556, 864);
             groupbox2.TabIndex = 3;
             groupbox2.TabStop = false;
-            groupbox2.Text = "Thông tin khu vực";
+            groupbox2.Text = "Thông tin cây trồng";
+            groupbox2.Enter += groupbox2_Enter;
             // 
             // txtTinhTrang
             // 
-            txtTinhTrang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTinhTrang.Location = new Point(213, 404);
+            txtTinhTrang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTinhTrang.Location = new Point(229, 634);
             txtTinhTrang.Name = "txtTinhTrang";
-            txtTinhTrang.Size = new Size(295, 30);
+            txtTinhTrang.Size = new Size(295, 34);
             txtTinhTrang.TabIndex = 25;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(101, 407);
+            label11.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(117, 698);
             label11.Name = "label11";
-            label11.Size = new Size(96, 22);
+            label11.Size = new Size(107, 25);
             label11.TabIndex = 24;
             label11.Text = "Tình trạng:";
             // 
             // txtMaKhuVuc
             // 
-            txtMaKhuVuc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaKhuVuc.Location = new Point(213, 368);
+            txtMaKhuVuc.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaKhuVuc.Location = new Point(229, 689);
             txtMaKhuVuc.Name = "txtMaKhuVuc";
-            txtMaKhuVuc.Size = new Size(295, 30);
+            txtMaKhuVuc.Size = new Size(295, 34);
             txtMaKhuVuc.TabIndex = 23;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(88, 371);
+            label10.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(100, 643);
             label10.Name = "label10";
-            label10.Size = new Size(109, 22);
+            label10.Size = new Size(124, 25);
             label10.TabIndex = 22;
             label10.Text = "Mã khu vực:";
             // 
             // txtNgayThuHoachThucTe
             // 
-            txtNgayThuHoachThucTe.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgayThuHoachThucTe.Location = new Point(213, 332);
+            txtNgayThuHoachThucTe.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNgayThuHoachThucTe.Location = new Point(229, 579);
             txtNgayThuHoachThucTe.Name = "txtNgayThuHoachThucTe";
-            txtNgayThuHoachThucTe.Size = new Size(295, 30);
+            txtNgayThuHoachThucTe.Size = new Size(295, 34);
             txtNgayThuHoachThucTe.TabIndex = 21;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(3, 340);
+            label9.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(3, 588);
             label9.Name = "label9";
-            label9.Size = new Size(194, 22);
+            label9.Size = new Size(221, 25);
             label9.TabIndex = 20;
             label9.Text = "Ngày thu hoạch thực tế:";
             // 
             // txtNgayThuHoachDuKien
             // 
-            txtNgayThuHoachDuKien.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgayThuHoachDuKien.Location = new Point(213, 296);
+            txtNgayThuHoachDuKien.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNgayThuHoachDuKien.Location = new Point(229, 513);
             txtNgayThuHoachDuKien.Name = "txtNgayThuHoachDuKien";
-            txtNgayThuHoachDuKien.Size = new Size(295, 30);
+            txtNgayThuHoachDuKien.Size = new Size(295, 34);
             txtNgayThuHoachDuKien.TabIndex = 19;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(-3, 304);
+            label8.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(-4, 522);
             label8.Name = "label8";
-            label8.Size = new Size(200, 22);
+            label8.Size = new Size(227, 25);
             label8.TabIndex = 18;
             label8.Text = "Ngày thu hoạch dự kiến:";
-            label8.Click += label8_Click;
             // 
             // txtNgayGieoTrong
             // 
-            txtNgayGieoTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgayGieoTrong.Location = new Point(213, 260);
+            txtNgayGieoTrong.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNgayGieoTrong.Location = new Point(229, 463);
             txtNgayGieoTrong.Name = "txtNgayGieoTrong";
-            txtNgayGieoTrong.Size = new Size(295, 30);
+            txtNgayGieoTrong.Size = new Size(295, 34);
             txtNgayGieoTrong.TabIndex = 17;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(56, 263);
+            label7.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(65, 472);
             label7.Name = "label7";
-            label7.Size = new Size(141, 22);
+            label7.Size = new Size(158, 25);
             label7.TabIndex = 16;
             label7.Text = "Ngày gieo trồng:";
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSoLuong.Location = new Point(213, 224);
+            txtSoLuong.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSoLuong.Location = new Point(229, 399);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(295, 30);
+            txtSoLuong.Size = new Size(295, 34);
             txtSoLuong.TabIndex = 15;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(109, 227);
+            label6.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(126, 408);
             label6.Name = "label6";
-            label6.Size = new Size(88, 22);
+            label6.Size = new Size(97, 25);
             label6.TabIndex = 14;
             label6.Text = "Số lượng:";
             // 
             // txtNguonGoc
             // 
-            txtNguonGoc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNguonGoc.Location = new Point(213, 188);
+            txtNguonGoc.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNguonGoc.Location = new Point(229, 334);
             txtNguonGoc.Name = "txtNguonGoc";
-            txtNguonGoc.Size = new Size(295, 30);
+            txtNguonGoc.Size = new Size(295, 34);
             txtNguonGoc.TabIndex = 13;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(97, 196);
+            label5.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(110, 343);
             label5.Name = "label5";
-            label5.Size = new Size(100, 22);
+            label5.Size = new Size(113, 25);
             label5.TabIndex = 12;
             label5.Text = "Nguồn gốc:";
             // 
             // txtGiongCay
             // 
-            txtGiongCay.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtGiongCay.Location = new Point(213, 152);
+            txtGiongCay.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtGiongCay.Location = new Point(229, 269);
             txtGiongCay.Name = "txtGiongCay";
-            txtGiongCay.Size = new Size(295, 30);
+            txtGiongCay.Size = new Size(295, 34);
             txtGiongCay.TabIndex = 11;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(101, 160);
+            label4.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(115, 278);
             label4.Name = "label4";
-            label4.Size = new Size(96, 22);
+            label4.Size = new Size(108, 25);
             label4.TabIndex = 10;
             label4.Text = "Giống cây:";
             // 
             // txtMaLoaiCayTrong
             // 
-            txtMaLoaiCayTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaLoaiCayTrong.Location = new Point(213, 112);
+            txtMaLoaiCayTrong.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaLoaiCayTrong.Location = new Point(229, 200);
             txtMaLoaiCayTrong.Name = "txtMaLoaiCayTrong";
-            txtMaLoaiCayTrong.Size = new Size(295, 30);
+            txtMaLoaiCayTrong.Size = new Size(295, 34);
             txtMaLoaiCayTrong.TabIndex = 9;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(42, 120);
+            label3.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(50, 209);
             label3.Name = "label3";
-            label3.Size = new Size(155, 22);
+            label3.Size = new Size(173, 25);
             label3.TabIndex = 8;
             label3.Text = "Mã loại cây trồng:";
             // 
             // txtTenCayTrong
             // 
-            txtTenCayTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenCayTrong.Location = new Point(213, 76);
+            txtTenCayTrong.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenCayTrong.Location = new Point(229, 134);
             txtTenCayTrong.Name = "txtTenCayTrong";
-            txtTenCayTrong.Size = new Size(295, 30);
+            txtTenCayTrong.Size = new Size(295, 34);
             txtTenCayTrong.TabIndex = 7;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(74, 84);
+            label2.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(84, 143);
             label2.Name = "label2";
-            label2.Size = new Size(123, 22);
+            label2.Size = new Size(139, 25);
             label2.TabIndex = 6;
             label2.Text = "Tên cây trồng:";
             // 
             // btnThoatCT
             // 
             btnThoatCT.Dock = DockStyle.Bottom;
-            btnThoatCT.Location = new Point(3, 601);
+            btnThoatCT.Location = new Point(3, 825);
             btnThoatCT.Name = "btnThoatCT";
-            btnThoatCT.Size = new Size(509, 29);
+            btnThoatCT.Size = new Size(550, 36);
             btnThoatCT.TabIndex = 5;
             btnThoatCT.Text = "Thoát";
             btnThoatCT.UseVisualStyleBackColor = true;
@@ -301,9 +302,10 @@
             // 
             // btnXoaCayTrong
             // 
-            btnXoaCayTrong.Location = new Point(414, 539);
+            btnXoaCayTrong.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnXoaCayTrong.Location = new Point(418, 744);
             btnXoaCayTrong.Name = "btnXoaCayTrong";
-            btnXoaCayTrong.Size = new Size(94, 29);
+            btnXoaCayTrong.Size = new Size(106, 35);
             btnXoaCayTrong.TabIndex = 4;
             btnXoaCayTrong.Text = "Xóa";
             btnXoaCayTrong.UseVisualStyleBackColor = true;
@@ -311,9 +313,10 @@
             // 
             // btnSuaCayTrong
             // 
-            btnSuaCayTrong.Location = new Point(251, 539);
+            btnSuaCayTrong.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSuaCayTrong.Location = new Point(255, 744);
             btnSuaCayTrong.Name = "btnSuaCayTrong";
-            btnSuaCayTrong.Size = new Size(94, 29);
+            btnSuaCayTrong.Size = new Size(106, 35);
             btnSuaCayTrong.TabIndex = 3;
             btnSuaCayTrong.Text = "Sửa";
             btnSuaCayTrong.UseVisualStyleBackColor = true;
@@ -321,9 +324,10 @@
             // 
             // btnThemCayTrong
             // 
-            btnThemCayTrong.Location = new Point(65, 539);
+            btnThemCayTrong.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnThemCayTrong.Location = new Point(69, 744);
             btnThemCayTrong.Name = "btnThemCayTrong";
-            btnThemCayTrong.Size = new Size(94, 29);
+            btnThemCayTrong.Size = new Size(106, 35);
             btnThemCayTrong.TabIndex = 2;
             btnThemCayTrong.Text = "Thêm ";
             btnThemCayTrong.UseVisualStyleBackColor = true;
@@ -331,35 +335,37 @@
             // 
             // txtMaCayTrong
             // 
-            txtMaCayTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaCayTrong.Location = new Point(213, 40);
+            txtMaCayTrong.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaCayTrong.Location = new Point(229, 66);
             txtMaCayTrong.Name = "txtMaCayTrong";
             txtMaCayTrong.ReadOnly = true;
-            txtMaCayTrong.Size = new Size(295, 30);
+            txtMaCayTrong.Size = new Size(295, 34);
             txtMaCayTrong.TabIndex = 1;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dgvDanhSachCayTrong);
-            groupBox1.Location = new Point(5, -4);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(8, 1);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(787, 633);
+            groupBox1.Size = new Size(1341, 864);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Danh sách khu vực";
+            groupBox1.Text = "Danh sách cây trồng";
             // 
             // dgvDanhSachCayTrong
             // 
             dgvDanhSachCayTrong.AllowUserToAddRows = false;
             dgvDanhSachCayTrong.AllowUserToDeleteRows = false;
+            dgvDanhSachCayTrong.BackgroundColor = Color.Honeydew;
             dgvDanhSachCayTrong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachCayTrong.Dock = DockStyle.Fill;
-            dgvDanhSachCayTrong.Location = new Point(3, 23);
+            dgvDanhSachCayTrong.Location = new Point(3, 30);
             dgvDanhSachCayTrong.Name = "dgvDanhSachCayTrong";
             dgvDanhSachCayTrong.ReadOnly = true;
             dgvDanhSachCayTrong.RowHeadersWidth = 51;
             dgvDanhSachCayTrong.RowTemplate.Height = 29;
-            dgvDanhSachCayTrong.Size = new Size(781, 607);
+            dgvDanhSachCayTrong.Size = new Size(1335, 831);
             dgvDanhSachCayTrong.TabIndex = 0;
             dgvDanhSachCayTrong.CellClick += dgvDanhSachCayTrong_CellClick;
             // 
@@ -367,7 +373,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1318, 625);
+            ClientSize = new Size(1914, 877);
             Controls.Add(groupbox2);
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyCayTrong";

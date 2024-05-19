@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             gpKh = new GroupBox();
+            txtEmailKhachHang = new TextBox();
+            label6 = new Label();
             txtNgaySinhKhachHang = new TextBox();
             label5 = new Label();
             txtSoDienThoaiKhachHang = new TextBox();
@@ -45,8 +47,6 @@
             label1 = new Label();
             groupBox1 = new GroupBox();
             dgvDanhSachKhachHang = new DataGridView();
-            label6 = new Label();
-            txtEmailKhachHang = new TextBox();
             gpKh.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachKhachHang).BeginInit();
@@ -70,91 +70,111 @@
             gpKh.Controls.Add(btnThemKhachHang);
             gpKh.Controls.Add(txtMaKhachHang);
             gpKh.Controls.Add(label1);
-            gpKh.Location = new Point(833, 5);
+            gpKh.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            gpKh.Location = new Point(1352, 1);
             gpKh.Name = "gpKh";
-            gpKh.Size = new Size(481, 614);
+            gpKh.Size = new Size(556, 864);
             gpKh.TabIndex = 7;
             gpKh.TabStop = false;
-            gpKh.Text = "Thông tin kho hàng";
+            gpKh.Text = "Thông tin khách hàng";
+            // 
+            // txtEmailKhachHang
+            // 
+            txtEmailKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmailKhachHang.Location = new Point(224, 459);
+            txtEmailKhachHang.Name = "txtEmailKhachHang";
+            txtEmailKhachHang.Size = new Size(295, 34);
+            txtEmailKhachHang.TabIndex = 15;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(102, 468);
+            label6.Name = "label6";
+            label6.Size = new Size(69, 25);
+            label6.TabIndex = 14;
+            label6.Text = "Email:";
             // 
             // txtNgaySinhKhachHang
             // 
-            txtNgaySinhKhachHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgaySinhKhachHang.Location = new Point(180, 409);
+            txtNgaySinhKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNgaySinhKhachHang.Location = new Point(224, 529);
             txtNgaySinhKhachHang.Name = "txtNgaySinhKhachHang";
-            txtNgaySinhKhachHang.Size = new Size(295, 30);
+            txtNgaySinhKhachHang.Size = new Size(295, 34);
             txtNgaySinhKhachHang.TabIndex = 13;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(68, 417);
+            label5.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(65, 538);
             label5.Name = "label5";
-            label5.Size = new Size(94, 22);
+            label5.Size = new Size(106, 25);
             label5.TabIndex = 12;
             label5.Text = "Ngày sinh:";
             // 
             // txtSoDienThoaiKhachHang
             // 
-            txtSoDienThoaiKhachHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSoDienThoaiKhachHang.Location = new Point(180, 288);
+            txtSoDienThoaiKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSoDienThoaiKhachHang.Location = new Point(224, 384);
             txtSoDienThoaiKhachHang.Name = "txtSoDienThoaiKhachHang";
-            txtSoDienThoaiKhachHang.Size = new Size(295, 30);
+            txtSoDienThoaiKhachHang.Size = new Size(295, 34);
             txtSoDienThoaiKhachHang.TabIndex = 11;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(38, 296);
+            label4.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(38, 393);
             label4.Name = "label4";
-            label4.Size = new Size(120, 22);
+            label4.Size = new Size(133, 25);
             label4.TabIndex = 10;
             label4.Text = "Số điện thoại:";
             // 
             // txtDiaChiKhachHang
             // 
-            txtDiaChiKhachHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDiaChiKhachHang.Location = new Point(180, 236);
+            txtDiaChiKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDiaChiKhachHang.Location = new Point(224, 312);
             txtDiaChiKhachHang.Name = "txtDiaChiKhachHang";
-            txtDiaChiKhachHang.Size = new Size(295, 30);
+            txtDiaChiKhachHang.Size = new Size(295, 34);
             txtDiaChiKhachHang.TabIndex = 9;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(84, 244);
+            label3.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(89, 321);
             label3.Name = "label3";
-            label3.Size = new Size(74, 22);
+            label3.Size = new Size(82, 25);
             label3.TabIndex = 8;
             label3.Text = "Địa chỉ:";
             // 
             // txtTenKhachHang
             // 
-            txtTenKhachHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenKhachHang.Location = new Point(180, 148);
+            txtTenKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTenKhachHang.Location = new Point(224, 241);
             txtTenKhachHang.Name = "txtTenKhachHang";
-            txtTenKhachHang.Size = new Size(295, 30);
+            txtTenKhachHang.Size = new Size(295, 34);
             txtTenKhachHang.TabIndex = 7;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(21, 156);
+            label2.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(16, 250);
             label2.Name = "label2";
-            label2.Size = new Size(137, 22);
+            label2.Size = new Size(155, 25);
             label2.TabIndex = 6;
             label2.Text = "Tên khách hàng:";
             // 
             // btnThoatKhachHang
             // 
             btnThoatKhachHang.Dock = DockStyle.Bottom;
-            btnThoatKhachHang.Location = new Point(3, 582);
+            btnThoatKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnThoatKhachHang.Location = new Point(3, 822);
             btnThoatKhachHang.Name = "btnThoatKhachHang";
-            btnThoatKhachHang.Size = new Size(475, 29);
+            btnThoatKhachHang.Size = new Size(550, 39);
             btnThoatKhachHang.TabIndex = 5;
             btnThoatKhachHang.Text = "Thoát";
             btnThoatKhachHang.UseVisualStyleBackColor = true;
@@ -162,9 +182,10 @@
             // 
             // btnXoaKhachHang
             // 
-            btnXoaKhachHang.Location = new Point(387, 495);
+            btnXoaKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnXoaKhachHang.Location = new Point(413, 641);
             btnXoaKhachHang.Name = "btnXoaKhachHang";
-            btnXoaKhachHang.Size = new Size(94, 29);
+            btnXoaKhachHang.Size = new Size(106, 37);
             btnXoaKhachHang.TabIndex = 4;
             btnXoaKhachHang.Text = "Xóa";
             btnXoaKhachHang.UseVisualStyleBackColor = true;
@@ -172,9 +193,10 @@
             // 
             // btnSuaKhachHang
             // 
-            btnSuaKhachHang.Location = new Point(217, 495);
+            btnSuaKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSuaKhachHang.Location = new Point(243, 641);
             btnSuaKhachHang.Name = "btnSuaKhachHang";
-            btnSuaKhachHang.Size = new Size(94, 29);
+            btnSuaKhachHang.Size = new Size(106, 37);
             btnSuaKhachHang.TabIndex = 3;
             btnSuaKhachHang.Text = "Sửa";
             btnSuaKhachHang.UseVisualStyleBackColor = true;
@@ -182,9 +204,10 @@
             // 
             // btnThemKhachHang
             // 
-            btnThemKhachHang.Location = new Point(48, 495);
+            btnThemKhachHang.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnThemKhachHang.Location = new Point(74, 641);
             btnThemKhachHang.Name = "btnThemKhachHang";
-            btnThemKhachHang.Size = new Size(94, 29);
+            btnThemKhachHang.Size = new Size(106, 37);
             btnThemKhachHang.TabIndex = 2;
             btnThemKhachHang.Text = "Thêm ";
             btnThemKhachHang.UseVisualStyleBackColor = true;
@@ -192,71 +215,55 @@
             // 
             // txtMaKhachHang
             // 
-            txtMaKhachHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaKhachHang.Location = new Point(180, 68);
+            txtMaKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMaKhachHang.Location = new Point(224, 165);
             txtMaKhachHang.Name = "txtMaKhachHang";
             txtMaKhachHang.ReadOnly = true;
-            txtMaKhachHang.Size = new Size(295, 30);
+            txtMaKhachHang.Size = new Size(295, 34);
             txtMaKhachHang.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(25, 76);
+            label1.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(21, 174);
             label1.Name = "label1";
-            label1.Size = new Size(133, 22);
+            label1.Size = new Size(150, 25);
             label1.TabIndex = 0;
             label1.Text = "Mã khách hàng:";
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dgvDanhSachKhachHang);
-            groupBox1.Location = new Point(6, 5);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(8, 1);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(821, 614);
+            groupBox1.Size = new Size(1341, 864);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Danh sách kho hàng";
+            groupBox1.Text = "Danh sách khách hàng";
             // 
             // dgvDanhSachKhachHang
             // 
             dgvDanhSachKhachHang.AllowUserToAddRows = false;
             dgvDanhSachKhachHang.AllowUserToDeleteRows = false;
+            dgvDanhSachKhachHang.BackgroundColor = Color.Honeydew;
             dgvDanhSachKhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachKhachHang.Dock = DockStyle.Fill;
-            dgvDanhSachKhachHang.Location = new Point(3, 23);
+            dgvDanhSachKhachHang.Location = new Point(3, 30);
             dgvDanhSachKhachHang.Name = "dgvDanhSachKhachHang";
             dgvDanhSachKhachHang.ReadOnly = true;
             dgvDanhSachKhachHang.RowHeadersWidth = 51;
             dgvDanhSachKhachHang.RowTemplate.Height = 29;
-            dgvDanhSachKhachHang.Size = new Size(815, 588);
+            dgvDanhSachKhachHang.Size = new Size(1335, 831);
             dgvDanhSachKhachHang.TabIndex = 0;
             dgvDanhSachKhachHang.CellClick += dgvDanhSachKhachHang_CellClick;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(38, 355);
-            label6.Name = "label6";
-            label6.Size = new Size(63, 22);
-            label6.TabIndex = 14;
-            label6.Text = "Email:";
-            // 
-            // txtEmailKhachHang
-            // 
-            txtEmailKhachHang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmailKhachHang.Location = new Point(180, 347);
-            txtEmailKhachHang.Name = "txtEmailKhachHang";
-            txtEmailKhachHang.Size = new Size(295, 30);
-            txtEmailKhachHang.TabIndex = 15;
             // 
             // Frm_QuanLyKhachHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1321, 625);
+            ClientSize = new Size(1914, 877);
             Controls.Add(gpKh);
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyKhachHang";

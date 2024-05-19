@@ -17,6 +17,13 @@ namespace NongTraiVuiVe.Quản_Lý
         public Frm_QuanLyCayTrong()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(Frm_QuanLyCayTrong_Resize);
+        }
+        private void Frm_QuanLyCayTrong_Resize(object sender, EventArgs e)
+        {
+            // Đảm bảo DataGridView thay đổi kích thước theo kích thước của Form
+            dgvDanhSachCayTrong.Width = this.ClientSize.Width;
+            dgvDanhSachCayTrong.Height = this.ClientSize.Height - dgvDanhSachCayTrong.Location.Y; // trừ đi vị trí Y của DataGridView
         }
 
         private void btnThoatCT_Click(object sender, EventArgs e)
@@ -33,18 +40,12 @@ namespace NongTraiVuiVe.Quản_Lý
                 }
             }
         }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private CayTrongBLL cayTrongBLL;
 
         private void Frm_QuanLyCayTrong_Load(object sender, EventArgs e)
         {
             HienThiDanhSachCayTrong();
+            dgvDanhSachCayTrong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void HienThiDanhSachCayTrong()
@@ -54,6 +55,7 @@ namespace NongTraiVuiVe.Quản_Lý
             // Gọi phương thức từ BLL để lấy dữ liệu và hiển thị
             DataTable dtCayTrong = cayTrongBLL.LayDuLieuCayTrong();
             dgvDanhSachCayTrong.DataSource = dtCayTrong;
+            dgvDanhSachCayTrong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dgvDanhSachCayTrong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -238,7 +240,7 @@ namespace NongTraiVuiVe.Quản_Lý
 
                 DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa cây trồng này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (dialogResult == DialogResult.Yes) 
+                if (dialogResult == DialogResult.Yes)
                 {
                     CayTrongBLL cayTrongBLL = new CayTrongBLL();
                     if (cayTrongBLL.XoaCayTrong(maCayTrong))
@@ -257,6 +259,11 @@ namespace NongTraiVuiVe.Quản_Lý
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
+        }
+
+        private void groupbox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,6 +17,13 @@ namespace NongTraiVuiVe.Quản_Lý
         public Frm_QuanLyKhoHang()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(Frm_QuanLyKhoHang_Resize);
+        }
+        private void Frm_QuanLyKhoHang_Resize(object sender, EventArgs e)
+        {
+            // Đảm bảo DataGridView thay đổi kích thước theo kích thước của Form
+            dgvDanhSachKhoHang.Width = this.ClientSize.Width;
+            dgvDanhSachKhoHang.Height = this.ClientSize.Height - dgvDanhSachKhoHang.Location.Y; // trừ đi vị trí Y của DataGridView
         }
 
         private void btnThoatKH_Click(object sender, EventArgs e)
@@ -37,6 +44,7 @@ namespace NongTraiVuiVe.Quản_Lý
         private void Frm_QuanLyKhoHang_Load(object sender, EventArgs e)
         {
             HienThiDanhSachKhoHang();
+            dgvDanhSachKhoHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private KhoHangBLL khoHangBLL;
@@ -47,6 +55,7 @@ namespace NongTraiVuiVe.Quản_Lý
             // Gọi phương thức từ BLL để lấy dữ liệu và hiển thị
             DataTable dtKhoHang = khoHangBLL.LayDuLieuKhoHang();
             dgvDanhSachKhoHang.DataSource = dtKhoHang;
+            dgvDanhSachKhoHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnThemKhoHang_Click(object sender, EventArgs e)

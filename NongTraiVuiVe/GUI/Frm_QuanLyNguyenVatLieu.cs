@@ -17,13 +17,14 @@ namespace NongTraiVuiVe.Quản_Lý
         public Frm_QuanLyNguyenVatLieu()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(Frm_QuanLyNguyenVatLieu_Resize);
         }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void Frm_QuanLyNguyenVatLieu_Resize(object sender, EventArgs e)
         {
-
+            // Đảm bảo DataGridView thay đổi kích thước theo kích thước của Form
+            dgvDanhSachNguyenVatLieu.Width = this.ClientSize.Width;
+            dgvDanhSachNguyenVatLieu.Height = this.ClientSize.Height - dgvDanhSachNguyenVatLieu.Location.Y; // trừ đi vị trí Y của DataGridView
         }
-
         private void btnThoatNvl_Click(object sender, EventArgs e)
         {
             TabPage tabPage = this.Parent as TabPage;
@@ -51,6 +52,7 @@ namespace NongTraiVuiVe.Quản_Lý
             List<string> danhSachTenLoaiNguyenVatLieu = loaiNguyenVatLieuBLL.LayDanhSachTenLoaiNguyenVatLieu();
             cbbLoaiNguyenVatLieu.DataSource = danhSachTenLoaiNguyenVatLieu;
             cbbLoaiNguyenVatLieu.SelectedIndex = -1;
+            dgvDanhSachNguyenVatLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void HienThiDanhSachNguyenVatLieu()
@@ -59,6 +61,7 @@ namespace NongTraiVuiVe.Quản_Lý
 
             DataTable dtNguyenVatLieu = nguyenVatLieuBLL.LayDuLieuNguyenVatLieu();
             dgvDanhSachNguyenVatLieu.DataSource = dtNguyenVatLieu;
+            dgvDanhSachNguyenVatLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dgvDanhSachNguyenVatLieu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -145,7 +148,7 @@ namespace NongTraiVuiVe.Quản_Lý
             {
                 int.TryParse(txtMaNguyenVatLieu.Text, out int maNguyenVatLieu);
                 NguyenVatLieu nguyenVatLieu = new NguyenVatLieu();
-                nguyenVatLieu.MaNguyenVatLieu = maNguyenVatLieu; 
+                nguyenVatLieu.MaNguyenVatLieu = maNguyenVatLieu;
                 nguyenVatLieu.TenNguyenVatLieu = txtTenNguyenVatLieu.Text;
                 string tenLoaiNguyenVatLieu = cbbLoaiNguyenVatLieu.SelectedItem.ToString();
                 LoaiNguyenVatLieuBLL loaiNguyenVatLieuBLL = new LoaiNguyenVatLieuBLL();
@@ -170,7 +173,7 @@ namespace NongTraiVuiVe.Quản_Lý
                 nguyenVatLieu.SoLuongHuHong = soLuongHong;
 
                 NguyenVatLieuBLL nguyenVatLieuBLL = new NguyenVatLieuBLL();
-                if (nguyenVatLieuBLL.CapNhatNguyenVatLieu(nguyenVatLieu)) 
+                if (nguyenVatLieuBLL.CapNhatNguyenVatLieu(nguyenVatLieu))
                 {
                     txtTenNguyenVatLieu.Focus();
                     txtMaNguyenVatLieu.Text = "";
@@ -223,5 +226,7 @@ namespace NongTraiVuiVe.Quản_Lý
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+       
     }
 }

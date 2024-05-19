@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             groupBox2 = new GroupBox();
-            btnThoat = new Button();
+            btnThoatNguoiDung = new Button();
             groupBox1 = new GroupBox();
             dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
@@ -46,35 +46,39 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1295, 651);
+            panel1.Size = new Size(1914, 877);
             panel1.TabIndex = 0;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(btnThoat);
-            groupBox2.Location = new Point(900, 3);
+            groupBox2.Controls.Add(btnThoatNguoiDung);
+            groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox2.Location = new Point(1352, 1);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(395, 645);
+            groupBox2.Size = new Size(556, 864);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Thông tin người dùng";
             // 
-            // btnThoat
+            // btnThoatNguoiDung
             // 
-            btnThoat.Location = new Point(324, 610);
-            btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(59, 29);
-            btnThoat.TabIndex = 0;
-            btnThoat.Text = "Thoat";
-            btnThoat.UseVisualStyleBackColor = true;
-            btnThoat.Click += btnThoat_Click;
+            btnThoatNguoiDung.Dock = DockStyle.Bottom;
+            btnThoatNguoiDung.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnThoatNguoiDung.Location = new Point(3, 823);
+            btnThoatNguoiDung.Name = "btnThoatNguoiDung";
+            btnThoatNguoiDung.Size = new Size(550, 38);
+            btnThoatNguoiDung.TabIndex = 6;
+            btnThoatNguoiDung.Text = "Thoát";
+            btnThoatNguoiDung.UseVisualStyleBackColor = true;
+            btnThoatNguoiDung.Click += btnThoatNguoiDung_Click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new Point(3, 3);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(8, 1);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(891, 645);
+            groupBox1.Size = new Size(1341, 864);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách người dùng";
@@ -86,20 +90,21 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.Honeydew;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 23);
+            dataGridView1.Location = new Point(3, 33);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(885, 619);
+            dataGridView1.Size = new Size(1335, 821);
             dataGridView1.TabIndex = 0;
             // 
             // Frm_QuanLyNguoiDung
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1295, 651);
+            ClientSize = new Size(1914, 877);
             Controls.Add(panel1);
             Name = "Frm_QuanLyNguoiDung";
             StartPosition = FormStartPosition.WindowsDefaultBounds;
@@ -119,6 +124,6 @@
         private GroupBox groupBox2;
         private Button button1;
         private DataGridView dataGridView1;
-        private Button btnThoat;
+        private Button btnThoatNguoiDung;
     }
 }

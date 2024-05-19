@@ -54,37 +54,38 @@
             btnThoat.Controls.Add(button1);
             btnThoat.Controls.Add(textBox1);
             btnThoat.Controls.Add(label1);
-            btnThoat.Location = new Point(802, -2);
+            btnThoat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnThoat.Location = new Point(1352, 1);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(512, 633);
+            btnThoat.Size = new Size(556, 864);
             btnThoat.TabIndex = 5;
             btnThoat.TabStop = false;
             btnThoat.Text = "Thông tin loại nguyên vật liệu";
             // 
             // textBox2
             // 
-            textBox2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(217, 271);
+            textBox2.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.Location = new Point(252, 337);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(295, 30);
+            textBox2.Size = new Size(295, 34);
             textBox2.TabIndex = 7;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(0, 274);
+            label2.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(15, 346);
             label2.Name = "label2";
-            label2.Size = new Size(205, 22);
+            label2.Size = new Size(231, 25);
             label2.TabIndex = 6;
             label2.Text = "Tên loại nguyên vật liệu:";
             // 
             // btnThoatLnvl
             // 
             btnThoatLnvl.Dock = DockStyle.Bottom;
-            btnThoatLnvl.Location = new Point(3, 601);
+            btnThoatLnvl.Location = new Point(3, 820);
             btnThoatLnvl.Name = "btnThoatLnvl";
-            btnThoatLnvl.Size = new Size(506, 29);
+            btnThoatLnvl.Size = new Size(550, 41);
             btnThoatLnvl.TabIndex = 5;
             btnThoatLnvl.Text = "Thoát";
             btnThoatLnvl.UseVisualStyleBackColor = true;
@@ -92,55 +93,56 @@
             // 
             // button3
             // 
-            button3.Location = new Point(381, 464);
+            button3.Location = new Point(405, 608);
             button3.Name = "button3";
-            button3.Size = new Size(94, 29);
+            button3.Size = new Size(104, 34);
             button3.TabIndex = 4;
             button3.Text = "Xóa";
             button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.Location = new Point(221, 464);
+            button2.Location = new Point(245, 608);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(104, 34);
             button2.TabIndex = 3;
             button2.Text = "Sửa";
             button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            button1.Location = new Point(51, 464);
+            button1.Location = new Point(75, 608);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(104, 34);
             button1.TabIndex = 2;
             button1.Text = "Thêm ";
             button1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(221, 120);
+            textBox1.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(252, 191);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(295, 30);
+            textBox1.Size = new Size(295, 34);
             textBox1.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(6, 128);
+            label1.Font = new Font("Times New Roman", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(21, 200);
             label1.Name = "label1";
-            label1.Size = new Size(201, 22);
+            label1.Size = new Size(226, 25);
             label1.TabIndex = 0;
             label1.Text = "Mã loại nguyên vật liệu:";
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Location = new Point(6, -2);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(8, 1);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(790, 633);
+            groupBox1.Size = new Size(1341, 864);
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách loại nguyên vật liệu";
@@ -149,21 +151,23 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BackgroundColor = Color.Honeydew;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(3, 23);
+            dataGridView1.GridColor = Color.Honeydew;
+            dataGridView1.Location = new Point(3, 30);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(784, 607);
+            dataGridView1.Size = new Size(1335, 831);
             dataGridView1.TabIndex = 0;
             // 
             // Frm_QuanLyLoaiNguyenVatLieu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1320, 628);
+            ClientSize = new Size(1914, 877);
             Controls.Add(btnThoat);
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyLoaiNguyenVatLieu";
