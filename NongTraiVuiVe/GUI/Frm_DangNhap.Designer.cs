@@ -115,6 +115,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
             ClientSize = new Size(741, 350);
             Controls.Add(btnThoat);
             Controls.Add(btnDangNhap);
