@@ -89,6 +89,7 @@
             // 
             // cbbNguoiThucHien
             // 
+            cbbNguoiThucHien.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbNguoiThucHien.FormattingEnabled = true;
             cbbNguoiThucHien.Location = new Point(255, 355);
             cbbNguoiThucHien.Name = "cbbNguoiThucHien";
@@ -269,7 +270,7 @@
             Controls.Add(btnThoat);
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyChiTieu";
-            Text = "Frm_QuanLyLoaiNguyenVatLieu";
+            Text = "Frm_QuanLyChiTieu";
             Load += Frm_QuanLyChiTieu_Load;
             btnThoat.ResumeLayout(false);
             btnThoat.PerformLayout();

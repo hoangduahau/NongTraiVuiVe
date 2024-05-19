@@ -187,7 +187,7 @@ namespace NongTraiVuiVe.Quản_Lý
                     if (_chiTieuBLL.XoaChiTieu(maChiTieu))
                     {
                         MessageBox.Show("Xóa chi tiêu thành công!");
-                        HienThiDanhSachChiTieu(); 
+                        HienThiDanhSachChiTieu();
                     }
                     else
                     {
@@ -203,12 +203,12 @@ namespace NongTraiVuiVe.Quản_Lý
 
         private void cbbNguoiThucHien_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbNguoiThucHien.SelectedItem != null) 
+            if (cbbNguoiThucHien.SelectedItem != null)
             {
                 DataRowView selectedRow = cbbNguoiThucHien.SelectedItem as DataRowView;
                 if (selectedRow != null)
                 {
-                    int maNguoiDung = Convert.ToInt32(selectedRow["MaNguoiDung"]); 
+                    int maNguoiDung = Convert.ToInt32(selectedRow["MaNguoiDung"]);
                     txtMaNguoiThucHien.Text = maNguoiDung.ToString();
                 }
             }

@@ -11,6 +11,41 @@ namespace NongTraiVuiVe.DAL
 {
     public class NhaCungCapDAL
     {
+        public List<string> LayDanhSachTenNhaCungCap()
+        {
+            List<string> danhDanhSachTenNhaCungCap = new List<string>();
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TenNhaCungCap FROM NhaCungCap";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhDanhSachTenNhaCungCap.Add(reader["TenNhaCungCap"].ToString());
+                        }
+                    }
+                }
+            }
+            return danhDanhSachTenNhaCungCap;
+        }
+
+        public int LayMaNhaCungCapTheoTen(string tenNhaCungCap)
+        {
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT MaNhaCungCap FROM NhaCungCap WHERE TenNhaCungCap = @TenNhaCungCap";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@TenNhaCungCap", tenNhaCungCap);
+                    object result = command.ExecuteScalar();
+                    return result != null ? (int)result : 0; // Trả về 0 nếu không tìm thấy
+                }
+            }
+        }
         public DataTable LayDuLieuNhaCungCap()
         {
             DataTable dtNhaCungCap = new DataTable();

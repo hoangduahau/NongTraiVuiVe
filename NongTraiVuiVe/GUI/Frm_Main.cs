@@ -115,5 +115,10 @@ namespace NongTraiVuiVe
             int maNguoiDung = CurrentUser.MaNguoiDung;
             QuanLyTabPage("Đổi mật khẩu", new Frm_DoiMatKhau(maNguoiDung));
         }
+
+        private void nhậpLứaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Nhập lứa cây trồng", new Frm_NhapLua());
+        }
     }
 }

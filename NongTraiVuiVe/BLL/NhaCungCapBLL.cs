@@ -22,6 +22,15 @@ namespace NongTraiVuiVe.BLL
             return _nhaCungCapDAL.LayDuLieuNhaCungCap();
         }
 
+        public List<string> LayDanhSachTenNhaCungCap()
+        {
+            return _nhaCungCapDAL.LayDanhSachTenNhaCungCap();
+        }
+
+        public int LayMaNhaCungCapTheoTen(string tenNhaCungCap)
+        {
+            return _nhaCungCapDAL.LayMaNhaCungCapTheoTen(tenNhaCungCap);
+        }
         public bool ThemNhaCungCap(NhaCungCap nhaCungCap)
         {
             if (nhaCungCap == null)

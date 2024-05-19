@@ -183,6 +183,7 @@
             nhậpLứaToolStripMenuItem.Name = "nhậpLứaToolStripMenuItem";
             nhậpLứaToolStripMenuItem.Size = new Size(232, 26);
             nhậpLứaToolStripMenuItem.Text = "Nhập lứa";
+            nhậpLứaToolStripMenuItem.Click += nhậpLứaToolStripMenuItem_Click;
             // 
             // xuấtLứaToolStripMenuItem
             // 

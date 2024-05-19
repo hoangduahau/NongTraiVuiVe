@@ -21,8 +21,40 @@ namespace NongTraiVuiVe.DAL
                 {
                     command.Parameters.AddWithValue("@TenCayTrong", tenCayTrong);
                     int count = (int)command.ExecuteScalar();
-                    return count > 0; 
+                    return count > 0;
                 }
+            }
+        }
+
+        public bool ThemCayTrongMoiTuPhieuNhap(string tenCayTrong, int maLoaiCayTrong, string giong, string nguonGoc, int soLuong)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+                {
+                    conn.Open();
+                    string sql = @"
+            INSERT INTO CayTrong (TenCayTrong, MaLoaiCayTrong, Giong, NguonGoc, SoLuong, NgayGieoTrong) 
+            VALUES (@TenCayTrong, @MaLoaiCayTrong, @Giong, @NguonGoc, @SoLuong, GETDATE());
+          ";
+                    using (SqlCommand command = new SqlCommand(sql, conn))
+                    {
+                        command.Parameters.AddWithValue("@TenCayTrong", tenCayTrong);
+                        command.Parameters.AddWithValue("@MaLoaiCayTrong", maLoaiCayTrong);
+                        command.Parameters.AddWithValue("@Giong", giong);
+                        command.Parameters.AddWithValue("@NguonGoc", nguonGoc);
+                        command.Parameters.AddWithValue("@SoLuong", soLuong);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                Console.WriteLine($"Error adding new plant: {ex.Message}");
+                return false;
             }
         }
 
