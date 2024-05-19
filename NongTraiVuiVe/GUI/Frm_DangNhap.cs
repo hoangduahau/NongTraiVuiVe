@@ -40,6 +40,7 @@ namespace NongTraiVuiVe
                 isLogin = true;
                 CurrentUser.MaNguoiDung = nguoiDung.MaNguoiDung;
                 CurrentUser.TenDangNhap = nguoiDung.TenDangNhap;
+                CurrentUser.MaNhomNguoiDung = nguoiDung.MaNhomNguoiDung;
                 this.Close();
             }
             else

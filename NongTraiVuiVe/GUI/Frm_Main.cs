@@ -51,7 +51,14 @@ namespace NongTraiVuiVe
 
         private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QuanLyTabPage("Quản Lý Người Dùng", new Frm_QuanLyNguoiDung());
+            if (CurrentUser.MaNhomNguoiDung == 1) 
+            {
+                QuanLyTabPage("Quản Lý Người Dùng", new Frm_QuanLyNguoiDung());
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào chức năng này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void quảnLýKhuVựcToolStripMenuItem_Click(object sender, EventArgs e)

@@ -10,5 +10,6 @@ namespace NongTraiVuiVe
     {
         public static int MaNguoiDung { get; set; }
         public static string TenDangNhap { get; set; }
+        public static int MaNhomNguoiDung { get; set; }
     }
 }
