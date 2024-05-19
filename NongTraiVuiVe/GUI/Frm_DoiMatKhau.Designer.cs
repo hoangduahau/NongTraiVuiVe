@@ -36,9 +36,9 @@
             label1 = new Label();
             lbl_TitleQuenMatKhau = new Label();
             panel1 = new Panel();
-            tableLayoutPanel1 = new TableLayoutPanel();
             txtXacNhanMatKhau = new TextBox();
             label3 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -49,7 +49,7 @@
             txtMatKhauMoi.Location = new Point(3, 146);
             txtMatKhauMoi.Name = "txtMatKhauMoi";
             txtMatKhauMoi.PasswordChar = '*';
-            txtMatKhauMoi.Size = new Size(618, 39);
+            txtMatKhauMoi.Size = new Size(1893, 39);
             txtMatKhauMoi.TabIndex = 14;
             // 
             // label2
@@ -58,14 +58,14 @@
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(3, 111);
             label2.Name = "label2";
-            label2.Size = new Size(227, 32);
+            label2.Size = new Size(232, 32);
             label2.TabIndex = 13;
-            label2.Text = "Nhập mật khẩu mới";
+            label2.Text = "Nhập mật khẩu mới:";
             // 
             // btnThoat
             // 
             btnThoat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnThoat.Location = new Point(525, 343);
+            btnThoat.Location = new Point(1301, 343);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(96, 37);
             btnThoat.TabIndex = 12;
@@ -76,7 +76,7 @@
             // btnDoiMatKhau
             // 
             btnDoiMatKhau.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDoiMatKhau.Location = new Point(371, 340);
+            btnDoiMatKhau.Location = new Point(544, 343);
             btnDoiMatKhau.Name = "btnDoiMatKhau";
             btnDoiMatKhau.Size = new Size(148, 37);
             btnDoiMatKhau.TabIndex = 11;
@@ -90,7 +90,7 @@
             txtMatKhauCu.Location = new Point(3, 35);
             txtMatKhauCu.Name = "txtMatKhauCu";
             txtMatKhauCu.PasswordChar = '*';
-            txtMatKhauCu.Size = new Size(618, 39);
+            txtMatKhauCu.Size = new Size(1893, 39);
             txtMatKhauCu.TabIndex = 10;
             // 
             // label1
@@ -99,9 +99,9 @@
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(211, 32);
+            label1.Size = new Size(216, 32);
             label1.TabIndex = 9;
-            label1.Text = "Nhập mật khẩu cũ";
+            label1.Text = "Nhập mật khẩu cũ:";
             // 
             // lbl_TitleQuenMatKhau
             // 
@@ -111,13 +111,14 @@
             lbl_TitleQuenMatKhau.ForeColor = SystemColors.ControlText;
             lbl_TitleQuenMatKhau.Location = new Point(0, 0);
             lbl_TitleQuenMatKhau.Name = "lbl_TitleQuenMatKhau";
-            lbl_TitleQuenMatKhau.Size = new Size(1147, 60);
+            lbl_TitleQuenMatKhau.Size = new Size(1914, 60);
             lbl_TitleQuenMatKhau.TabIndex = 8;
             lbl_TitleQuenMatKhau.Text = "Đổi Mật Khẩu";
             lbl_TitleQuenMatKhau.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Honeydew;
             panel1.Controls.Add(txtXacNhanMatKhau);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label1);
@@ -128,8 +129,27 @@
             panel1.Controls.Add(btnThoat);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(633, 380);
+            panel1.Size = new Size(1899, 802);
             panel1.TabIndex = 15;
+            // 
+            // txtXacNhanMatKhau
+            // 
+            txtXacNhanMatKhau.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            txtXacNhanMatKhau.Location = new Point(3, 253);
+            txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
+            txtXacNhanMatKhau.PasswordChar = '*';
+            txtXacNhanMatKhau.Size = new Size(1893, 39);
+            txtXacNhanMatKhau.TabIndex = 16;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(3, 218);
+            label3.Name = "label3";
+            label3.Size = new Size(224, 32);
+            label3.TabIndex = 15;
+            label3.Text = "Xác nhận mật khẩu:";
             // 
             // tableLayoutPanel1
             // 
@@ -144,37 +164,20 @@
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1147, 570);
+            tableLayoutPanel1.Size = new Size(1914, 817);
             tableLayoutPanel1.TabIndex = 16;
-            // 
-            // txtXacNhanMatKhau
-            // 
-            txtXacNhanMatKhau.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            txtXacNhanMatKhau.Location = new Point(3, 253);
-            txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
-            txtXacNhanMatKhau.PasswordChar = '*';
-            txtXacNhanMatKhau.Size = new Size(618, 39);
-            txtXacNhanMatKhau.TabIndex = 16;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(3, 218);
-            label3.Name = "label3";
-            label3.Size = new Size(219, 32);
-            label3.TabIndex = 15;
-            label3.Text = "Xác nhận mật khẩu";
             // 
             // Frm_DoiMatKhau
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1147, 630);
+            ClientSize = new Size(1914, 877);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(lbl_TitleQuenMatKhau);
             Name = "Frm_DoiMatKhau";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Frm_DoiMatKhau";
+            WindowState = FormWindowState.Maximized;
             Load += Frm_DoiMatKhau_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

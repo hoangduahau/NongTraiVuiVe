@@ -62,6 +62,7 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = SystemColors.Control;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, danhMụcToolStripMenuItem, tácVụToolStripMenuItem, báoCáoThốngKêToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
@@ -80,33 +81,33 @@
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(224, 26);
+            đăngXuấtToolStripMenuItem.Size = new Size(208, 26);
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
             // saoLưuPhụcHồiToolStripMenuItem
             // 
             saoLưuPhụcHồiToolStripMenuItem.Name = "saoLưuPhụcHồiToolStripMenuItem";
-            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(224, 26);
+            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(208, 26);
             saoLưuPhụcHồiToolStripMenuItem.Text = "Sao lưu/ Phục hồi";
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            đổiMậtKhẩuToolStripMenuItem.Size = new Size(224, 26);
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(208, 26);
             đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             đổiMậtKhẩuToolStripMenuItem.Click += đổiMậtKhẩuToolStripMenuItem_Click;
             // 
             // phânQuyềnToolStripMenuItem
             // 
             phânQuyềnToolStripMenuItem.Name = "phânQuyềnToolStripMenuItem";
-            phânQuyềnToolStripMenuItem.Size = new Size(224, 26);
+            phânQuyềnToolStripMenuItem.Size = new Size(208, 26);
             phânQuyềnToolStripMenuItem.Text = "Phân quyền";
             // 
             // thoátToolStripMenuItem
             // 
             thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            thoátToolStripMenuItem.Size = new Size(224, 26);
+            thoátToolStripMenuItem.Size = new Size(208, 26);
             thoátToolStripMenuItem.Text = "Thoát";
             // 
             // danhMụcToolStripMenuItem
