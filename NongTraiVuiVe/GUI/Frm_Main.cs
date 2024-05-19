@@ -93,6 +93,18 @@ namespace NongTraiVuiVe
         {
             QuanLyTabPage("Quản Lý Nhà Cung Cấp", new Frm_QuanLyNhaCungCap());
         }
+        private void saoLưuPhụcHồiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Sao Lưu và Phục Hồi", new Frm_Backup_Resore());
+        }
+        private void xuấtLứaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Xuất Lứa", new Frm_XuatLua());
+        }
+        private void nhậpNguyênVậtLiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Nhập Nguyên Vật Liệu", new Frm_NhapNguyenVatLieu());
+        }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -120,5 +132,7 @@ namespace NongTraiVuiVe
         {
             QuanLyTabPage("Nhập lứa cây trồng", new Frm_NhapLua());
         }
+
+        
     }
 }

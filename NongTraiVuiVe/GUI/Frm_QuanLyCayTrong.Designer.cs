@@ -30,6 +30,9 @@
         {
             label1 = new Label();
             groupbox2 = new GroupBox();
+            dtpNgayThuHoachThucTe = new DateTimePicker();
+            dtpNgayThuHoachDuKien = new DateTimePicker();
+            dtpNgayGieoTrong = new DateTimePicker();
             cbbKhuVuc = new ComboBox();
             cbbLoaiCayTrong = new ComboBox();
             txtTinhTrang = new TextBox();
@@ -54,9 +57,6 @@
             txtMaCayTrong = new TextBox();
             groupBox1 = new GroupBox();
             dgvDanhSachCayTrong = new DataGridView();
-            dtpNgayGieoTrong = new DateTimePicker();
-            dtpNgayThuHoachDuKien = new DateTimePicker();
-            dtpNgayThuHoachThucTe = new DateTimePicker();
             groupbox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachCayTrong).BeginInit();
@@ -66,7 +66,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(78, 48);
+            label1.Location = new Point(81, 56);
             label1.Name = "label1";
             label1.Size = new Size(119, 22);
             label1.TabIndex = 0;
@@ -100,35 +100,60 @@
             groupbox2.Controls.Add(btnThemCayTrong);
             groupbox2.Controls.Add(txtMaCayTrong);
             groupbox2.Controls.Add(label1);
-            groupbox2.Location = new Point(798, -4);
+            groupbox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupbox2.Location = new Point(1351, 6);
             groupbox2.Name = "groupbox2";
-            groupbox2.Size = new Size(515, 633);
+            groupbox2.Size = new Size(556, 864);
             groupbox2.TabIndex = 3;
             groupbox2.TabStop = false;
             groupbox2.Text = "Thông tin khu vực";
+            // 
+            // dtpNgayThuHoachThucTe
+            // 
+            dtpNgayThuHoachThucTe.Format = DateTimePickerFormat.Short;
+            dtpNgayThuHoachThucTe.Location = new Point(213, 502);
+            dtpNgayThuHoachThucTe.Name = "dtpNgayThuHoachThucTe";
+            dtpNgayThuHoachThucTe.Size = new Size(295, 34);
+            dtpNgayThuHoachThucTe.TabIndex = 30;
+            // 
+            // dtpNgayThuHoachDuKien
+            // 
+            dtpNgayThuHoachDuKien.Format = DateTimePickerFormat.Short;
+            dtpNgayThuHoachDuKien.Location = new Point(213, 443);
+            dtpNgayThuHoachDuKien.Name = "dtpNgayThuHoachDuKien";
+            dtpNgayThuHoachDuKien.Size = new Size(295, 34);
+            dtpNgayThuHoachDuKien.TabIndex = 29;
+            // 
+            // dtpNgayGieoTrong
+            // 
+            dtpNgayGieoTrong.Format = DateTimePickerFormat.Short;
+            dtpNgayGieoTrong.Location = new Point(213, 385);
+            dtpNgayGieoTrong.Name = "dtpNgayGieoTrong";
+            dtpNgayGieoTrong.Size = new Size(295, 34);
+            dtpNgayGieoTrong.TabIndex = 28;
             // 
             // cbbKhuVuc
             // 
             cbbKhuVuc.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbKhuVuc.FormattingEnabled = true;
-            cbbKhuVuc.Location = new Point(213, 370);
+            cbbKhuVuc.Location = new Point(213, 558);
             cbbKhuVuc.Name = "cbbKhuVuc";
-            cbbKhuVuc.Size = new Size(295, 28);
+            cbbKhuVuc.Size = new Size(295, 36);
             cbbKhuVuc.TabIndex = 27;
             // 
             // cbbLoaiCayTrong
             // 
             cbbLoaiCayTrong.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbLoaiCayTrong.FormattingEnabled = true;
-            cbbLoaiCayTrong.Location = new Point(213, 114);
+            cbbLoaiCayTrong.Location = new Point(213, 160);
             cbbLoaiCayTrong.Name = "cbbLoaiCayTrong";
-            cbbLoaiCayTrong.Size = new Size(295, 28);
+            cbbLoaiCayTrong.Size = new Size(295, 36);
             cbbLoaiCayTrong.TabIndex = 26;
             // 
             // txtTinhTrang
             // 
             txtTinhTrang.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTinhTrang.Location = new Point(213, 404);
+            txtTinhTrang.Location = new Point(213, 612);
             txtTinhTrang.Name = "txtTinhTrang";
             txtTinhTrang.Size = new Size(295, 30);
             txtTinhTrang.TabIndex = 25;
@@ -137,7 +162,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(101, 407);
+            label11.Location = new Point(104, 620);
             label11.Name = "label11";
             label11.Size = new Size(96, 22);
             label11.TabIndex = 24;
@@ -147,7 +172,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(114, 376);
+            label10.Location = new Point(117, 567);
             label10.Name = "label10";
             label10.Size = new Size(83, 22);
             label10.TabIndex = 22;
@@ -157,7 +182,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(3, 340);
+            label9.Location = new Point(6, 513);
             label9.Name = "label9";
             label9.Size = new Size(194, 22);
             label9.TabIndex = 20;
@@ -167,7 +192,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(-3, 304);
+            label8.Location = new Point(0, 455);
             label8.Name = "label8";
             label8.Size = new Size(200, 22);
             label8.TabIndex = 18;
@@ -178,7 +203,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(56, 263);
+            label7.Location = new Point(59, 396);
             label7.Name = "label7";
             label7.Size = new Size(141, 22);
             label7.TabIndex = 16;
@@ -187,7 +212,7 @@
             // txtSoLuong
             // 
             txtSoLuong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSoLuong.Location = new Point(213, 224);
+            txtSoLuong.Location = new Point(213, 332);
             txtSoLuong.Name = "txtSoLuong";
             txtSoLuong.Size = new Size(295, 30);
             txtSoLuong.TabIndex = 15;
@@ -196,7 +221,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(109, 227);
+            label6.Location = new Point(112, 340);
             label6.Name = "label6";
             label6.Size = new Size(88, 22);
             label6.TabIndex = 14;
@@ -205,7 +230,7 @@
             // txtNguonGoc
             // 
             txtNguonGoc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNguonGoc.Location = new Point(213, 188);
+            txtNguonGoc.Location = new Point(213, 280);
             txtNguonGoc.Name = "txtNguonGoc";
             txtNguonGoc.Size = new Size(295, 30);
             txtNguonGoc.TabIndex = 13;
@@ -214,7 +239,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(97, 196);
+            label5.Location = new Point(100, 288);
             label5.Name = "label5";
             label5.Size = new Size(100, 22);
             label5.TabIndex = 12;
@@ -223,7 +248,7 @@
             // txtGiongCay
             // 
             txtGiongCay.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtGiongCay.Location = new Point(213, 152);
+            txtGiongCay.Location = new Point(213, 224);
             txtGiongCay.Name = "txtGiongCay";
             txtGiongCay.Size = new Size(295, 30);
             txtGiongCay.TabIndex = 11;
@@ -232,7 +257,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(101, 160);
+            label4.Location = new Point(104, 232);
             label4.Name = "label4";
             label4.Size = new Size(96, 22);
             label4.TabIndex = 10;
@@ -242,7 +267,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(65, 120);
+            label3.Location = new Point(68, 174);
             label3.Name = "label3";
             label3.Size = new Size(129, 22);
             label3.TabIndex = 8;
@@ -251,7 +276,7 @@
             // txtTenCayTrong
             // 
             txtTenCayTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTenCayTrong.Location = new Point(213, 76);
+            txtTenCayTrong.Location = new Point(213, 103);
             txtTenCayTrong.Name = "txtTenCayTrong";
             txtTenCayTrong.Size = new Size(295, 30);
             txtTenCayTrong.TabIndex = 7;
@@ -260,7 +285,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(74, 84);
+            label2.Location = new Point(74, 111);
             label2.Name = "label2";
             label2.Size = new Size(123, 22);
             label2.TabIndex = 6;
@@ -269,9 +294,9 @@
             // btnThoatCT
             // 
             btnThoatCT.Dock = DockStyle.Bottom;
-            btnThoatCT.Location = new Point(3, 601);
+            btnThoatCT.Location = new Point(3, 822);
             btnThoatCT.Name = "btnThoatCT";
-            btnThoatCT.Size = new Size(509, 29);
+            btnThoatCT.Size = new Size(550, 39);
             btnThoatCT.TabIndex = 5;
             btnThoatCT.Text = "Thoát";
             btnThoatCT.UseVisualStyleBackColor = true;
@@ -279,9 +304,9 @@
             // 
             // btnXoaCayTrong
             // 
-            btnXoaCayTrong.Location = new Point(414, 539);
+            btnXoaCayTrong.Location = new Point(420, 746);
             btnXoaCayTrong.Name = "btnXoaCayTrong";
-            btnXoaCayTrong.Size = new Size(94, 29);
+            btnXoaCayTrong.Size = new Size(94, 43);
             btnXoaCayTrong.TabIndex = 4;
             btnXoaCayTrong.Text = "Xóa";
             btnXoaCayTrong.UseVisualStyleBackColor = true;
@@ -289,9 +314,9 @@
             // 
             // btnSuaCayTrong
             // 
-            btnSuaCayTrong.Location = new Point(251, 539);
+            btnSuaCayTrong.Location = new Point(257, 746);
             btnSuaCayTrong.Name = "btnSuaCayTrong";
-            btnSuaCayTrong.Size = new Size(94, 29);
+            btnSuaCayTrong.Size = new Size(94, 43);
             btnSuaCayTrong.TabIndex = 3;
             btnSuaCayTrong.Text = "Sửa";
             btnSuaCayTrong.UseVisualStyleBackColor = true;
@@ -299,9 +324,9 @@
             // 
             // btnThemCayTrong
             // 
-            btnThemCayTrong.Location = new Point(65, 539);
+            btnThemCayTrong.Location = new Point(71, 746);
             btnThemCayTrong.Name = "btnThemCayTrong";
-            btnThemCayTrong.Size = new Size(94, 29);
+            btnThemCayTrong.Size = new Size(94, 43);
             btnThemCayTrong.TabIndex = 2;
             btnThemCayTrong.Text = "Thêm ";
             btnThemCayTrong.UseVisualStyleBackColor = true;
@@ -310,7 +335,7 @@
             // txtMaCayTrong
             // 
             txtMaCayTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaCayTrong.Location = new Point(213, 40);
+            txtMaCayTrong.Location = new Point(213, 48);
             txtMaCayTrong.Name = "txtMaCayTrong";
             txtMaCayTrong.ReadOnly = true;
             txtMaCayTrong.Size = new Size(295, 30);
@@ -319,57 +344,35 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(dgvDanhSachCayTrong);
-            groupBox1.Location = new Point(5, -4);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(7, 6);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(787, 633);
+            groupBox1.Size = new Size(1341, 864);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Danh sách khu vực";
+            groupBox1.Text = "Danh sách cây trồng";
             // 
             // dgvDanhSachCayTrong
             // 
             dgvDanhSachCayTrong.AllowUserToAddRows = false;
             dgvDanhSachCayTrong.AllowUserToDeleteRows = false;
+            dgvDanhSachCayTrong.BackgroundColor = Color.Honeydew;
             dgvDanhSachCayTrong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachCayTrong.Dock = DockStyle.Fill;
-            dgvDanhSachCayTrong.Location = new Point(3, 23);
+            dgvDanhSachCayTrong.Location = new Point(3, 30);
             dgvDanhSachCayTrong.Name = "dgvDanhSachCayTrong";
             dgvDanhSachCayTrong.ReadOnly = true;
             dgvDanhSachCayTrong.RowHeadersWidth = 51;
             dgvDanhSachCayTrong.RowTemplate.Height = 29;
-            dgvDanhSachCayTrong.Size = new Size(781, 607);
+            dgvDanhSachCayTrong.Size = new Size(1335, 831);
             dgvDanhSachCayTrong.TabIndex = 0;
             dgvDanhSachCayTrong.CellClick += dgvDanhSachCayTrong_CellClick;
-            // 
-            // dtpNgayGieoTrong
-            // 
-            dtpNgayGieoTrong.Format = DateTimePickerFormat.Short;
-            dtpNgayGieoTrong.Location = new Point(213, 260);
-            dtpNgayGieoTrong.Name = "dtpNgayGieoTrong";
-            dtpNgayGieoTrong.Size = new Size(295, 27);
-            dtpNgayGieoTrong.TabIndex = 28;
-            // 
-            // dtpNgayThuHoachDuKien
-            // 
-            dtpNgayThuHoachDuKien.Format = DateTimePickerFormat.Short;
-            dtpNgayThuHoachDuKien.Location = new Point(213, 299);
-            dtpNgayThuHoachDuKien.Name = "dtpNgayThuHoachDuKien";
-            dtpNgayThuHoachDuKien.Size = new Size(295, 27);
-            dtpNgayThuHoachDuKien.TabIndex = 29;
-            // 
-            // dtpNgayThuHoachThucTe
-            // 
-            dtpNgayThuHoachThucTe.Format = DateTimePickerFormat.Short;
-            dtpNgayThuHoachThucTe.Location = new Point(213, 335);
-            dtpNgayThuHoachThucTe.Name = "dtpNgayThuHoachThucTe";
-            dtpNgayThuHoachThucTe.Size = new Size(295, 27);
-            dtpNgayThuHoachThucTe.TabIndex = 30;
             // 
             // Frm_QuanLyCayTrong
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1318, 625);
+            ClientSize = new Size(1914, 877);
             Controls.Add(groupbox2);
             Controls.Add(groupBox1);
             Name = "Frm_QuanLyCayTrong";
