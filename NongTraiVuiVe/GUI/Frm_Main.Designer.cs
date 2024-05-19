@@ -53,9 +53,9 @@
             chiTiêuToolStripMenuItem = new ToolStripMenuItem();
             doanhThuLợiNhuậnToolStripMenuItem = new ToolStripMenuItem();
             hoạtĐộngSảnXuấtToolStripMenuItem = new ToolStripMenuItem();
-            lblErr = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
             tabControl1 = new TabControl();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            lblErr = new StatusStrip();
             menuStrip1.SuspendLayout();
             lblErr.SuspendLayout();
             SuspendLayout();
@@ -88,8 +88,9 @@
             // saoLưuPhụcHồiToolStripMenuItem
             // 
             saoLưuPhụcHồiToolStripMenuItem.Name = "saoLưuPhụcHồiToolStripMenuItem";
-            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(208, 26);
+            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(224, 26);
             saoLưuPhụcHồiToolStripMenuItem.Text = "Sao lưu/ Phục hồi";
+            saoLưuPhụcHồiToolStripMenuItem.Click += saoLưuPhụcHồiToolStripMenuItem_Click;
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
@@ -230,6 +231,21 @@
             hoạtĐộngSảnXuấtToolStripMenuItem.Size = new Size(236, 26);
             hoạtĐộngSảnXuấtToolStripMenuItem.Text = "Hoạt động sản xuất";
             // 
+            // tabControl1
+            // 
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 28);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(967, 415);
+            tabControl1.TabIndex = 4;
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(18, 20);
+            toolStripStatusLabel1.Text = "...";
+            // 
             // lblErr
             // 
             lblErr.ImageScalingSize = new Size(20, 20);
@@ -239,21 +255,6 @@
             lblErr.Size = new Size(967, 26);
             lblErr.TabIndex = 3;
             lblErr.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(18, 20);
-            toolStripStatusLabel1.Text = "...";
-            // 
-            // tabControl1
-            // 
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 28);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(967, 415);
-            tabControl1.TabIndex = 4;
             // 
             // Frm_Main
             // 
@@ -302,9 +303,9 @@
         private ToolStripMenuItem chiTiêuToolStripMenuItem;
         private ToolStripMenuItem doanhThuLợiNhuậnToolStripMenuItem;
         private ToolStripMenuItem hoạtĐộngSảnXuấtToolStripMenuItem;
-        private StatusStrip lblErr;
-        private ToolStripStatusLabel toolStripStatusLabel1;
         private TabControl tabControl1;
         private ToolStripMenuItem quảnLýNhàCungCấpToolStripMenuItem;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private StatusStrip lblErr;
     }
 }

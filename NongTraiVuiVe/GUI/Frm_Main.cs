@@ -93,6 +93,10 @@ namespace NongTraiVuiVe
         {
             QuanLyTabPage("Quản Lý Nhà Cung Cấp", new Frm_QuanLyNhaCungCap());
         }
+        private void saoLưuPhụcHồiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Quản Lý Nhà Cung Cấp", new Frm_Backup_Resore());
+        }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -115,5 +119,7 @@ namespace NongTraiVuiVe
             int maNguoiDung = CurrentUser.MaNguoiDung;
             QuanLyTabPage("Đổi mật khẩu", new Frm_DoiMatKhau(maNguoiDung));
         }
+
+        
     }
 }
