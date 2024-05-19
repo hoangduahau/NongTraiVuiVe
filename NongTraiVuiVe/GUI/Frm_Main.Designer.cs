@@ -87,7 +87,7 @@
             // saoLưuPhụcHồiToolStripMenuItem
             // 
             saoLưuPhụcHồiToolStripMenuItem.Name = "saoLưuPhụcHồiToolStripMenuItem";
-            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(224, 26);
+            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(208, 26);
             saoLưuPhụcHồiToolStripMenuItem.Text = "Sao lưu/ Phục hồi";
             saoLưuPhụcHồiToolStripMenuItem.Click += saoLưuPhụcHồiToolStripMenuItem_Click;
             // 
@@ -191,12 +191,14 @@
             xuấtLứaToolStripMenuItem.Name = "xuấtLứaToolStripMenuItem";
             xuấtLứaToolStripMenuItem.Size = new Size(232, 26);
             xuấtLứaToolStripMenuItem.Text = "Xuất lứa";
+            xuấtLứaToolStripMenuItem.Click += xuấtLứaToolStripMenuItem_Click;
             // 
             // nhậpNguyênVậtLiệuToolStripMenuItem
             // 
             nhậpNguyênVậtLiệuToolStripMenuItem.Name = "nhậpNguyênVậtLiệuToolStripMenuItem";
             nhậpNguyênVậtLiệuToolStripMenuItem.Size = new Size(232, 26);
             nhậpNguyênVậtLiệuToolStripMenuItem.Text = "Nhập nguyên vật liệu";
+            nhậpNguyênVậtLiệuToolStripMenuItem.Click += nhậpNguyênVậtLiệuToolStripMenuItem_Click;
             // 
             // báoCáoThốngKêToolStripMenuItem
             // 
