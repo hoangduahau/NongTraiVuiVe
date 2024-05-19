@@ -9,6 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="dsChiTieu.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>dsChiTieu.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Garden_FunnyDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Garden_FunnyDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Garden_FunnyDataSet2.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Garden_FunnyDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -25,7 +40,23 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1620.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="dsChiTieu.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsChiTieu.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Garden_FunnyDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Garden_FunnyDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Garden_FunnyDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Garden_FunnyDataSet2.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

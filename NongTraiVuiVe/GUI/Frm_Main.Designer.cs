@@ -213,12 +213,14 @@
             chiTiêuToolStripMenuItem.Name = "chiTiêuToolStripMenuItem";
             chiTiêuToolStripMenuItem.Size = new Size(236, 26);
             chiTiêuToolStripMenuItem.Text = "Chi tiêu";
+            chiTiêuToolStripMenuItem.Click += chiTiêuToolStripMenuItem_Click;
             // 
             // doanhThuLợiNhuậnToolStripMenuItem
             // 
             doanhThuLợiNhuậnToolStripMenuItem.Name = "doanhThuLợiNhuậnToolStripMenuItem";
             doanhThuLợiNhuậnToolStripMenuItem.Size = new Size(236, 26);
             doanhThuLợiNhuậnToolStripMenuItem.Text = "Doanh thu - lợi nhuận";
+            doanhThuLợiNhuậnToolStripMenuItem.Click += doanhThuLợiNhuậnToolStripMenuItem_Click;
             // 
             // hoạtĐộngSảnXuấtToolStripMenuItem
             // 

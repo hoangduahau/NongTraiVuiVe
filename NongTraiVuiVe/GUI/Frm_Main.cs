@@ -133,6 +133,14 @@ namespace NongTraiVuiVe
             QuanLyTabPage("Nhập lứa cây trồng", new Frm_NhapLua());
         }
 
-        
+        private void chiTiêuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Báo cáo chi tiêu", new Frm_ReportChiTieu());
+        }
+
+        private void doanhThuLợiNhuậnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLyTabPage("Báo cáo doanh thu - lợi nhuận", new Frm_ReportDoanhThuLoiNhuan());
+        }
     }
 }
