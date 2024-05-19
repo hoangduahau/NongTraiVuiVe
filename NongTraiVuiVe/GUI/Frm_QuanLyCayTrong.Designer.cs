@@ -106,7 +106,7 @@
             groupbox2.Size = new Size(556, 864);
             groupbox2.TabIndex = 3;
             groupbox2.TabStop = false;
-            groupbox2.Text = "Thông tin khu vực";
+            groupbox2.Text = "Thông tin cây trồng";
             // 
             // dtpNgayThuHoachThucTe
             // 

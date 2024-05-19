@@ -127,7 +127,7 @@ namespace NongTraiVuiVe.Quản_Lý
                 cayTrong.NgayGieoTrong = dtpNgayGieoTrong.Value;
                 cayTrong.NgayThuHoachDuKien = dtpNgayThuHoachDuKien.Value;
                 cayTrong.NgayThuHoachThucTe = dtpNgayThuHoachThucTe.Value;
-                
+
                 string tenKhuVuc = cbbKhuVuc.SelectedItem.ToString();
                 KhuVucBLL khuVucBLL = new KhuVucBLL();
                 cayTrong.MaKhuVuc = khuVucBLL.LayMaKhuVucTheoTen(tenKhuVuc);
