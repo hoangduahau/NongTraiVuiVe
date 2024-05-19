@@ -15,6 +15,14 @@ namespace NongTraiVuiVe
         public Frm_QuanLyLoaiCay()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(Frm_QuanLyLoaiCay_Resize);
+        }
+
+        private void Frm_QuanLyLoaiCay_Resize(object sender, EventArgs e)
+        {
+            // Đảm bảo DataGridView thay đổi kích thước theo kích thước của Form
+            dgvDanhSachLoaiCay.Width = this.ClientSize.Width;
+            dgvDanhSachLoaiCay.Height = this.ClientSize.Height - dgvDanhSachLoaiCay.Location.Y; // trừ đi vị trí Y của DataGridView
         }
 
 
@@ -31,6 +39,12 @@ namespace NongTraiVuiVe
                     tabControl.TabPages.Remove(tabPage);
                 }
             }
+        }
+
+        private void Frm_QuanLyLoaiCay_Load(object sender, EventArgs e)
+        {
+
+            dgvDanhSachLoaiCay.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }

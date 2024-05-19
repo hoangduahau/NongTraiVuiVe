@@ -22,7 +22,7 @@ namespace NongTraiVuiVe
 
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
+        private void btnThoatNguoiDung_Click(object sender, EventArgs e)
         {
             TabPage tabPage = this.Parent as TabPage;
 

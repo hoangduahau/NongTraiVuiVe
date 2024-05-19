@@ -17,6 +17,13 @@ namespace NongTraiVuiVe
         public Frm_QuanLyKhuVuc()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(Frm_QuanLyKhuVuc_Resize);
+        }
+        private void Frm_QuanLyKhuVuc_Resize(object sender, EventArgs e)
+        {
+            // Đảm bảo DataGridView thay đổi kích thước theo kích thước của Form
+            dgvDanhSachKhuVuc.Width = this.ClientSize.Width;
+            dgvDanhSachKhuVuc.Height = this.ClientSize.Height - dgvDanhSachKhuVuc.Location.Y; // trừ đi vị trí Y của DataGridView
         }
 
         private void btnThoatKv_Click(object sender, EventArgs e)
@@ -38,6 +45,7 @@ namespace NongTraiVuiVe
         private void Frm_QuanLyKhuVuc_Load(object sender, EventArgs e)
         {
             HienThiDanhSachKhuVuc();
+            dgvDanhSachKhuVuc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void HienThiDanhSachKhuVuc()
@@ -47,6 +55,7 @@ namespace NongTraiVuiVe
             // Gọi phương thức từ BLL để lấy dữ liệu và hiển thị
             DataTable dtKhuVuc = khuVucBLL.LayDuLieuKhuVuc();
             dgvDanhSachKhuVuc.DataSource = dtKhuVuc;
+            dgvDanhSachKhuVuc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dgvDanhSachKhuVuc_CellClick(object sender, DataGridViewCellEventArgs e)

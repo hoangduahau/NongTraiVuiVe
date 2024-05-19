@@ -17,12 +17,24 @@ namespace NongTraiVuiVe.GUI
         public Frm_QuanLyNhaCungCap()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(Frm_QuanLyNhaCungCap_Resize);
+
+
         }
 
         private NhaCungCapBLL nhaCungCapBLL;
         private void Frm_QuanLyNhaCungCap_Load(object sender, EventArgs e)
         {
             HienThiDanhSachNhaCungCap();
+            dgvDanhSachNhaCungCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+        }
+
+        private void Frm_QuanLyNhaCungCap_Resize(object sender, EventArgs e)
+        {
+            // Đảm bảo DataGridView thay đổi kích thước theo kích thước của Form
+            dgvDanhSachNhaCungCap.Width = this.ClientSize.Width;
+            dgvDanhSachNhaCungCap.Height = this.ClientSize.Height - dgvDanhSachNhaCungCap.Location.Y; // trừ đi vị trí Y của DataGridView
         }
 
         private void HienThiDanhSachNhaCungCap()
@@ -31,6 +43,7 @@ namespace NongTraiVuiVe.GUI
 
             DataTable dtNhaCungCap = nhaCungCapBLL.LayDuLieuNhaCungCap();
             dgvDanhSachNhaCungCap.DataSource = dtNhaCungCap;
+            dgvDanhSachNhaCungCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dgvDanhSachNhaCungCap_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -148,6 +161,21 @@ namespace NongTraiVuiVe.GUI
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnThoatNhaCungCap_Click(object sender, EventArgs e)
+        {
+            TabPage tabPage = this.Parent as TabPage;
+
+            if (tabPage != null)
+            {
+                TabControl tabControl = tabPage.Parent as TabControl;
+
+                if (tabControl != null)
+                {
+                    tabControl.TabPages.Remove(tabPage);
+                }
             }
         }
     }

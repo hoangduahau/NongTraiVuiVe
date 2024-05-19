@@ -18,7 +18,16 @@ namespace NongTraiVuiVe.Quản_Lý
         public Frm_QuanLyKhachHang()
         {
             InitializeComponent();
+            this.Resize += new EventHandler(Frm_QuanLyKhachHang_Resize);
         }
+
+        private void Frm_QuanLyKhachHang_Resize(object sender, EventArgs e)
+        {
+            // Đảm bảo DataGridView thay đổi kích thước theo kích thước của Form
+            dgvDanhSachKhachHang.Width = this.ClientSize.Width;
+            dgvDanhSachKhachHang.Height = this.ClientSize.Height - dgvDanhSachKhachHang.Location.Y; // trừ đi vị trí Y của DataGridView
+        }
+
 
         private void btnThoatKhachHang_Click(object sender, EventArgs e)
         {
@@ -39,6 +48,7 @@ namespace NongTraiVuiVe.Quản_Lý
         private void Frm_QuanLyKhachHang_Load(object sender, EventArgs e)
         {
             HienThiDanhSachKhachHang();
+            dgvDanhSachKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void HienThiDanhSachKhachHang()
@@ -47,6 +57,7 @@ namespace NongTraiVuiVe.Quản_Lý
 
             DataTable dtKhachHang = khachHangBLL.LayDuLieuKhachHang();
             dgvDanhSachKhachHang.DataSource = dtKhachHang;
+            dgvDanhSachKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dgvDanhSachKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -202,5 +213,7 @@ namespace NongTraiVuiVe.Quản_Lý
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+        
     }
 }
