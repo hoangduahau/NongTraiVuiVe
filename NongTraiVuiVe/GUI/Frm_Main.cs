@@ -76,7 +76,7 @@ namespace NongTraiVuiVe
 
         private void quảnLýLoạiNguyênVậtLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QuanLyTabPage("Quản Lý Loại Nguyên Vật Liệu", new Frm_QuanLyLoaiNguyenVatLieu());
+            QuanLyTabPage("Quản Lý Chi Tiêu", new Frm_QuanLyChiTieu());
         }
 
         private void quảnLýNguyênVậtLiệuToolStripMenuItem_Click(object sender, EventArgs e)

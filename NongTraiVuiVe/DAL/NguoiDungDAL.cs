@@ -198,6 +198,43 @@ namespace NongTraiVuiVe.DAL
             }
         }
 
+        public List<string> LayDanhSachTenNguoiDung()
+        {
+            List<string> danhSachTenNguoiDung = new List<string>();
 
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT HoTen FROM NguoiDung";
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhSachTenNguoiDung.Add(reader["HoTen"].ToString());
+                        }
+                    }
+                }
+            }
+
+            return danhSachTenNguoiDung;
+        }
+
+        public DataTable LayThongTinCobanNguoiDung()
+        {
+            DataTable dtNguoiDung = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT MaNguoiDung, HoTen, TenDangNhap FROM NguoiDung"; // Lấy thêm cột TenDangNhap
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                adapter.Fill(dtNguoiDung);
+            }
+
+            return dtNguoiDung;
+        }
     }
 }
