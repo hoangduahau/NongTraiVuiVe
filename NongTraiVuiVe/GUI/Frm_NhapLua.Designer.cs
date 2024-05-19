@@ -97,6 +97,7 @@
             // 
             // cbbLoaiCayTrong
             // 
+            cbbLoaiCayTrong.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbLoaiCayTrong.FormattingEnabled = true;
             cbbLoaiCayTrong.Location = new Point(255, 134);
             cbbLoaiCayTrong.Name = "cbbLoaiCayTrong";
@@ -271,6 +272,7 @@
             // 
             // cbbNhaCungCap
             // 
+            cbbNhaCungCap.DropDownStyle = ComboBoxStyle.DropDownList;
             cbbNhaCungCap.FormattingEnabled = true;
             cbbNhaCungCap.Location = new Point(255, 296);
             cbbNhaCungCap.Name = "cbbNhaCungCap";

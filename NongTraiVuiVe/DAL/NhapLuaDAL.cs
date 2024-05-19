@@ -41,49 +41,77 @@ namespace NongTraiVuiVe.DAL
 
         public bool ThemPhieuNhap(NhapLua nhapLua)
         {
-            try
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
-                using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+                conn.Open();
+
+                using (SqlTransaction transaction = conn.BeginTransaction())
                 {
-                    conn.Open();
-                    CayTrongDAL cayTrongDAL = new CayTrongDAL();
-                    if (!cayTrongDAL.KiemTraTonTaiTenCayTrong(nhapLua.TenCayTrong))
+                    try
                     {
-                        bool result = cayTrongDAL.ThemCayTrongMoiTuPhieuNhap(nhapLua.TenCayTrong, nhapLua.MaLoaiCayTrong, nhapLua.Giong, nhapLua.NguonGoc, nhapLua.SoLuong);
-                        if (!result)
+                        CayTrongDAL cayTrongDAL = new CayTrongDAL();
+                        if (!cayTrongDAL.KiemTraTonTaiTenCayTrong(nhapLua.TenCayTrong))
                         {
-                            throw new Exception("Failed to add new plant.");
+                            bool result = cayTrongDAL.ThemCayTrongMoiTuPhieuNhap(nhapLua.TenCayTrong, nhapLua.MaLoaiCayTrong, nhapLua.Giong, nhapLua.NguonGoc, nhapLua.SoLuong);
+                            if (!result)
+                            {
+                                throw new Exception("Failed to add new plant.");
+                            }
                         }
+
+                        string insertNhapLuaSql = @"
+                    INSERT INTO NhapLua (TenCayTrong, MaLoaiCayTrong, Giong, NguonGoc, SoLuong, MaNhaCungCap, Ngay, GiaNhap)
+                    VALUES (@TenCayTrong, @MaLoaiCayTrong, @Giong, @NguonGoc, @SoLuong, @MaNhaCungCap, @Ngay, @GiaNhap);
+                ";
+                        using (SqlCommand insertNhapLuaCommand = new SqlCommand(insertNhapLuaSql, conn, transaction))
+                        {
+                            insertNhapLuaCommand.Parameters.AddWithValue("@TenCayTrong", nhapLua.TenCayTrong);
+                            insertNhapLuaCommand.Parameters.AddWithValue("@MaLoaiCayTrong", nhapLua.MaLoaiCayTrong);
+                            insertNhapLuaCommand.Parameters.AddWithValue("@Giong", nhapLua.Giong);
+                            insertNhapLuaCommand.Parameters.AddWithValue("@NguonGoc", nhapLua.NguonGoc);
+                            insertNhapLuaCommand.Parameters.AddWithValue("@SoLuong", nhapLua.SoLuong);
+                            insertNhapLuaCommand.Parameters.AddWithValue("@MaNhaCungCap", nhapLua.MaNhaCungCap);
+                            insertNhapLuaCommand.Parameters.AddWithValue("@Ngay", nhapLua.Ngay);
+                            insertNhapLuaCommand.Parameters.AddWithValue("@GiaNhap", nhapLua.GiaNhap);
+
+                            int rowsAffected = insertNhapLuaCommand.ExecuteNonQuery();
+                            if (rowsAffected <= 0)
+                            {
+                                throw new Exception("Failed to insert NhapLua record.");
+                            }
+                        }
+
+                        string insertChiTieuSql = @"
+                    INSERT INTO ChiTieu (LoaiChiTieu, ChiPhi, NgayChiTieu, MaNguoiThucHien)
+                    VALUES (@LoaiChiTieu, @ChiPhi, @NgayChiTieu, @MaNguoiThucHien);
+                ";
+                        using (SqlCommand insertChiTieuCommand = new SqlCommand(insertChiTieuSql, conn, transaction))
+                        {
+                            insertChiTieuCommand.Parameters.AddWithValue("@LoaiChiTieu", "Nhập giống cây trồng");
+                            insertChiTieuCommand.Parameters.AddWithValue("@ChiPhi", nhapLua.GiaNhap);
+                            insertChiTieuCommand.Parameters.AddWithValue("@NgayChiTieu", nhapLua.Ngay);
+                            insertChiTieuCommand.Parameters.AddWithValue("@MaNguoiThucHien", CurrentUser.MaNguoiDung); // Assuming CurrentUser.MaNguoiDung is available
+
+                            int rowsAffected = insertChiTieuCommand.ExecuteNonQuery();
+                            if (rowsAffected <= 0)
+                            {
+                                throw new Exception("Failed to insert ChiTieu record.");
+                            }
+                        }
+
+                        transaction.Commit();
+                        return true;
                     }
-
-                    string sql = @"
-              INSERT INTO NhapLua (TenCayTrong, MaLoaiCayTrong, Giong, NguonGoc, SoLuong, MaNhaCungCap, Ngay, GiaNhap)
-              VALUES (@TenCayTrong, @MaLoaiCayTrong, @Giong, @NguonGoc, @SoLuong, @MaNhaCungCap, @Ngay, @GiaNhap);
-            ";
-
-                    using (SqlCommand command = new SqlCommand(sql, conn))
+                    catch (Exception ex)
                     {
-                        command.Parameters.AddWithValue("@TenCayTrong", nhapLua.TenCayTrong);
-                        command.Parameters.AddWithValue("@MaLoaiCayTrong", nhapLua.MaLoaiCayTrong);
-                        command.Parameters.AddWithValue("@Giong", nhapLua.Giong);
-                        command.Parameters.AddWithValue("@NguonGoc", nhapLua.NguonGoc);
-                        command.Parameters.AddWithValue("@SoLuong", nhapLua.SoLuong);
-                        command.Parameters.AddWithValue("@MaNhaCungCap", nhapLua.MaNhaCungCap);
-                        command.Parameters.AddWithValue("@Ngay", nhapLua.Ngay);
-                        command.Parameters.AddWithValue("@GiaNhap", nhapLua.GiaNhap);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-                        return rowsAffected > 0;
+                        transaction.Rollback();
+                        Console.WriteLine($"Error adding new purchase order: {ex.Message}");
+                        return false;
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                // Log the exception
-                Console.WriteLine($"Error adding new purchase order: {ex.Message}");
-                return false;
-            }
         }
+
 
         public bool SuaPhieuNhap(NhapLua nhapLua)
         {
