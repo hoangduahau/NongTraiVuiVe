@@ -73,7 +73,8 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtDiaChiKhachHang.Text = selectedRow.Cells["DiaChi"].Value.ToString();
                     txtSoDienThoaiKhachHang.Text = selectedRow.Cells["DienThoai"].Value.ToString();
                     txtEmailKhachHang.Text = selectedRow.Cells["Email"].Value.ToString();
-                    txtNgaySinhKhachHang.Text = selectedRow.Cells["NgaySinh"].Value.ToString();
+                    txtNgaySinhKhachHang.Text = (selectedRow.Cells["NgaySinh"].Value is DateTime ngaySinh) ?
+                        ngaySinh.ToString("dd/MM/yyyy") : string.Empty;
                 }
             }
             catch (Exception ex)

@@ -36,5 +36,10 @@ namespace NongTraiVuiVe
                 }
             }
         }
+
+        private void Frm_QuanLyNguoiDung_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

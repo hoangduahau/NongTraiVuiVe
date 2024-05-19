@@ -77,7 +77,8 @@ namespace NongTraiVuiVe.Quản_Lý
                     cbbLoaiNguyenVatLieu.Text = selectedRow.Cells["TenLoaiNguyenVatLieu"].Value.ToString();
                     txtSoLuong.Text = selectedRow.Cells["SoLuong"].Value.ToString();
                     cbbKhoChua.Text = selectedRow.Cells["TenKhoHang"].Value.ToString();
-                    txtHanSuDung.Text = selectedRow.Cells["HanSuDung"].Value.ToString();
+                    txtHanSuDung.Text = (selectedRow.Cells["HanSuDung"].Value is DateTime hanSuDung) ?
+                        hanSuDung.ToString("dd/MM/yyyy") : string.Empty;
                     cbbTinhTrang.Text = selectedRow.Cells["TinhTrang"].Value.ToString();
                     txtSoLuongHong.Text = selectedRow.Cells["SoLuongHuHong"].Value.ToString();
                 }

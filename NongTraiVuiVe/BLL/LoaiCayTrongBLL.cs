@@ -17,8 +17,19 @@ namespace NongTraiVuiVe.BLL
             _loaiCayTrongDAL = new LoaiCayTrongDAL();
         }
 
+        public List<string> LayDanhSachTenLoaiCayTrong()
+        {
+            return _loaiCayTrongDAL.LayDanhSachTenLoaiCayTrong();
+        }
 
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemLoaiCayTrong
-        // ...
+        public int LayMaLoaiCayTrongTheoTen(string tenLoaiCayTrong)
+        {
+            if (string.IsNullOrWhiteSpace(tenLoaiCayTrong))
+            {
+                throw new ArgumentException("Tên loại cây trồng không được để trống.");
+            }
+
+            return _loaiCayTrongDAL.LayMaLoaiCayTrongTheoTen(tenLoaiCayTrong);
+        }
     }
 }

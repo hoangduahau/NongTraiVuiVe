@@ -34,7 +34,6 @@ namespace NongTraiVuiVe.BLL
             if (cayTrong == null)
                 throw new ArgumentNullException(nameof(cayTrong), "Đối tượng cây trồng không được null.");
 
-            // Kiểm tra dữ liệu đầu vào (ví dụ)
             if (string.IsNullOrEmpty(cayTrong.TenCayTrong))
                 throw new ArgumentException("Tên cây trồng không được để trống.");
             if (!cayTrong.MaLoaiCayTrong.HasValue)
@@ -42,13 +41,16 @@ namespace NongTraiVuiVe.BLL
             if (!cayTrong.MaKhuVuc.HasValue)
                 throw new ArgumentException("Mã khu vực không được để trống.");
 
-            // Kiểm tra mã loại cây trồng có tồn tại
             if (!_loaiCayTrongDAL.KiemTraTonTaiMaLoaiCayTrong(cayTrong.MaLoaiCayTrong.Value))
                 throw new ArgumentException("Mã loại cây trồng không tồn tại.");
 
-            // Kiểm tra mã khu vực có tồn tại
             if (!_khuVucDAL.KiemTraTonTaiMaKhuVuc(cayTrong.MaKhuVuc.Value))
                 throw new ArgumentException("Mã khu vực không tồn tại.");
+
+            if (_cayTrongDAL.KiemTraTonTaiTenCayTrong(cayTrong.TenCayTrong))
+            {
+                throw new ArgumentException("Cây trồng đã tồn tại.");
+            }
 
             return _cayTrongDAL.ThemCayTrong(cayTrong);
         }
@@ -58,11 +60,9 @@ namespace NongTraiVuiVe.BLL
             if (cayTrong == null)
                 throw new ArgumentNullException(nameof(cayTrong), "Đối tượng cây trồng không được null.");
 
-            // Kiểm tra MaCayTrong có giá trị hay không
             if (cayTrong.MaCayTrong == 0)
                 throw new ArgumentException("Mã cây trồng không được để trống.");
 
-            // Kiểm tra dữ liệu đầu vào (ví dụ)
             if (string.IsNullOrEmpty(cayTrong.TenCayTrong))
                 throw new ArgumentException("Tên cây trồng không được để trống.");
             if (!cayTrong.MaLoaiCayTrong.HasValue)
@@ -70,13 +70,16 @@ namespace NongTraiVuiVe.BLL
             if (!cayTrong.MaKhuVuc.HasValue)
                 throw new ArgumentException("Mã khu vực không được để trống.");
 
-            // Kiểm tra mã loại cây trồng có tồn tại
             if (!_loaiCayTrongDAL.KiemTraTonTaiMaLoaiCayTrong(cayTrong.MaLoaiCayTrong.Value))
                 throw new ArgumentException("Mã loại cây trồng không tồn tại.");
 
-            // Kiểm tra mã khu vực có tồn tại
             if (!_khuVucDAL.KiemTraTonTaiMaKhuVuc(cayTrong.MaKhuVuc.Value))
                 throw new ArgumentException("Mã khu vực không tồn tại.");
+
+            if (_cayTrongDAL.KiemTraTonTaiTenCayTrong(cayTrong.TenCayTrong) && _cayTrongDAL.LayMaCayTrongTheoTen(cayTrong.TenCayTrong) != cayTrong.MaCayTrong)
+            {
+                throw new ArgumentException("Cây trồng đã tồn tại.");
+            }
 
             return _cayTrongDAL.CapNhatCayTrong(cayTrong); 
         }

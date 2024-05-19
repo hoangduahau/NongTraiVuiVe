@@ -11,6 +11,35 @@ namespace NongTraiVuiVe.DAL
 {
     public class CayTrongDAL
     {
+        public bool KiemTraTonTaiTenCayTrong(string tenCayTrong)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM CayTrong WHERE TenCayTrong = @TenCayTrong";
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@TenCayTrong", tenCayTrong);
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0; 
+                }
+            }
+        }
+
+        public int LayMaCayTrongTheoTen(string tenCayTrong)
+        {
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT MaCayTrong FROM CayTrong WHERE TenCayTrong = @TenCayTrong";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@TenCayTrong", tenCayTrong);
+                    object result = command.ExecuteScalar();
+                    return result != null ? (int)result : 0; 
+                }
+            }
+        }
         public DataTable LayDuLieuCayTrong()
         {
             DataTable dtCayTrong = new DataTable();
@@ -18,7 +47,22 @@ namespace NongTraiVuiVe.DAL
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM CayTrong";
+                string query = @"
+                                SELECT 
+                                ct.MaCayTrong, 
+                                ct.TenCayTrong, 
+                                lct.TenLoaiCayTrong, 
+                                ct.Giong, 
+                                ct.NguonGoc,
+                                ct.SoLuong, 
+                                ct.NgayGieoTrong, 
+                                ct.NgayThuHoachDuKien,
+                                ct.NgayThuHoachThucTe,
+                                kv.TenKhuVuc,
+                                ct.TinhTrang
+                            FROM CayTrong ct
+                            INNER JOIN LoaiCayTrong lct ON ct.MaLoaiCayTrong = lct.MaLoaiCayTrong
+                            INNER JOIN KhuVuc kv ON ct.MaKhuVuc = kv.MaKhuVuc;";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
 
                 adapter.Fill(dtCayTrong);

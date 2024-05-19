@@ -23,6 +23,21 @@ namespace NongTraiVuiVe.BLL
             return _khuVucDAL.LayDuLieuKhuVuc();
         }
 
+        public List<string> LayDanhSachTenKhuVuc()
+        {
+            return _khuVucDAL.LayDanhSachTenKhuVuc();
+        }
+
+        public int LayMaKhuVucTheoTen(string tenKhuVuc)
+        {
+            if (string.IsNullOrWhiteSpace(tenKhuVuc))
+            {
+                throw new ArgumentException("Tên khu vực không được để trống.");
+            }
+
+            return _khuVucDAL.LayMaKhuVucTheoTen(tenKhuVuc);
+        }
+
         public bool ThemKhuVuc(KhuVuc khuVuc)
         {
             if (khuVuc == null)
@@ -54,7 +69,7 @@ namespace NongTraiVuiVe.BLL
             if (!khuVuc.KhaDung.HasValue)
                 throw new ArgumentException("Vui lòng cho biết khu đất có còn trống hay không.");
 
-            if (_khuVucDAL.KiemTraTonTaiTenKhuVuc(khuVuc.TenKhuVuc))
+            if (_khuVucDAL.KiemTraTonTaiTenKhuVuc(khuVuc.TenKhuVuc) && _khuVucDAL.LayMaKhuVucTheoTen(khuVuc.TenKhuVuc) != khuVuc.MaKhuVuc)
             {
                 throw new ArgumentException("Khu vực đã tồn tại.");
             }
