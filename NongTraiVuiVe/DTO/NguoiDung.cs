@@ -18,12 +18,12 @@ namespace NongTraiVuiVe.DTO
         public string GioiTinh { get; set; }
         public DateTime NgaySinh { get; set; }
         public DateTime NgayBatDauLamViec { get; set; }
-        public int GroupID { get; set; }
+        public int MaNhomNguoiDung { get; set; }
 
         public NguoiDung() { }
 
         public NguoiDung(int maNguoiDung, string tenDangNhap, byte[] matKhau, DateTime ngayTao, string hoTen, string diaChi,
-                         string dienThoai, string gioiTinh, DateTime ngaySinh, DateTime ngayBatDauLamViec, int groupID)
+                         string dienThoai, string gioiTinh, DateTime ngaySinh, DateTime ngayBatDauLamViec, int maNhomNguoiDung)
         {
             MaNguoiDung = maNguoiDung;
             TenDangNhap = tenDangNhap;
@@ -35,7 +35,7 @@ namespace NongTraiVuiVe.DTO
             GioiTinh = gioiTinh;
             NgaySinh = ngaySinh;
             NgayBatDauLamViec = ngayBatDauLamViec;
-            GroupID = groupID;
+            MaNhomNguoiDung = maNhomNguoiDung;
         }
     }
 }

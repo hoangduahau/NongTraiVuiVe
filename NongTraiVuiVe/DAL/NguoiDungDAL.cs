@@ -11,51 +11,56 @@ namespace NongTraiVuiVe.DAL
 {
     public class NguoiDungDAL
     {
-        public List<NguoiDung> LayDanhSachNguoiDung()
+        public NguoiDung GetNguoiDungByTenDangNhap(string tenDangNhap)
         {
-            List<NguoiDung> dsNguoiDung = new List<NguoiDung>();
+            NguoiDung nguoiDung = null;
+            string query = "SELECT MaNguoiDung, TenDangNhap, MatKhau, HoTen, MaNhomNguoiDung FROM NguoiDung WHERE TenDangNhap = @TenDangNhap";
+
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM NguoiDung", conn);
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if (reader.Read())
                 {
-                    NguoiDung nd = new NguoiDung(
-                        (int)reader["MaNguoiDung"],
-                        reader["TenDangNhap"].ToString(),
-                        (byte[])reader["MatKhau"], // Lấy mật khẩu dưới dạng byte[]
-                        (DateTime)reader["NgayTao"],
-                        reader["HoTen"].ToString(),
-                        reader["DiaChi"].ToString(),
-                        reader["DienThoai"].ToString(),
-                        reader["GioiTinh"].ToString(),
-                        (DateTime)reader["NgaySinh"],
-                        (DateTime)reader["NgayBatDauLamViec"],
-                        (int)reader["GroupID"]
-                    );
-                    dsNguoiDung.Add(nd);
+                    nguoiDung = new NguoiDung
+                    {
+                        MaNguoiDung = reader.GetInt32(0),
+                        TenDangNhap = reader.GetString(1),
+                        MatKhau = (byte[])reader.GetValue(2),
+                        HoTen = reader.GetString(3),
+                        MaNhomNguoiDung = reader.GetInt32(4)
+                    };
                 }
             }
-            return dsNguoiDung;
+
+            return nguoiDung;
         }
 
-        public bool ThemNguoiDung(NguoiDung nd)
+        public bool DoiMatKhau(int maNguoiDung, string matKhauCu, string matKhauMoi)
         {
             using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO NguoiDung (TenDangNhap, MatKhau, NgayTao, HoTen, DiaChi, DienThoai, GioiTinh, NgaySinh, NgayBatDauLamViec, GroupID) " +
-                               "VALUES (@TenDangNhap, @MatKhau, @NgayTao, @HoTen, @DiaChi, @DienThoai, @GioiTinh, @NgaySinh, @NgayBatDauLamViec, @GroupID)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@TenDangNhap", nd.TenDangNhap);
-                cmd.Parameters.AddWithValue("@MatKhau", nd.MatKhau); // Truyền mật khẩu đã băm (hashed)
-                // ... (Thêm các tham số khác)
-                return cmd.ExecuteNonQuery() > 0;
+                SqlCommand cmd = new SqlCommand("sp_DoiMatKhau", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+                cmd.Parameters.AddWithValue("@MatKhauCu", matKhauCu);
+                cmd.Parameters.AddWithValue("@MatKhauMoi", matKhauMoi);
+
+                // Thêm tham số output
+                SqlParameter resultParam = new SqlParameter("@Result", SqlDbType.Int);
+                resultParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(resultParam);
+
+                cmd.ExecuteNonQuery();
+                int result = (int)resultParam.Value; // Lấy giá trị từ tham số output
+
+                return result > 0;
             }
         }
-
-        // Các phương thức khác (Cập nhật, Xóa): Tương tự phương thức ThemNguoiDung
-        // ...
     }
 }

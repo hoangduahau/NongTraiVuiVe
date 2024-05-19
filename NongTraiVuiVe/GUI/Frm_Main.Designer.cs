@@ -44,6 +44,7 @@
             quảnLýLoạiNguyênVậtLiệuToolStripMenuItem = new ToolStripMenuItem();
             quảnLýNguyênVậtLiệuToolStripMenuItem = new ToolStripMenuItem();
             quảnLýKháchHàngToolStripMenuItem = new ToolStripMenuItem();
+            quảnLýNhàCungCấpToolStripMenuItem = new ToolStripMenuItem();
             tácVụToolStripMenuItem = new ToolStripMenuItem();
             nhậpLứaToolStripMenuItem = new ToolStripMenuItem();
             xuấtLứaToolStripMenuItem = new ToolStripMenuItem();
@@ -55,7 +56,6 @@
             lblErr = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             tabControl1 = new TabControl();
-            quảnLýNhàCungCấpToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             lblErr.SuspendLayout();
             SuspendLayout();
@@ -80,31 +80,33 @@
             // đăngXuấtToolStripMenuItem
             // 
             đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(208, 26);
+            đăngXuấtToolStripMenuItem.Size = new Size(224, 26);
             đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
             // saoLưuPhụcHồiToolStripMenuItem
             // 
             saoLưuPhụcHồiToolStripMenuItem.Name = "saoLưuPhụcHồiToolStripMenuItem";
-            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(208, 26);
+            saoLưuPhụcHồiToolStripMenuItem.Size = new Size(224, 26);
             saoLưuPhụcHồiToolStripMenuItem.Text = "Sao lưu/ Phục hồi";
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            đổiMậtKhẩuToolStripMenuItem.Size = new Size(208, 26);
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(224, 26);
             đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
+            đổiMậtKhẩuToolStripMenuItem.Click += đổiMậtKhẩuToolStripMenuItem_Click;
             // 
             // phânQuyềnToolStripMenuItem
             // 
             phânQuyềnToolStripMenuItem.Name = "phânQuyềnToolStripMenuItem";
-            phânQuyềnToolStripMenuItem.Size = new Size(208, 26);
+            phânQuyềnToolStripMenuItem.Size = new Size(224, 26);
             phânQuyềnToolStripMenuItem.Text = "Phân quyền";
             // 
             // thoátToolStripMenuItem
             // 
             thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            thoátToolStripMenuItem.Size = new Size(208, 26);
+            thoátToolStripMenuItem.Size = new Size(224, 26);
             thoátToolStripMenuItem.Text = "Thoát";
             // 
             // danhMụcToolStripMenuItem
@@ -169,6 +171,13 @@
             quảnLýKháchHàngToolStripMenuItem.Size = new Size(275, 26);
             quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             quảnLýKháchHàngToolStripMenuItem.Click += quảnLýKháchHàngToolStripMenuItem_Click;
+            // 
+            // quảnLýNhàCungCấpToolStripMenuItem
+            // 
+            quảnLýNhàCungCấpToolStripMenuItem.Name = "quảnLýNhàCungCấpToolStripMenuItem";
+            quảnLýNhàCungCấpToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýNhàCungCấpToolStripMenuItem.Text = "Quản lý nhà cung cấp";
+            quảnLýNhàCungCấpToolStripMenuItem.Click += quảnLýNhàCungCấpToolStripMenuItem_Click;
             // 
             // tácVụToolStripMenuItem
             // 
@@ -244,13 +253,6 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(967, 415);
             tabControl1.TabIndex = 4;
-            // 
-            // quảnLýNhàCungCấpToolStripMenuItem
-            // 
-            quảnLýNhàCungCấpToolStripMenuItem.Name = "quảnLýNhàCungCấpToolStripMenuItem";
-            quảnLýNhàCungCấpToolStripMenuItem.Size = new Size(275, 26);
-            quảnLýNhàCungCấpToolStripMenuItem.Text = "Quản lý nhà cung cấp";
-            quảnLýNhàCungCấpToolStripMenuItem.Click += quảnLýNhàCungCấpToolStripMenuItem_Click;
             // 
             // Frm_Main
             // 

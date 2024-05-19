@@ -15,9 +15,7 @@ namespace NongTraiVuiVe
 
         private void Frm_Main_Load(object sender, EventArgs e)
         {
-            //Frm_DangNhap frm_DangNhap = new Frm_DangNhap();
-            //frm_DangNhap.ShowDialog();
-            //lblErr.Text
+
         }
 
 
@@ -94,6 +92,28 @@ namespace NongTraiVuiVe
         private void quảnLýNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             QuanLyTabPage("Quản Lý Nhà Cung Cấp", new Frm_QuanLyNhaCungCap());
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_DangNhap loginForm = new Frm_DangNhap();
+            loginForm.ShowDialog();
+
+            if (loginForm.isLogin)
+            {
+                this.Show();
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int maNguoiDung = CurrentUser.MaNguoiDung;
+            QuanLyTabPage("Đổi mật khẩu", new Frm_DoiMatKhau(maNguoiDung));
         }
     }
 }
