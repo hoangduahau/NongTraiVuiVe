@@ -62,5 +62,142 @@ namespace NongTraiVuiVe.DAL
                 return result > 0;
             }
         }
+
+        public DataTable LayDuLieuNguoiDung()
+        {
+            DataTable dtNguoiDung = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string query = "SELECT * FROM NguoiDung";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                adapter.Fill(dtNguoiDung);
+                dtNguoiDung.Columns.Add("Password", typeof(string));
+
+                foreach (DataRow row in dtNguoiDung.Rows)
+                {
+                    byte[] hashedPassword = (byte[])row["MatKhau"];
+                    row["Password"] = new string('*', hashedPassword.Length);
+                }
+
+                dtNguoiDung.Columns.Remove("MatKhau");
+            }
+
+            return dtNguoiDung;
+        }
+
+        public bool KiemTraTonTaiTenDangNhap(string tenDangNhap)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM NguoiDung WHERE TenDangNhap = @TenDangNhap";
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0; 
+                }
+            }
+        }
+
+        public int LayMaNguoiDungTheoTenDangNhap(string tenDangNhap)
+        {
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT MaNguoiDung FROM NguoiDung WHERE TenDangNhap = @TenDangNhap";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+                    object result = command.ExecuteScalar();
+                    return result != null ? (int)result : 0;
+                }
+            }
+        }
+
+        public bool ThemNguoiDung(NguoiDung nguoiDung)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = @"INSERT INTO NguoiDung 
+                (TenDangNhap, MatKhau, NgayTao, HoTen, DiaChi, DienThoai, GioiTinh, NgaySinh, NgayBatDauLamViec, MaNhomNguoiDung) 
+                VALUES (@TenDangNhap, @MatKhau, @NgayTao, @HoTen, @DiaChi, @DienThoai, @GioiTinh, @NgaySinh, @NgayBatDauLamViec, @MaNhomNguoiDung)";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@TenDangNhap", nguoiDung.TenDangNhap);
+                    command.Parameters.AddWithValue("@MatKhau", nguoiDung.MatKhau);
+                    command.Parameters.AddWithValue("@NgayTao", nguoiDung.NgayTao);
+                    command.Parameters.AddWithValue("@HoTen", nguoiDung.HoTen);
+                    command.Parameters.AddWithValue("@DiaChi", nguoiDung.DiaChi);
+                    command.Parameters.AddWithValue("@DienThoai", nguoiDung.DienThoai);
+                    command.Parameters.AddWithValue("@GioiTinh", nguoiDung.GioiTinh);
+                    command.Parameters.AddWithValue("@NgaySinh", nguoiDung.NgaySinh);
+                    command.Parameters.AddWithValue("@NgayBatDauLamViec", nguoiDung.NgayBatDauLamViec);
+                    command.Parameters.AddWithValue("@MaNhomNguoiDung", nguoiDung.MaNhomNguoiDung);
+
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public bool CapNhatNguoiDung(NguoiDung nguoiDung)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = @"UPDATE NguoiDung 
+               SET TenDangNhap = @TenDangNhap, 
+                   MatKhau = @MatKhau,
+                   NgayTao = @NgayTao,
+                   HoTen = @HoTen,
+                   DiaChi = @DiaChi,
+                   DienThoai = @DienThoai,
+                   GioiTinh = @GioiTinh,
+                   NgaySinh = @NgaySinh,
+                   NgayBatDauLamViec = @NgayBatDauLamViec,
+                   MaNhomNguoiDung = @MaNhomNguoiDung
+               WHERE MaNguoiDung = @MaNguoiDung";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaNguoiDung", nguoiDung.MaNguoiDung);
+                    command.Parameters.AddWithValue("@TenDangNhap", nguoiDung.TenDangNhap);
+                    command.Parameters.AddWithValue("@MatKhau", nguoiDung.MatKhau);
+                    command.Parameters.AddWithValue("@NgayTao", nguoiDung.NgayTao);
+                    command.Parameters.AddWithValue("@HoTen", nguoiDung.HoTen);
+                    command.Parameters.AddWithValue("@DiaChi", nguoiDung.DiaChi);
+                    command.Parameters.AddWithValue("@DienThoai", nguoiDung.DienThoai);
+                    command.Parameters.AddWithValue("@GioiTinh", nguoiDung.GioiTinh);
+                    command.Parameters.AddWithValue("@NgaySinh", nguoiDung.NgaySinh);
+                    command.Parameters.AddWithValue("@NgayBatDauLamViec", nguoiDung.NgayBatDauLamViec);
+                    command.Parameters.AddWithValue("@MaNhomNguoiDung", nguoiDung.MaNhomNguoiDung);
+
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public bool XoaNguoiDung(int maNguoiDung)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "DELETE FROM NguoiDung WHERE MaNguoiDung = @MaNguoiDung";
+
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@MaNguoiDung", maNguoiDung);
+
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+
     }
 }
