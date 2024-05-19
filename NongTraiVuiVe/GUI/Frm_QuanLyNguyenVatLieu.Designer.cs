@@ -35,7 +35,6 @@
             label7 = new Label();
             cbbKhoChua = new ComboBox();
             cbbLoaiNguyenVatLieu = new ComboBox();
-            txtHanSuDung = new TextBox();
             label5 = new Label();
             label6 = new Label();
             txtSoLuong = new TextBox();
@@ -51,6 +50,7 @@
             label1 = new Label();
             groupBox1 = new GroupBox();
             dgvDanhSachNguyenVatLieu = new DataGridView();
+            dtpHanSuDung = new DateTimePicker();
             gbnvl.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachNguyenVatLieu).BeginInit();
@@ -58,13 +58,13 @@
             // 
             // gbnvl
             // 
+            gbnvl.Controls.Add(dtpHanSuDung);
             gbnvl.Controls.Add(txtSoLuongHong);
             gbnvl.Controls.Add(label8);
             gbnvl.Controls.Add(cbbTinhTrang);
             gbnvl.Controls.Add(label7);
             gbnvl.Controls.Add(cbbKhoChua);
             gbnvl.Controls.Add(cbbLoaiNguyenVatLieu);
-            gbnvl.Controls.Add(txtHanSuDung);
             gbnvl.Controls.Add(label5);
             gbnvl.Controls.Add(label6);
             gbnvl.Controls.Add(txtSoLuong);
@@ -144,14 +144,6 @@
             cbbLoaiNguyenVatLieu.Name = "cbbLoaiNguyenVatLieu";
             cbbLoaiNguyenVatLieu.Size = new Size(295, 37);
             cbbLoaiNguyenVatLieu.TabIndex = 16;
-            // 
-            // txtHanSuDung
-            // 
-            txtHanSuDung.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHanSuDung.Location = new Point(257, 425);
-            txtHanSuDung.Name = "txtHanSuDung";
-            txtHanSuDung.Size = new Size(295, 34);
-            txtHanSuDung.TabIndex = 15;
             // 
             // label5
             // 
@@ -306,9 +298,18 @@
             dgvDanhSachNguyenVatLieu.ReadOnly = true;
             dgvDanhSachNguyenVatLieu.RowHeadersWidth = 51;
             dgvDanhSachNguyenVatLieu.RowTemplate.Height = 29;
+            dgvDanhSachNguyenVatLieu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachNguyenVatLieu.Size = new Size(1335, 819);
             dgvDanhSachNguyenVatLieu.TabIndex = 0;
             dgvDanhSachNguyenVatLieu.CellClick += dgvDanhSachNguyenVatLieu_CellClick;
+            // 
+            // dtpHanSuDung
+            // 
+            dtpHanSuDung.Format = DateTimePickerFormat.Short;
+            dtpHanSuDung.Location = new Point(257, 426);
+            dtpHanSuDung.Name = "dtpHanSuDung";
+            dtpHanSuDung.Size = new Size(295, 34);
+            dtpHanSuDung.TabIndex = 22;
             // 
             // Frm_QuanLyNguyenVatLieu
             // 
@@ -343,7 +344,6 @@
         private Label label1;
         private GroupBox groupBox1;
         private DataGridView dgvDanhSachNguyenVatLieu;
-        private TextBox txtHanSuDung;
         private Label label5;
         private Label label6;
         private ComboBox cbbKhoChua;
@@ -352,5 +352,6 @@
         private Label label8;
         private ComboBox cbbTinhTrang;
         private Label label7;
+        private DateTimePicker dtpHanSuDung;
     }
 }

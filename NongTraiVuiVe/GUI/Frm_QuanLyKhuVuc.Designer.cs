@@ -69,6 +69,7 @@
             dgvDanhSachKhuVuc.ReadOnly = true;
             dgvDanhSachKhuVuc.RowHeadersWidth = 51;
             dgvDanhSachKhuVuc.RowTemplate.Height = 29;
+            dgvDanhSachKhuVuc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachKhuVuc.Size = new Size(1131, 831);
             dgvDanhSachKhuVuc.TabIndex = 0;
             dgvDanhSachKhuVuc.CellClick += dgvDanhSachKhuVuc_CellClick;

@@ -77,8 +77,14 @@ namespace NongTraiVuiVe.Quản_Lý
                     cbbLoaiNguyenVatLieu.Text = selectedRow.Cells["TenLoaiNguyenVatLieu"].Value.ToString();
                     txtSoLuong.Text = selectedRow.Cells["SoLuong"].Value.ToString();
                     cbbKhoChua.Text = selectedRow.Cells["TenKhoHang"].Value.ToString();
-                    txtHanSuDung.Text = (selectedRow.Cells["HanSuDung"].Value is DateTime hanSuDung) ?
-                        hanSuDung.ToString("dd/MM/yyyy") : string.Empty;
+                    if (selectedRow.Cells["HanSuDung"].Value is DateTime hanSuDung)
+                    {
+                        dtpHanSuDung.Value = hanSuDung;
+                    }
+                    else
+                    {
+                        dtpHanSuDung.Value = DateTimePicker.MinimumDateTime;
+                    }
                     cbbTinhTrang.Text = selectedRow.Cells["TinhTrang"].Value.ToString();
                     txtSoLuongHong.Text = selectedRow.Cells["SoLuongHuHong"].Value.ToString();
                 }
@@ -104,14 +110,13 @@ namespace NongTraiVuiVe.Quản_Lý
                 KhoHangBLL khoHangBLL = new KhoHangBLL();
                 string tenKhoHang = cbbKhoChua.SelectedItem.ToString();
                 nguyenVatLieu.MaKhoHang = khoHangBLL.LayMaKhoHangTheoTen(tenKhoHang);
-
-                if (DateTime.TryParse(txtHanSuDung.Text, out DateTime hanSuDung))
+                if (dtpHanSuDung.Value == DateTimePicker.MinimumDateTime)
                 {
-                    nguyenVatLieu.HanSuDung = hanSuDung;
+                    nguyenVatLieu.HanSuDung = null;
                 }
                 else
                 {
-                    nguyenVatLieu.HanSuDung = null;
+                    nguyenVatLieu.HanSuDung = dtpHanSuDung.Value;
                 }
                 nguyenVatLieu.TinhTrang = cbbTinhTrang.SelectedItem.ToString();
                 int.TryParse(txtSoLuongHong.Text, out int soLuongHong);
@@ -126,7 +131,7 @@ namespace NongTraiVuiVe.Quản_Lý
                     cbbLoaiNguyenVatLieu.SelectedIndex = -1;
                     txtSoLuong.Text = "";
                     cbbKhoChua.SelectedIndex = -1;
-                    txtHanSuDung.Text = "";
+                    dtpHanSuDung.Value = DateTime.Now;
                     cbbTinhTrang.SelectedIndex = -1;
                     txtSoLuongHong.Text = "";
                     HienThiDanhSachNguyenVatLieu();
@@ -160,14 +165,13 @@ namespace NongTraiVuiVe.Quản_Lý
                 KhoHangBLL khoHangBLL = new KhoHangBLL();
                 string tenKhoHang = cbbKhoChua.SelectedItem.ToString();
                 nguyenVatLieu.MaKhoHang = khoHangBLL.LayMaKhoHangTheoTen(tenKhoHang);
-
-                if (DateTime.TryParse(txtHanSuDung.Text, out DateTime hanSuDung))
+                if (dtpHanSuDung.Value == DateTimePicker.MinimumDateTime)
                 {
-                    nguyenVatLieu.HanSuDung = hanSuDung;
+                    nguyenVatLieu.HanSuDung = null;
                 }
                 else
                 {
-                    nguyenVatLieu.HanSuDung = null;
+                    nguyenVatLieu.HanSuDung = dtpHanSuDung.Value;
                 }
                 nguyenVatLieu.TinhTrang = cbbTinhTrang.SelectedItem.ToString();
                 int.TryParse(txtSoLuongHong.Text, out int soLuongHong);
@@ -182,7 +186,7 @@ namespace NongTraiVuiVe.Quản_Lý
                     cbbLoaiNguyenVatLieu.SelectedIndex = -1;
                     txtSoLuong.Text = "";
                     cbbKhoChua.SelectedIndex = -1;
-                    txtHanSuDung.Text = "";
+                    dtpHanSuDung.Value = DateTime.Now;
                     cbbTinhTrang.SelectedIndex = -1;
                     txtSoLuongHong.Text = "";
                     HienThiDanhSachNguyenVatLieu();
@@ -228,6 +232,6 @@ namespace NongTraiVuiVe.Quản_Lý
             }
         }
 
-       
+
     }
 }

@@ -34,6 +34,10 @@ namespace NongTraiVuiVe.BLL
                 throw new ArgumentException("Địa chỉ khách hàng không được để trống.");
             if (string.IsNullOrEmpty(khachHang.DienThoai))
                 throw new ArgumentException("Số điện thoại khách hàng không được để trống.");
+            if (khachHang.NgaySinh == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày sinh không hợp lệ.");
+            }
 
             return _khachHangDAL.ThemKhachHang(khachHang);
         }
@@ -52,6 +56,10 @@ namespace NongTraiVuiVe.BLL
                 throw new ArgumentException("Địa chỉ khách hàng không được để trống.");
             if (string.IsNullOrEmpty(khachHang.DienThoai))
                 throw new ArgumentException("Số điện thoại khách hàng không được để trống.");
+            if (khachHang.NgaySinh == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày sinh không hợp lệ.");
+            }
 
 
             return _khachHangDAL.CapNhatKhachHang(khachHang);

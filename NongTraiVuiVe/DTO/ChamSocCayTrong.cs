@@ -13,7 +13,7 @@ namespace NongTraiVuiVe.DTO
         public string LoaiChamSoc { get; set; }
         public string MoTa { get; set; }
         public int NguoiChamSoc { get; set; }
-        public DateTime Ngay { get; set; }
+        public DateTime? Ngay { get; set; }
 
         public ChamSocCayTrong() { }
 

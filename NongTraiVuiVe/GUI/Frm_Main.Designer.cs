@@ -120,63 +120,63 @@
             // quảnLýNgườiDùngToolStripMenuItem
             // 
             quảnLýNgườiDùngToolStripMenuItem.Name = "quảnLýNgườiDùngToolStripMenuItem";
-            quảnLýNgườiDùngToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýNgườiDùngToolStripMenuItem.Size = new Size(246, 26);
             quảnLýNgườiDùngToolStripMenuItem.Text = "Quản lý người dùng";
             quảnLýNgườiDùngToolStripMenuItem.Click += quảnLýNgườiDùngToolStripMenuItem_Click;
             // 
             // quảnLýKhuVựcToolStripMenuItem
             // 
             quảnLýKhuVựcToolStripMenuItem.Name = "quảnLýKhuVựcToolStripMenuItem";
-            quảnLýKhuVựcToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýKhuVựcToolStripMenuItem.Size = new Size(246, 26);
             quảnLýKhuVựcToolStripMenuItem.Text = "Quản lý khu vực";
             quảnLýKhuVựcToolStripMenuItem.Click += quảnLýKhuVựcToolStripMenuItem_Click;
             // 
             // quảnLýCâyTrồngToolStripMenuItem
             // 
             quảnLýCâyTrồngToolStripMenuItem.Name = "quảnLýCâyTrồngToolStripMenuItem";
-            quảnLýCâyTrồngToolStripMenuItem.Size = new Size(275, 26);
-            quảnLýCâyTrồngToolStripMenuItem.Text = "Quản lý loại cây trồng";
+            quảnLýCâyTrồngToolStripMenuItem.Size = new Size(246, 26);
+            quảnLýCâyTrồngToolStripMenuItem.Text = "Chăm sóc cây trồng";
             quảnLýCâyTrồngToolStripMenuItem.Click += quảnLýLoạiCâyTrồngToolStripMenuItem_Click;
             // 
             // quảnLýCâyTrồngToolStripMenuItem1
             // 
             quảnLýCâyTrồngToolStripMenuItem1.Name = "quảnLýCâyTrồngToolStripMenuItem1";
-            quảnLýCâyTrồngToolStripMenuItem1.Size = new Size(275, 26);
+            quảnLýCâyTrồngToolStripMenuItem1.Size = new Size(246, 26);
             quảnLýCâyTrồngToolStripMenuItem1.Text = "Quản lý cây trồng";
             quảnLýCâyTrồngToolStripMenuItem1.Click += quảnLýCâyTrồngToolStripMenuItem1_Click;
             // 
             // quảnLýKhoHàngToolStripMenuItem
             // 
             quảnLýKhoHàngToolStripMenuItem.Name = "quảnLýKhoHàngToolStripMenuItem";
-            quảnLýKhoHàngToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýKhoHàngToolStripMenuItem.Size = new Size(246, 26);
             quảnLýKhoHàngToolStripMenuItem.Text = "Quản lý kho hàng";
             quảnLýKhoHàngToolStripMenuItem.Click += quảnLýKhoHàngToolStripMenuItem_Click;
             // 
             // quảnLýLoạiNguyênVậtLiệuToolStripMenuItem
             // 
             quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Name = "quảnLýLoạiNguyênVậtLiệuToolStripMenuItem";
-            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Size = new Size(275, 26);
-            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Text = "Quản lý loại nguyên vật liệu";
+            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Size = new Size(246, 26);
+            quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Text = "Chi tiêu";
             quảnLýLoạiNguyênVậtLiệuToolStripMenuItem.Click += quảnLýLoạiNguyênVậtLiệuToolStripMenuItem_Click;
             // 
             // quảnLýNguyênVậtLiệuToolStripMenuItem
             // 
             quảnLýNguyênVậtLiệuToolStripMenuItem.Name = "quảnLýNguyênVậtLiệuToolStripMenuItem";
-            quảnLýNguyênVậtLiệuToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýNguyênVậtLiệuToolStripMenuItem.Size = new Size(246, 26);
             quảnLýNguyênVậtLiệuToolStripMenuItem.Text = "Quản lý nguyên vật liệu";
             quảnLýNguyênVậtLiệuToolStripMenuItem.Click += quảnLýNguyênVậtLiệuToolStripMenuItem_Click;
             // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
             quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
-            quảnLýKháchHàngToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýKháchHàngToolStripMenuItem.Size = new Size(246, 26);
             quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý khách hàng";
             quảnLýKháchHàngToolStripMenuItem.Click += quảnLýKháchHàngToolStripMenuItem_Click;
             // 
             // quảnLýNhàCungCấpToolStripMenuItem
             // 
             quảnLýNhàCungCấpToolStripMenuItem.Name = "quảnLýNhàCungCấpToolStripMenuItem";
-            quảnLýNhàCungCấpToolStripMenuItem.Size = new Size(275, 26);
+            quảnLýNhàCungCấpToolStripMenuItem.Size = new Size(246, 26);
             quảnLýNhàCungCấpToolStripMenuItem.Text = "Quản lý nhà cung cấp";
             quảnLýNhàCungCấpToolStripMenuItem.Click += quảnLýNhàCungCấpToolStripMenuItem_Click;
             // 

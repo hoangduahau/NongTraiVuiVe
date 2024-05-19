@@ -73,8 +73,14 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtDiaChiKhachHang.Text = selectedRow.Cells["DiaChi"].Value.ToString();
                     txtSoDienThoaiKhachHang.Text = selectedRow.Cells["DienThoai"].Value.ToString();
                     txtEmailKhachHang.Text = selectedRow.Cells["Email"].Value.ToString();
-                    txtNgaySinhKhachHang.Text = (selectedRow.Cells["NgaySinh"].Value is DateTime ngaySinh) ?
-                        ngaySinh.ToString("dd/MM/yyyy") : string.Empty;
+                    if (selectedRow.Cells["NgaySinh"].Value is DateTime ngaySinh)
+                    {
+                        dtpNgaySinh.Value = ngaySinh;
+                    }
+                    else
+                    {
+                        dtpNgaySinh.Value = DateTimePicker.MinimumDateTime;
+                    }
                 }
             }
             catch (Exception ex)
@@ -92,22 +98,7 @@ namespace NongTraiVuiVe.Quản_Lý
                 khachHang.DiaChi = txtDiaChiKhachHang.Text;
                 khachHang.DienThoai = txtSoDienThoaiKhachHang.Text;
                 khachHang.Email = txtEmailKhachHang.Text;
-                if (DateTime.TryParse(txtNgaySinhKhachHang.Text, out DateTime ngaySinh))
-                {
-                    if (ngaySinh >= new DateTime(1753, 1, 1))
-                    {
-                        khachHang.NgaySinh = ngaySinh;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ngày sinh phải từ ngày 1/1/1753 trở đi.");
-                        return;
-                    }
-                }
-                else
-                {
-                    khachHang.NgaySinh = null;
-                }
+                khachHang.NgaySinh = dtpNgaySinh.Value;
 
                 KhachHangBLL khachHangBLL = new KhachHangBLL();
                 if (khachHangBLL.ThemKhachHang(khachHang))
@@ -118,7 +109,7 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtDiaChiKhachHang.Text = "";
                     txtSoDienThoaiKhachHang.Text = "";
                     txtEmailKhachHang.Text = "";
-                    txtNgaySinhKhachHang.Text = "";
+                    dtpNgaySinh.Value = DateTime.Now;
                     HienThiDanhSachKhachHang();
                     MessageBox.Show("Thêm khách hàng thành công!");
                 }
@@ -144,22 +135,7 @@ namespace NongTraiVuiVe.Quản_Lý
                 khachHang.DiaChi = txtDiaChiKhachHang.Text;
                 khachHang.DienThoai = txtSoDienThoaiKhachHang.Text;
                 khachHang.Email = txtEmailKhachHang.Text;
-                if (DateTime.TryParse(txtNgaySinhKhachHang.Text, out DateTime ngaySinh))
-                {
-                    if (ngaySinh >= new DateTime(1753, 1, 1))
-                    {
-                        khachHang.NgaySinh = ngaySinh;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ngày sinh phải từ ngày 1/1/1753 trở đi.");
-                        return;
-                    }
-                }
-                else
-                {
-                    khachHang.NgaySinh = null;
-                }
+                khachHang.NgaySinh = dtpNgaySinh.Value;
 
                 KhachHangBLL khachHangBLL = new KhachHangBLL();
                 if (khachHangBLL.CapNhatKhachHang(khachHang))
@@ -170,7 +146,7 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtDiaChiKhachHang.Text = "";
                     txtSoDienThoaiKhachHang.Text = "";
                     txtEmailKhachHang.Text = "";
-                    txtNgaySinhKhachHang.Text = "";
+                    dtpNgaySinh.Value = DateTime.Now;
                     HienThiDanhSachKhachHang();
                     MessageBox.Show("Chỉnh sửa khách hàng thành công!");
                 }
@@ -214,6 +190,6 @@ namespace NongTraiVuiVe.Quản_Lý
             }
         }
 
-        
+
     }
 }

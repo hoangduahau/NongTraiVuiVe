@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             gpKh = new GroupBox();
+            dtpNgaySinh = new DateTimePicker();
             txtEmailKhachHang = new TextBox();
             label6 = new Label();
-            txtNgaySinhKhachHang = new TextBox();
             label5 = new Label();
             txtSoDienThoaiKhachHang = new TextBox();
             label4 = new Label();
@@ -54,9 +54,9 @@
             // 
             // gpKh
             // 
+            gpKh.Controls.Add(dtpNgaySinh);
             gpKh.Controls.Add(txtEmailKhachHang);
             gpKh.Controls.Add(label6);
-            gpKh.Controls.Add(txtNgaySinhKhachHang);
             gpKh.Controls.Add(label5);
             gpKh.Controls.Add(txtSoDienThoaiKhachHang);
             gpKh.Controls.Add(label4);
@@ -78,6 +78,14 @@
             gpKh.TabStop = false;
             gpKh.Text = "Thông tin khách hàng";
             // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.Format = DateTimePickerFormat.Short;
+            dtpNgaySinh.Location = new Point(224, 530);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(295, 34);
+            dtpNgaySinh.TabIndex = 16;
+            // 
             // txtEmailKhachHang
             // 
             txtEmailKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
@@ -95,14 +103,6 @@
             label6.Size = new Size(69, 25);
             label6.TabIndex = 14;
             label6.Text = "Email:";
-            // 
-            // txtNgaySinhKhachHang
-            // 
-            txtNgaySinhKhachHang.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgaySinhKhachHang.Location = new Point(224, 529);
-            txtNgaySinhKhachHang.Name = "txtNgaySinhKhachHang";
-            txtNgaySinhKhachHang.Size = new Size(295, 34);
-            txtNgaySinhKhachHang.TabIndex = 13;
             // 
             // label5
             // 
@@ -255,6 +255,7 @@
             dgvDanhSachKhachHang.ReadOnly = true;
             dgvDanhSachKhachHang.RowHeadersWidth = 51;
             dgvDanhSachKhachHang.RowTemplate.Height = 29;
+            dgvDanhSachKhachHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachKhachHang.Size = new Size(1335, 831);
             dgvDanhSachKhachHang.TabIndex = 0;
             dgvDanhSachKhachHang.CellClick += dgvDanhSachKhachHang_CellClick;
@@ -293,9 +294,9 @@
         private Label label1;
         private GroupBox groupBox1;
         private DataGridView dgvDanhSachKhachHang;
-        private TextBox txtNgaySinhKhachHang;
         private Label label5;
         private TextBox txtEmailKhachHang;
         private Label label6;
+        private DateTimePicker dtpNgaySinh;
     }
 }
