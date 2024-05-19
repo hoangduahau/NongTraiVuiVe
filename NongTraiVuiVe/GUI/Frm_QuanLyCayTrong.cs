@@ -59,7 +59,6 @@ namespace NongTraiVuiVe.Quản_Lý
         {
             cayTrongBLL = new CayTrongBLL();
 
-            // Gọi phương thức từ BLL để lấy dữ liệu và hiển thị
             DataTable dtCayTrong = cayTrongBLL.LayDuLieuCayTrong();
             dgvDanhSachCayTrong.DataSource = dtCayTrong;
         }
@@ -68,25 +67,40 @@ namespace NongTraiVuiVe.Quản_Lý
         {
             try
             {
-                // Kiểm tra xem có dòng nào được chọn không và chỉ số dòng hợp lệ
                 if (e.RowIndex >= 0 && e.RowIndex < dgvDanhSachCayTrong.Rows.Count)
                 {
-                    // Lấy dòng được chọn
                     DataGridViewRow selectedRow = dgvDanhSachCayTrong.Rows[e.RowIndex];
 
-                    // Hiển thị các thuộc tính vào TextBox (điều chỉnh tên các TextBox cho phù hợp)
                     txtMaCayTrong.Text = selectedRow.Cells["MaCayTrong"].Value.ToString();
                     txtTenCayTrong.Text = selectedRow.Cells["TenCayTrong"].Value.ToString();
                     cbbLoaiCayTrong.Text = selectedRow.Cells["TenLoaiCayTrong"].Value.ToString();
                     txtGiongCay.Text = selectedRow.Cells["Giong"].Value.ToString();
                     txtNguonGoc.Text = selectedRow.Cells["NguonGoc"].Value.ToString();
                     txtSoLuong.Text = selectedRow.Cells["SoLuong"].Value.ToString();
-                    txtNgayGieoTrong.Text = (selectedRow.Cells["NgayGieoTrong"].Value is DateTime ngayGieoTrong) ?
-                        ngayGieoTrong.ToString("dd/MM/yyyy") : string.Empty;
-                    txtNgayThuHoachDuKien.Text = (selectedRow.Cells["NgayThuHoachDuKien"].Value is DateTime ngayThuHoachDuKien) ?
-                        ngayThuHoachDuKien.ToString("dd/MM/yyyy") : string.Empty;
-                    txtNgayThuHoachThucTe.Text = (selectedRow.Cells["NgayThuHoachThucTe"].Value is DateTime ngayThuHoachThucTe) ?
-                        ngayThuHoachThucTe.ToString("dd/MM/yyyy") : string.Empty;
+                    if (selectedRow.Cells["NgayGieoTrong"].Value is DateTime ngayGieoTrong)
+                    {
+                        dtpNgayGieoTrong.Value = ngayGieoTrong;
+                    }
+                    else
+                    {
+                        dtpNgayGieoTrong.Value = DateTimePicker.MinimumDateTime;
+                    }
+                    if (selectedRow.Cells["NgayThuHoachDuKien"].Value is DateTime ngayThuHoachDuKien)
+                    {
+                        dtpNgayThuHoachDuKien.Value = ngayThuHoachDuKien;
+                    }
+                    else
+                    {
+                        dtpNgayThuHoachDuKien.Value = DateTimePicker.MinimumDateTime;
+                    }
+                    if (selectedRow.Cells["NgayThuHoachThucTe"].Value is DateTime ngayThuHoachThucTe)
+                    {
+                        dtpNgayThuHoachThucTe.Value = ngayThuHoachThucTe;
+                    }
+                    else
+                    {
+                        dtpNgayThuHoachThucTe.Value = DateTimePicker.MinimumDateTime;
+                    }
                     cbbKhuVuc.Text = selectedRow.Cells["TenKhuVuc"].Value.ToString();
                     txtTinhTrang.Text = selectedRow.Cells["TinhTrang"].Value.ToString();
                 }
@@ -110,32 +124,10 @@ namespace NongTraiVuiVe.Quản_Lý
                 cayTrong.NguonGoc = txtNguonGoc.Text;
                 int.TryParse(txtSoLuong.Text, out int soLuong);
                 cayTrong.SoLuong = soLuong;
-                if (DateTime.TryParse(txtNgayGieoTrong.Text, out DateTime ngayGieoTrong))
-                {
-                    cayTrong.NgayGieoTrong = ngayGieoTrong;
-                }
-                else
-                {
-                    cayTrong.NgayGieoTrong = null;
-                }
-
-                if (DateTime.TryParse(txtNgayThuHoachDuKien.Text, out DateTime ngayThuHoachDuKien))
-                {
-                    cayTrong.NgayThuHoachDuKien = ngayThuHoachDuKien;
-                }
-                else
-                {
-                    cayTrong.NgayThuHoachDuKien = null;
-                }
-
-                if (DateTime.TryParse(txtNgayThuHoachThucTe.Text, out DateTime ngayThuHoachThucTe))
-                {
-                    cayTrong.NgayThuHoachThucTe = ngayThuHoachThucTe;
-                }
-                else
-                {
-                    cayTrong.NgayThuHoachThucTe = null;
-                }
+                cayTrong.NgayGieoTrong = dtpNgayGieoTrong.Value;
+                cayTrong.NgayThuHoachDuKien = dtpNgayThuHoachDuKien.Value;
+                cayTrong.NgayThuHoachThucTe = dtpNgayThuHoachThucTe.Value;
+                
                 string tenKhuVuc = cbbKhuVuc.SelectedItem.ToString();
                 KhuVucBLL khuVucBLL = new KhuVucBLL();
                 cayTrong.MaKhuVuc = khuVucBLL.LayMaKhuVucTheoTen(tenKhuVuc);
@@ -151,9 +143,9 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtGiongCay.Text = "";
                     txtNguonGoc.Text = "";
                     txtSoLuong.Text = "";
-                    txtNgayGieoTrong.Text = "";
-                    txtNgayThuHoachDuKien.Text = "";
-                    txtNgayThuHoachThucTe.Text = "";
+                    dtpNgayGieoTrong.Value = DateTime.Now;
+                    dtpNgayGieoTrong.Value = DateTime.Now;
+                    dtpNgayGieoTrong.Value = DateTime.Now;
                     cbbKhuVuc.SelectedIndex = -1;
                     txtTinhTrang.Text = "";
                     HienThiDanhSachCayTrong();
@@ -185,32 +177,9 @@ namespace NongTraiVuiVe.Quản_Lý
                 cayTrong.NguonGoc = txtNguonGoc.Text;
                 int.TryParse(txtSoLuong.Text, out int soLuong);
                 cayTrong.SoLuong = soLuong;
-                if (DateTime.TryParse(txtNgayGieoTrong.Text, out DateTime ngayGieoTrong))
-                {
-                    cayTrong.NgayGieoTrong = ngayGieoTrong;
-                }
-                else
-                {
-                    cayTrong.NgayGieoTrong = null;
-                }
-
-                if (DateTime.TryParse(txtNgayThuHoachDuKien.Text, out DateTime ngayThuHoachDuKien))
-                {
-                    cayTrong.NgayThuHoachDuKien = ngayThuHoachDuKien;
-                }
-                else
-                {
-                    cayTrong.NgayThuHoachDuKien = null;
-                }
-
-                if (DateTime.TryParse(txtNgayThuHoachThucTe.Text, out DateTime ngayThuHoachThucTe))
-                {
-                    cayTrong.NgayThuHoachThucTe = ngayThuHoachThucTe;
-                }
-                else
-                {
-                    cayTrong.NgayThuHoachThucTe = null;
-                }
+                cayTrong.NgayGieoTrong = dtpNgayGieoTrong.Value;
+                cayTrong.NgayThuHoachDuKien = dtpNgayThuHoachDuKien.Value;
+                cayTrong.NgayThuHoachThucTe = dtpNgayThuHoachThucTe.Value;
                 string tenKhuVuc = cbbKhuVuc.SelectedItem.ToString();
                 KhuVucBLL khuVucBLL = new KhuVucBLL();
                 cayTrong.MaKhuVuc = khuVucBLL.LayMaKhuVucTheoTen(tenKhuVuc);
@@ -226,9 +195,9 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtGiongCay.Text = "";
                     txtNguonGoc.Text = "";
                     txtSoLuong.Text = "";
-                    txtNgayGieoTrong.Text = "";
-                    txtNgayThuHoachDuKien.Text = "";
-                    txtNgayThuHoachThucTe.Text = "";
+                    dtpNgayGieoTrong.Value = DateTime.Now;
+                    dtpNgayGieoTrong.Value = DateTime.Now;
+                    dtpNgayGieoTrong.Value = DateTime.Now;
                     cbbKhuVuc.SelectedIndex = -1;
                     txtTinhTrang.Text = "";
                     HienThiDanhSachCayTrong();

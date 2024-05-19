@@ -62,6 +62,7 @@
             dgvDanhSachNhaCungCap.ReadOnly = true;
             dgvDanhSachNhaCungCap.RowHeadersWidth = 51;
             dgvDanhSachNhaCungCap.RowTemplate.Height = 29;
+            dgvDanhSachNhaCungCap.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachNhaCungCap.Size = new Size(1335, 831);
             dgvDanhSachNhaCungCap.TabIndex = 0;
             dgvDanhSachNhaCungCap.CellClick += dgvDanhSachNhaCungCap_CellClick;

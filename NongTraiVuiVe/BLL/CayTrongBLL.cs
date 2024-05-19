@@ -47,6 +47,27 @@ namespace NongTraiVuiVe.BLL
             if (!_khuVucDAL.KiemTraTonTaiMaKhuVuc(cayTrong.MaKhuVuc.Value))
                 throw new ArgumentException("Mã khu vực không tồn tại.");
 
+            if (cayTrong.NgayGieoTrong == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày gieo trồng không hợp lệ.");
+            }
+            if (cayTrong.NgayThuHoachDuKien == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày thu hoạch dự kiến không hợp lệ.");
+            }
+            if (cayTrong.NgayThuHoachThucTe == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày thu hoạch thực tế không hợp lệ.");
+            }
+            if (cayTrong.NgayGieoTrong >= cayTrong.NgayThuHoachDuKien)
+            {
+                throw new ArgumentException("Ngày gieo trồng phải nhỏ hơn ngày thu hoạch dự kiến.");
+            }
+            if (cayTrong.NgayGieoTrong >= cayTrong.NgayThuHoachThucTe)
+            {
+                throw new ArgumentException("Ngày gieo trồng phải nhỏ hơn ngày thu hoạch thực tế.");
+            }
+
             if (_cayTrongDAL.KiemTraTonTaiTenCayTrong(cayTrong.TenCayTrong))
             {
                 throw new ArgumentException("Cây trồng đã tồn tại.");
@@ -75,6 +96,27 @@ namespace NongTraiVuiVe.BLL
 
             if (!_khuVucDAL.KiemTraTonTaiMaKhuVuc(cayTrong.MaKhuVuc.Value))
                 throw new ArgumentException("Mã khu vực không tồn tại.");
+
+            if (cayTrong.NgayGieoTrong == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày gieo trồng không hợp lệ.");
+            }
+            if (cayTrong.NgayThuHoachDuKien == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày thu hoạch dự kiến không hợp lệ.");
+            }
+            if (cayTrong.NgayThuHoachThucTe == DateTimePicker.MinimumDateTime)
+            {
+                throw new ArgumentException("Ngày thu hoạch thực tế không hợp lệ.");
+            }
+            if (cayTrong.NgayGieoTrong >= cayTrong.NgayThuHoachDuKien)
+            {
+                throw new ArgumentException("Ngày gieo trồng phải nhỏ hơn ngày thu hoạch dự kiến.");
+            }
+            if (cayTrong.NgayGieoTrong >= cayTrong.NgayThuHoachThucTe)
+            {
+                throw new ArgumentException("Ngày gieo trồng phải nhỏ hơn ngày thu hoạch thực tế.");
+            }
 
             if (_cayTrongDAL.KiemTraTonTaiTenCayTrong(cayTrong.TenCayTrong) && _cayTrongDAL.LayMaCayTrongTheoTen(cayTrong.TenCayTrong) != cayTrong.MaCayTrong)
             {

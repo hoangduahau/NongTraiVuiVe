@@ -30,14 +30,13 @@
         {
             label1 = new Label();
             groupbox2 = new GroupBox();
+            cbbKhuVuc = new ComboBox();
+            cbbLoaiCayTrong = new ComboBox();
             txtTinhTrang = new TextBox();
             label11 = new Label();
             label10 = new Label();
-            txtNgayThuHoachThucTe = new TextBox();
             label9 = new Label();
-            txtNgayThuHoachDuKien = new TextBox();
             label8 = new Label();
-            txtNgayGieoTrong = new TextBox();
             label7 = new Label();
             txtSoLuong = new TextBox();
             label6 = new Label();
@@ -55,8 +54,9 @@
             txtMaCayTrong = new TextBox();
             groupBox1 = new GroupBox();
             dgvDanhSachCayTrong = new DataGridView();
-            cbbLoaiCayTrong = new ComboBox();
-            cbbKhuVuc = new ComboBox();
+            dtpNgayGieoTrong = new DateTimePicker();
+            dtpNgayThuHoachDuKien = new DateTimePicker();
+            dtpNgayThuHoachThucTe = new DateTimePicker();
             groupbox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachCayTrong).BeginInit();
@@ -74,16 +74,16 @@
             // 
             // groupbox2
             // 
+            groupbox2.Controls.Add(dtpNgayThuHoachThucTe);
+            groupbox2.Controls.Add(dtpNgayThuHoachDuKien);
+            groupbox2.Controls.Add(dtpNgayGieoTrong);
             groupbox2.Controls.Add(cbbKhuVuc);
             groupbox2.Controls.Add(cbbLoaiCayTrong);
             groupbox2.Controls.Add(txtTinhTrang);
             groupbox2.Controls.Add(label11);
             groupbox2.Controls.Add(label10);
-            groupbox2.Controls.Add(txtNgayThuHoachThucTe);
             groupbox2.Controls.Add(label9);
-            groupbox2.Controls.Add(txtNgayThuHoachDuKien);
             groupbox2.Controls.Add(label8);
-            groupbox2.Controls.Add(txtNgayGieoTrong);
             groupbox2.Controls.Add(label7);
             groupbox2.Controls.Add(txtSoLuong);
             groupbox2.Controls.Add(label6);
@@ -106,6 +106,24 @@
             groupbox2.TabIndex = 3;
             groupbox2.TabStop = false;
             groupbox2.Text = "Thông tin khu vực";
+            // 
+            // cbbKhuVuc
+            // 
+            cbbKhuVuc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbKhuVuc.FormattingEnabled = true;
+            cbbKhuVuc.Location = new Point(213, 370);
+            cbbKhuVuc.Name = "cbbKhuVuc";
+            cbbKhuVuc.Size = new Size(295, 28);
+            cbbKhuVuc.TabIndex = 27;
+            // 
+            // cbbLoaiCayTrong
+            // 
+            cbbLoaiCayTrong.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbLoaiCayTrong.FormattingEnabled = true;
+            cbbLoaiCayTrong.Location = new Point(213, 114);
+            cbbLoaiCayTrong.Name = "cbbLoaiCayTrong";
+            cbbLoaiCayTrong.Size = new Size(295, 28);
+            cbbLoaiCayTrong.TabIndex = 26;
             // 
             // txtTinhTrang
             // 
@@ -135,14 +153,6 @@
             label10.TabIndex = 22;
             label10.Text = "Khu vực:";
             // 
-            // txtNgayThuHoachThucTe
-            // 
-            txtNgayThuHoachThucTe.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgayThuHoachThucTe.Location = new Point(213, 332);
-            txtNgayThuHoachThucTe.Name = "txtNgayThuHoachThucTe";
-            txtNgayThuHoachThucTe.Size = new Size(295, 30);
-            txtNgayThuHoachThucTe.TabIndex = 21;
-            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -152,14 +162,6 @@
             label9.Size = new Size(194, 22);
             label9.TabIndex = 20;
             label9.Text = "Ngày thu hoạch thực tế:";
-            // 
-            // txtNgayThuHoachDuKien
-            // 
-            txtNgayThuHoachDuKien.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgayThuHoachDuKien.Location = new Point(213, 296);
-            txtNgayThuHoachDuKien.Name = "txtNgayThuHoachDuKien";
-            txtNgayThuHoachDuKien.Size = new Size(295, 30);
-            txtNgayThuHoachDuKien.TabIndex = 19;
             // 
             // label8
             // 
@@ -171,14 +173,6 @@
             label8.TabIndex = 18;
             label8.Text = "Ngày thu hoạch dự kiến:";
             label8.Click += label8_Click;
-            // 
-            // txtNgayGieoTrong
-            // 
-            txtNgayGieoTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNgayGieoTrong.Location = new Point(213, 260);
-            txtNgayGieoTrong.Name = "txtNgayGieoTrong";
-            txtNgayGieoTrong.Size = new Size(295, 30);
-            txtNgayGieoTrong.TabIndex = 17;
             // 
             // label7
             // 
@@ -347,23 +341,29 @@
             dgvDanhSachCayTrong.TabIndex = 0;
             dgvDanhSachCayTrong.CellClick += dgvDanhSachCayTrong_CellClick;
             // 
-            // cbbLoaiCayTrong
+            // dtpNgayGieoTrong
             // 
-            cbbLoaiCayTrong.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbLoaiCayTrong.FormattingEnabled = true;
-            cbbLoaiCayTrong.Location = new Point(213, 114);
-            cbbLoaiCayTrong.Name = "cbbLoaiCayTrong";
-            cbbLoaiCayTrong.Size = new Size(295, 28);
-            cbbLoaiCayTrong.TabIndex = 26;
+            dtpNgayGieoTrong.Format = DateTimePickerFormat.Short;
+            dtpNgayGieoTrong.Location = new Point(213, 260);
+            dtpNgayGieoTrong.Name = "dtpNgayGieoTrong";
+            dtpNgayGieoTrong.Size = new Size(295, 27);
+            dtpNgayGieoTrong.TabIndex = 28;
             // 
-            // cbbKhuVuc
+            // dtpNgayThuHoachDuKien
             // 
-            cbbKhuVuc.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbbKhuVuc.FormattingEnabled = true;
-            cbbKhuVuc.Location = new Point(213, 370);
-            cbbKhuVuc.Name = "cbbKhuVuc";
-            cbbKhuVuc.Size = new Size(295, 28);
-            cbbKhuVuc.TabIndex = 27;
+            dtpNgayThuHoachDuKien.Format = DateTimePickerFormat.Short;
+            dtpNgayThuHoachDuKien.Location = new Point(213, 299);
+            dtpNgayThuHoachDuKien.Name = "dtpNgayThuHoachDuKien";
+            dtpNgayThuHoachDuKien.Size = new Size(295, 27);
+            dtpNgayThuHoachDuKien.TabIndex = 29;
+            // 
+            // dtpNgayThuHoachThucTe
+            // 
+            dtpNgayThuHoachThucTe.Format = DateTimePickerFormat.Short;
+            dtpNgayThuHoachThucTe.Location = new Point(213, 335);
+            dtpNgayThuHoachThucTe.Name = "dtpNgayThuHoachThucTe";
+            dtpNgayThuHoachThucTe.Size = new Size(295, 27);
+            dtpNgayThuHoachThucTe.TabIndex = 30;
             // 
             // Frm_QuanLyCayTrong
             // 
@@ -399,11 +399,8 @@
         private TextBox txtTinhTrang;
         private Label label11;
         private Label label10;
-        private TextBox txtNgayThuHoachThucTe;
         private Label label9;
-        private TextBox txtNgayThuHoachDuKien;
         private Label label8;
-        private TextBox txtNgayGieoTrong;
         private Label label7;
         private TextBox txtSoLuong;
         private Label label6;
@@ -413,5 +410,8 @@
         private Label label4;
         private ComboBox cbbKhuVuc;
         private ComboBox cbbLoaiCayTrong;
+        private DateTimePicker dtpNgayThuHoachThucTe;
+        private DateTimePicker dtpNgayThuHoachDuKien;
+        private DateTimePicker dtpNgayGieoTrong;
     }
 }

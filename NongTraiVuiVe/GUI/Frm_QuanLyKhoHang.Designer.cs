@@ -214,6 +214,7 @@
             dgvDanhSachKhoHang.ReadOnly = true;
             dgvDanhSachKhoHang.RowHeadersWidth = 51;
             dgvDanhSachKhoHang.RowTemplate.Height = 29;
+            dgvDanhSachKhoHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDanhSachKhoHang.Size = new Size(1314, 819);
             dgvDanhSachKhoHang.TabIndex = 0;
             dgvDanhSachKhoHang.CellClick += dgvDanhSachKhoHang_CellClick;
