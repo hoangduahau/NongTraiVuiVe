@@ -105,6 +105,7 @@
             StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "Frm_QuanLyNguoiDung";
             WindowState = FormWindowState.Maximized;
+            Load += Frm_QuanLyNguoiDung_Load;
             panel1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);

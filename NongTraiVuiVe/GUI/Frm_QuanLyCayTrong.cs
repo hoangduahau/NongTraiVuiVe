@@ -45,6 +45,14 @@ namespace NongTraiVuiVe.Quản_Lý
         private void Frm_QuanLyCayTrong_Load(object sender, EventArgs e)
         {
             HienThiDanhSachCayTrong();
+            LoaiCayTrongBLL loaiCayTrongBLL = new LoaiCayTrongBLL();
+            List<string> danhSachTenLoaiCayTrong = loaiCayTrongBLL.LayDanhSachTenLoaiCayTrong();
+            cbbLoaiCayTrong.DataSource = danhSachTenLoaiCayTrong;
+            cbbLoaiCayTrong.SelectedIndex = -1;
+            KhuVucBLL khuVucBLL = new KhuVucBLL();
+            List<string> danhSachKhuVuc = khuVucBLL.LayDanhSachTenKhuVuc();
+            cbbKhuVuc.DataSource = danhSachKhuVuc;
+            cbbKhuVuc.SelectedIndex = -1;
         }
 
         private void HienThiDanhSachCayTrong()
@@ -69,14 +77,17 @@ namespace NongTraiVuiVe.Quản_Lý
                     // Hiển thị các thuộc tính vào TextBox (điều chỉnh tên các TextBox cho phù hợp)
                     txtMaCayTrong.Text = selectedRow.Cells["MaCayTrong"].Value.ToString();
                     txtTenCayTrong.Text = selectedRow.Cells["TenCayTrong"].Value.ToString();
-                    txtMaLoaiCayTrong.Text = selectedRow.Cells["MaLoaiCayTrong"].Value.ToString();
+                    cbbLoaiCayTrong.Text = selectedRow.Cells["TenLoaiCayTrong"].Value.ToString();
                     txtGiongCay.Text = selectedRow.Cells["Giong"].Value.ToString();
                     txtNguonGoc.Text = selectedRow.Cells["NguonGoc"].Value.ToString();
                     txtSoLuong.Text = selectedRow.Cells["SoLuong"].Value.ToString();
-                    txtNgayGieoTrong.Text = selectedRow.Cells["NgayGieoTrong"].Value.ToString();
-                    txtNgayThuHoachDuKien.Text = selectedRow.Cells["NgayThuHoachDuKien"].Value.ToString();
-                    txtNgayThuHoachThucTe.Text = selectedRow.Cells["NgayThuHoachThucTe"].Value.ToString();
-                    txtMaKhuVuc.Text = selectedRow.Cells["MaKhuVuc"].Value.ToString();
+                    txtNgayGieoTrong.Text = (selectedRow.Cells["NgayGieoTrong"].Value is DateTime ngayGieoTrong) ?
+                        ngayGieoTrong.ToString("dd/MM/yyyy") : string.Empty;
+                    txtNgayThuHoachDuKien.Text = (selectedRow.Cells["NgayThuHoachDuKien"].Value is DateTime ngayThuHoachDuKien) ?
+                        ngayThuHoachDuKien.ToString("dd/MM/yyyy") : string.Empty;
+                    txtNgayThuHoachThucTe.Text = (selectedRow.Cells["NgayThuHoachThucTe"].Value is DateTime ngayThuHoachThucTe) ?
+                        ngayThuHoachThucTe.ToString("dd/MM/yyyy") : string.Empty;
+                    cbbKhuVuc.Text = selectedRow.Cells["TenKhuVuc"].Value.ToString();
                     txtTinhTrang.Text = selectedRow.Cells["TinhTrang"].Value.ToString();
                 }
             }
@@ -92,8 +103,9 @@ namespace NongTraiVuiVe.Quản_Lý
             {
                 CayTrong cayTrong = new CayTrong();
                 cayTrong.TenCayTrong = txtTenCayTrong.Text;
-                int.TryParse(txtMaLoaiCayTrong.Text, out int maLoaiCayTrong);
-                cayTrong.MaLoaiCayTrong = maLoaiCayTrong;
+                string tenLoaiCayTrong = cbbLoaiCayTrong.SelectedItem.ToString();
+                LoaiCayTrongBLL loaiCayTrongBLL = new LoaiCayTrongBLL();
+                cayTrong.MaLoaiCayTrong = loaiCayTrongBLL.LayMaLoaiCayTrongTheoTen(tenLoaiCayTrong);
                 cayTrong.Giong = txtGiongCay.Text;
                 cayTrong.NguonGoc = txtNguonGoc.Text;
                 int.TryParse(txtSoLuong.Text, out int soLuong);
@@ -124,8 +136,9 @@ namespace NongTraiVuiVe.Quản_Lý
                 {
                     cayTrong.NgayThuHoachThucTe = null;
                 }
-                int.TryParse(txtMaKhuVuc.Text, out int maKhuVuc);
-                cayTrong.MaKhuVuc = maKhuVuc;
+                string tenKhuVuc = cbbKhuVuc.SelectedItem.ToString();
+                KhuVucBLL khuVucBLL = new KhuVucBLL();
+                cayTrong.MaKhuVuc = khuVucBLL.LayMaKhuVucTheoTen(tenKhuVuc);
                 cayTrong.TinhTrang = txtTinhTrang.Text;
 
                 CayTrongBLL cayTrongBLL = new CayTrongBLL();
@@ -134,14 +147,14 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtTenCayTrong.Focus();
                     txtMaCayTrong.Text = "";
                     txtTenCayTrong.Text = "";
-                    txtMaLoaiCayTrong.Text = "";
+                    cbbLoaiCayTrong.SelectedIndex = -1;
                     txtGiongCay.Text = "";
                     txtNguonGoc.Text = "";
                     txtSoLuong.Text = "";
                     txtNgayGieoTrong.Text = "";
                     txtNgayThuHoachDuKien.Text = "";
                     txtNgayThuHoachThucTe.Text = "";
-                    txtMaKhuVuc.Text = "";
+                    cbbKhuVuc.SelectedIndex = -1;
                     txtTinhTrang.Text = "";
                     HienThiDanhSachCayTrong();
                     MessageBox.Show("Thêm cây trồng thành công!");
@@ -165,8 +178,9 @@ namespace NongTraiVuiVe.Quản_Lý
                 CayTrong cayTrong = new CayTrong();
                 cayTrong.MaCayTrong = maCayTrong;
                 cayTrong.TenCayTrong = txtTenCayTrong.Text;
-                int.TryParse(txtMaLoaiCayTrong.Text, out int maLoaiCayTrong);
-                cayTrong.MaLoaiCayTrong = maLoaiCayTrong;
+                string tenLoaiCayTrong = cbbLoaiCayTrong.SelectedItem.ToString();
+                LoaiCayTrongBLL loaiCayTrongBLL = new LoaiCayTrongBLL();
+                cayTrong.MaLoaiCayTrong = loaiCayTrongBLL.LayMaLoaiCayTrongTheoTen(tenLoaiCayTrong);
                 cayTrong.Giong = txtGiongCay.Text;
                 cayTrong.NguonGoc = txtNguonGoc.Text;
                 int.TryParse(txtSoLuong.Text, out int soLuong);
@@ -197,8 +211,9 @@ namespace NongTraiVuiVe.Quản_Lý
                 {
                     cayTrong.NgayThuHoachThucTe = null;
                 }
-                int.TryParse(txtMaKhuVuc.Text, out int maKhuVuc);
-                cayTrong.MaKhuVuc = maKhuVuc;
+                string tenKhuVuc = cbbKhuVuc.SelectedItem.ToString();
+                KhuVucBLL khuVucBLL = new KhuVucBLL();
+                cayTrong.MaKhuVuc = khuVucBLL.LayMaKhuVucTheoTen(tenKhuVuc);
                 cayTrong.TinhTrang = txtTinhTrang.Text;
 
                 CayTrongBLL cayTrongBLL = new CayTrongBLL();
@@ -207,14 +222,14 @@ namespace NongTraiVuiVe.Quản_Lý
                     txtTenCayTrong.Focus();
                     txtMaCayTrong.Text = "";
                     txtTenCayTrong.Text = "";
-                    txtMaLoaiCayTrong.Text = "";
+                    cbbLoaiCayTrong.SelectedIndex = -1;
                     txtGiongCay.Text = "";
                     txtNguonGoc.Text = "";
                     txtSoLuong.Text = "";
                     txtNgayGieoTrong.Text = "";
                     txtNgayThuHoachDuKien.Text = "";
                     txtNgayThuHoachThucTe.Text = "";
-                    txtMaKhuVuc.Text = "";
+                    cbbKhuVuc.SelectedIndex = -1;
                     txtTinhTrang.Text = "";
                     HienThiDanhSachCayTrong();
                     MessageBox.Show("Chỉnh sửa cây trồng thành công!");
@@ -238,7 +253,7 @@ namespace NongTraiVuiVe.Quản_Lý
 
                 DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa cây trồng này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (dialogResult == DialogResult.Yes) 
+                if (dialogResult == DialogResult.Yes)
                 {
                     CayTrongBLL cayTrongBLL = new CayTrongBLL();
                     if (cayTrongBLL.XoaCayTrong(maCayTrong))

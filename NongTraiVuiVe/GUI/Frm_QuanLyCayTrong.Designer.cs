@@ -32,7 +32,6 @@
             groupbox2 = new GroupBox();
             txtTinhTrang = new TextBox();
             label11 = new Label();
-            txtMaKhuVuc = new TextBox();
             label10 = new Label();
             txtNgayThuHoachThucTe = new TextBox();
             label9 = new Label();
@@ -46,7 +45,6 @@
             label5 = new Label();
             txtGiongCay = new TextBox();
             label4 = new Label();
-            txtMaLoaiCayTrong = new TextBox();
             label3 = new Label();
             txtTenCayTrong = new TextBox();
             label2 = new Label();
@@ -57,6 +55,8 @@
             txtMaCayTrong = new TextBox();
             groupBox1 = new GroupBox();
             dgvDanhSachCayTrong = new DataGridView();
+            cbbLoaiCayTrong = new ComboBox();
+            cbbKhuVuc = new ComboBox();
             groupbox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachCayTrong).BeginInit();
@@ -74,9 +74,10 @@
             // 
             // groupbox2
             // 
+            groupbox2.Controls.Add(cbbKhuVuc);
+            groupbox2.Controls.Add(cbbLoaiCayTrong);
             groupbox2.Controls.Add(txtTinhTrang);
             groupbox2.Controls.Add(label11);
-            groupbox2.Controls.Add(txtMaKhuVuc);
             groupbox2.Controls.Add(label10);
             groupbox2.Controls.Add(txtNgayThuHoachThucTe);
             groupbox2.Controls.Add(label9);
@@ -90,7 +91,6 @@
             groupbox2.Controls.Add(label5);
             groupbox2.Controls.Add(txtGiongCay);
             groupbox2.Controls.Add(label4);
-            groupbox2.Controls.Add(txtMaLoaiCayTrong);
             groupbox2.Controls.Add(label3);
             groupbox2.Controls.Add(txtTenCayTrong);
             groupbox2.Controls.Add(label2);
@@ -125,23 +125,15 @@
             label11.TabIndex = 24;
             label11.Text = "Tình trạng:";
             // 
-            // txtMaKhuVuc
-            // 
-            txtMaKhuVuc.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaKhuVuc.Location = new Point(213, 368);
-            txtMaKhuVuc.Name = "txtMaKhuVuc";
-            txtMaKhuVuc.Size = new Size(295, 30);
-            txtMaKhuVuc.TabIndex = 23;
-            // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(88, 371);
+            label10.Location = new Point(114, 376);
             label10.Name = "label10";
-            label10.Size = new Size(109, 22);
+            label10.Size = new Size(83, 22);
             label10.TabIndex = 22;
-            label10.Text = "Mã khu vực:";
+            label10.Text = "Khu vực:";
             // 
             // txtNgayThuHoachThucTe
             // 
@@ -252,23 +244,15 @@
             label4.TabIndex = 10;
             label4.Text = "Giống cây:";
             // 
-            // txtMaLoaiCayTrong
-            // 
-            txtMaLoaiCayTrong.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMaLoaiCayTrong.Location = new Point(213, 112);
-            txtMaLoaiCayTrong.Name = "txtMaLoaiCayTrong";
-            txtMaLoaiCayTrong.Size = new Size(295, 30);
-            txtMaLoaiCayTrong.TabIndex = 9;
-            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(42, 120);
+            label3.Location = new Point(65, 120);
             label3.Name = "label3";
-            label3.Size = new Size(155, 22);
+            label3.Size = new Size(129, 22);
             label3.TabIndex = 8;
-            label3.Text = "Mã loại cây trồng:";
+            label3.Text = "Loại cây trồng:";
             // 
             // txtTenCayTrong
             // 
@@ -363,6 +347,24 @@
             dgvDanhSachCayTrong.TabIndex = 0;
             dgvDanhSachCayTrong.CellClick += dgvDanhSachCayTrong_CellClick;
             // 
+            // cbbLoaiCayTrong
+            // 
+            cbbLoaiCayTrong.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbLoaiCayTrong.FormattingEnabled = true;
+            cbbLoaiCayTrong.Location = new Point(213, 114);
+            cbbLoaiCayTrong.Name = "cbbLoaiCayTrong";
+            cbbLoaiCayTrong.Size = new Size(295, 28);
+            cbbLoaiCayTrong.TabIndex = 26;
+            // 
+            // cbbKhuVuc
+            // 
+            cbbKhuVuc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbbKhuVuc.FormattingEnabled = true;
+            cbbKhuVuc.Location = new Point(213, 370);
+            cbbKhuVuc.Name = "cbbKhuVuc";
+            cbbKhuVuc.Size = new Size(295, 28);
+            cbbKhuVuc.TabIndex = 27;
+            // 
             // Frm_QuanLyCayTrong
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -384,7 +386,6 @@
 
         private Label label1;
         private GroupBox groupbox2;
-        private TextBox txtMaLoaiCayTrong;
         private Label label3;
         private TextBox txtTenCayTrong;
         private Label label2;
@@ -397,7 +398,6 @@
         private DataGridView dgvDanhSachCayTrong;
         private TextBox txtTinhTrang;
         private Label label11;
-        private TextBox txtMaKhuVuc;
         private Label label10;
         private TextBox txtNgayThuHoachThucTe;
         private Label label9;
@@ -411,5 +411,7 @@
         private Label label5;
         private TextBox txtGiongCay;
         private Label label4;
+        private ComboBox cbbKhuVuc;
+        private ComboBox cbbLoaiCayTrong;
     }
 }
