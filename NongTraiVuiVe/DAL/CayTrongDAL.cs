@@ -93,8 +93,8 @@ namespace NongTraiVuiVe.DAL
                                 kv.TenKhuVuc,
                                 ct.TinhTrang
                             FROM CayTrong ct
-                            INNER JOIN LoaiCayTrong lct ON ct.MaLoaiCayTrong = lct.MaLoaiCayTrong
-                            INNER JOIN KhuVuc kv ON ct.MaKhuVuc = kv.MaKhuVuc;";
+                            LEFT JOIN LoaiCayTrong lct ON ct.MaLoaiCayTrong = lct.MaLoaiCayTrong
+                            LEFT JOIN KhuVuc kv ON ct.MaKhuVuc = kv.MaKhuVuc;";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
 
                 adapter.Fill(dtCayTrong);
@@ -193,6 +193,27 @@ namespace NongTraiVuiVe.DAL
                     }
                 }
             }
+        }
+
+        public List<string> LayDanhSachTenCayTrong()
+        {
+            List<string> danhDanhSachTenCayTrong = new List<string>();
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TenCayTrong FROM CayTrong";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhDanhSachTenCayTrong.Add(reader["TenCayTrong"].ToString());
+                        }
+                    }
+                }
+            }
+            return danhDanhSachTenCayTrong;
         }
 
         // Các phương thức khác: ThemCayTrong, CapNhatCayTrong, XoaCayTrong

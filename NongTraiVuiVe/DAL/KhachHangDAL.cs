@@ -11,6 +11,42 @@ namespace NongTraiVuiVe.DAL
 {
     public class KhachHangDAL
     {
+
+        public List<string> LayDanhSachTenKhachHang()
+        {
+            List<string> danhDanhSachTenKhachHang = new List<string>();
+            using (SqlConnection connection = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                connection.Open();
+                string sql = "SELECT TenKhachHang FROM KhachHang";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhDanhSachTenKhachHang.Add(reader["TenKhachHang"].ToString());
+                        }
+                    }
+                }
+            }
+            return danhDanhSachTenKhachHang;
+        }
+
+        public int LayMaKhachHangTheoTen(string tenKhachHang)
+        {
+            using (SqlConnection conn = new SqlConnection(DatabaseConnection.ConnectionString))
+            {
+                conn.Open();
+                string sql = "SELECT MaKhachHang FROM KhachHang WHERE TenKhachHang = @TenKhachHang";
+                using (SqlCommand command = new SqlCommand(sql, conn))
+                {
+                    command.Parameters.AddWithValue("@TenKhachHang", tenKhachHang);
+                    object result = command.ExecuteScalar();
+                    return result != null ? (int)result : 0; // Trả về 0 nếu không tìm thấy
+                }
+            }
+        }
         public DataTable LayDuLieuKhachHang()
         {
             DataTable dtKhachHang = new DataTable();

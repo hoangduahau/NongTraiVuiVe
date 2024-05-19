@@ -29,6 +29,11 @@ namespace NongTraiVuiVe.BLL
             return _cayTrongDAL.LayDuLieuCayTrong(); 
         }
 
+        public List<string> LayDanhSachTenCayTrong()
+        {
+            return _cayTrongDAL.LayDanhSachTenCayTrong();
+        }
+
         public bool ThemCayTrong(CayTrong cayTrong)
         {
             if (cayTrong == null)
@@ -74,6 +79,14 @@ namespace NongTraiVuiVe.BLL
             }
 
             return _cayTrongDAL.ThemCayTrong(cayTrong);
+        }
+
+        public int LayMaCayTrongTheoTen(string tenCayTrong)
+        {
+            //if (string.IsNullOrWhiteSpace(tenCayTrong))
+            //    throw new ArgumentException("Tên cây trồng không được để trống.");
+
+            return _cayTrongDAL.LayMaCayTrongTheoTen(tenCayTrong);
         }
 
         public bool CapNhatCayTrong(CayTrong cayTrong)

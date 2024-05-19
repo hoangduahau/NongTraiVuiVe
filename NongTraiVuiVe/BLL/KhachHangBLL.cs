@@ -18,6 +18,19 @@ namespace NongTraiVuiVe.BLL
             _khachHangDAL = new KhachHangDAL();
         }
 
+        public List<string> LayDanhSachTenKhachHang()
+        {
+            return _khachHangDAL.LayDanhSachTenKhachHang();
+        }
+
+        public int LayMaKhachHangTheoTen(string tenKhachHang)
+        {
+            if (string.IsNullOrWhiteSpace(tenKhachHang))
+                throw new ArgumentException("Tên khách hàng không được để trống.");
+
+            return _khachHangDAL.LayMaKhachHangTheoTen(tenKhachHang);
+        }
+
         public DataTable LayDuLieuKhachHang()
         {
             return _khachHangDAL.LayDuLieuKhachHang();
