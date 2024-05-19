@@ -32,6 +32,16 @@ namespace NongTraiVuiVe.BLL
             return null;
         }
 
+        public List<string> LayDanhSachTenNguoiDung()
+        {
+            return _nguoiDungDAL.LayDanhSachTenNguoiDung();
+        }
+
+        public DataTable LayThongTinCobanNguoiDung()
+        {
+            return _nguoiDungDAL.LayDuLieuNguoiDung();
+        }
+
         public bool DoiMatKhau(int maNguoiDung, string matKhauCu, string matKhauMoi)
         {
             return _nguoiDungDAL.DoiMatKhau(maNguoiDung, matKhauCu, matKhauMoi);
